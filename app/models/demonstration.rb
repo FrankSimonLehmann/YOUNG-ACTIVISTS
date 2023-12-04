@@ -1,10 +1,10 @@
 class Demonstration < ApplicationRecord
   belongs_to :user
   has_many :bookmarks, dependent: :destroy
-  has_many :topics, through: :demo_topic
-  has_many :types, through: :demo_type
   has_many :demo_type, dependent: :destroy
   has_many :demo_topic, dependent: :destroy
+  has_many :topics, through: :demo_topic
+  has_many :types, through: :demo_type
 
   validates :title, presence: true, uniqueness: true
   validates :title, length: { maximum: 48 }
