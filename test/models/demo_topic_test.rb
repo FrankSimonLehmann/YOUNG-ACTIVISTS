@@ -1,6 +1,6 @@
 require "test_helper"
 
-class LabelTest < ActiveSupport::TestCase
+class DemoTopicTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
