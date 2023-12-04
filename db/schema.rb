@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_04_142632) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_04_151642) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,24 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_142632) do
     t.datetime "updated_at", null: false
     t.index ["demonstration_id"], name: "index_bookmarks_on_demonstration_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "demo_topics", force: :cascade do |t|
+    t.bigint "demonstration_id", null: false
+    t.bigint "topic_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["demonstration_id"], name: "index_demo_topics_on_demonstration_id"
+    t.index ["topic_id"], name: "index_demo_topics_on_topic_id"
+  end
+
+  create_table "demo_types", force: :cascade do |t|
+    t.bigint "demonstration_id", null: false
+    t.bigint "type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["demonstration_id"], name: "index_demo_types_on_demonstration_id"
+    t.index ["type_id"], name: "index_demo_types_on_type_id"
   end
 
   create_table "demonstrations", force: :cascade do |t|
@@ -41,19 +59,18 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_142632) do
     t.index ["user_id"], name: "index_demonstrations_on_user_id"
   end
 
-  create_table "labels", force: :cascade do |t|
-    t.string "category"
+  create_table "topics", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.bigint "demonstration_id", null: false
-    t.bigint "label_id", null: false
+  create_table "types", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["demonstration_id"], name: "index_tags_on_demonstration_id"
-    t.index ["label_id"], name: "index_tags_on_label_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,7 +90,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_142632) do
 
   add_foreign_key "bookmarks", "demonstrations"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "demo_topics", "demonstrations"
+  add_foreign_key "demo_topics", "topics"
+  add_foreign_key "demo_types", "demonstrations"
+  add_foreign_key "demo_types", "types"
   add_foreign_key "demonstrations", "users"
-  add_foreign_key "tags", "demonstrations"
-  add_foreign_key "tags", "labels"
 end
