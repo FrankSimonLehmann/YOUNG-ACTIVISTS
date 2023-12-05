@@ -8,6 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require "faker"
+
 puts "destroying previous seeds :wastebasket: GET REKT"
 User.destroy_all
 Demonstration.destroy_all
@@ -17,7 +18,10 @@ DemoType.destroy_all
 Bookmark.destroy_all
 DemoTopic.destroy_all
 
-user = User.create!(
+
+puts "create user"
+
+User.create!(
   email: "admin@gmail.com",
   password: "password",
   first_name: Faker::Name.first_name,
@@ -25,43 +29,70 @@ user = User.create!(
   description: Faker::Quote.famous_last_words
 )
 
-demonstration = Demonstration.create!(
-  user_id: user.id,
-  title: "lol",
-  description: "lololololololol",
-  location: "lol",
-  postcode: "20",
-  city: "lol",
-  country: "lol",
-  latitude: 420.420,
-  longitude: 420.420,
-  start_time: Time.now,
-  end_time: Time.now,
-  extra_info: "lol",
-  active: true
-)
+puts "create demonstrations"
+
+20.times do
+  demonstration = Demonstration.new(
+    user_id: User.last.id,
+    title: Faker::Book.title,
+    description: Faker::Quote.famous_last_words,
+    location: Faker::Address.street_name,
+    postcode: Faker::Address.zip_code,
+    city: "Berlin",
+    country: "Germany",
+    latitude: 420.420,
+    longitude: 420.420,
+    start_time: Time.now,
+    end_time: Time.now,
+    extra_info: Faker::Fantasy::Tolkien.poem,
+    active: true
+  )
+  demonstration.save
+end
+
+puts "create bookmarks"
 
 Bookmark.create!(
-  user_id: user.id,
-  demonstration_id: demonstration.id
+  user_id: User.last.id,
+  demonstration_id: Demonstration.last.id
 )
 
-type = Type.create!(
-  name: "frank",
-  description: "frank"
+puts "create types"
+
+Type.create!(
+  name: "rally",
+  description: "This is through a rally"
 )
 
-topic = Topic.create!(
-  name: "frank",
-  description: "frank"
+Type.create!(
+  name: "bike",
+  description: "This is on a bike"
 )
 
-DemoType.create!(
-  demonstration_id: demonstration.id,
-  type_id: type.id
+
+puts "create topics"
+Topic.create!(
+  name: "freedom",
+  description: "this is about freedom"
 )
 
-DemoTopic.create!(
-  demonstration_id: demonstration.id,
-  topic_id: topic.id
+Topic.create!(
+  name: "war",
+  description: "This is about war"
 )
+
+puts "create demo_types"
+20.times do
+  DemoType.create!(
+    demonstration_id: Demonstration.all.sample.id,
+    type_id: Type.all.sample.id
+  )
+end
+
+puts "create demo_topics"
+20.times do
+  DemoTopic.create!(
+    demonstration_id: Demonstration.all.sample.id,
+    topic_id: Topic.all.sample.id
+  )
+end
