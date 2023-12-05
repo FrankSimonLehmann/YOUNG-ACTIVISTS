@@ -40,4 +40,7 @@ class DemonstrationsController < ApplicationController
 #   def destroy
 
 #   end
+  def demonstration_params
+  params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info)
+  end
 end
