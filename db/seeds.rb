@@ -32,6 +32,7 @@ User.create!(
 puts "create demonstrations"
 
 20.times do
+  time = (Time.now + rand(1..10).days)
   demonstration = Demonstration.new(
     user_id: User.last.id,
     title: Faker::Book.title,
@@ -42,8 +43,8 @@ puts "create demonstrations"
     country: "Germany",
     latitude: 420.420,
     longitude: 420.420,
-    start_time: Time.now,
-    end_time: Time.now,
+    start_time: time,
+    end_time: (time + rand(1..10).hours),
     extra_info: Faker::Fantasy::Tolkien.poem,
     active: true
   )
