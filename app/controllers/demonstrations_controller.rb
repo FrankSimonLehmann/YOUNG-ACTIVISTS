@@ -1,0 +1,2 @@
+class DemonstrationsController < ApplicationController
+end
