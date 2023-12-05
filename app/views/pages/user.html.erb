@@ -1,0 +1,18 @@
+<h1>Your profile!</h1>
+<p>Your name is <%=@user.first_name%></p>
+<p>Your last name is <%= @user.last_name%></p>
+<p>Your description is <%= @user.description%></p>
+<p>Your photo is
+ <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key%>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
+            <% end %>
+</p>
+
+<h2> Would you like to edit your profile?</h2>
+<%= link_to "edit profile", edit_user_registration_path%>
+
+<div>
+<%= link_to "back to home", home_path%>
+</div>
