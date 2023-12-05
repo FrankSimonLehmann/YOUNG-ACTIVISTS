@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-around">
+<div>
+<% @topics.each do |topic| %>
+<button class="btn btn-primary btn-lg" data-search-demonstrations-target= "topic" data-action="click->search-demonstrations#topic">
+  <%= topic.name %>
+  </button>
+<% end %>
+</div>
+
+<div>
+  <% @types.each do |type| %>
+  <button class="btn btn-primary btn-lg" data-search-demonstrations-target= "type"  data-action="click->search-demonstrations#type" >
+  <%= type.name %>
+  </button>
+  <% end %>
+</div>
+
+</div>

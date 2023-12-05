@@ -11,6 +11,16 @@ class Demonstration < ApplicationRecord
     }
   )
 
+  pg_search_scope(
+    :global_search,
+    associated_against: {
+      topics: :name
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+  )
+
   belongs_to :user
   has_many :bookmarks, dependent: :destroy
   has_many :demo_type, dependent: :destroy
