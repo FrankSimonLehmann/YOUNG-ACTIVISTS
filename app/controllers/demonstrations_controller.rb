@@ -17,6 +17,7 @@ class DemonstrationsController < ApplicationController
     authorize @demonstration # Add this line
   end
 
+
   def new
     @demonstration = Demonstration.new
     authorize @demonstration
