@@ -5,6 +5,6 @@
 
 <h2>Upcoming demonstrations below..</h2>
 
-<% @demonstrations.each do |demonstraion|%>
-<p><%= demonstraion.start_time > (Time.now - 1.day) %></p>
+<% @demo[0..4].each do |demo|%>
+<p> The name is <%= demo.title%> and start date is <%= demo.start_time%>
 <%end%>
