@@ -29,6 +29,9 @@ gem "jbuilder"
 # User authentication
 gem "pundit"
 
+# Use Redis adapter to run Action Cable in production SEARCH
+gem "pg_search"
+
 
 #adding faker
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
