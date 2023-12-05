@@ -4,5 +4,5 @@ class DemonstrationsController < ApplicationController
     @demonstration = Demonstration.find(params[:id])
     authorize @demonstration # Add this line
   end
-
+  
 end

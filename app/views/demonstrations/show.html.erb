@@ -1,1 +1,20 @@
-<h1>hello world</h1>
+<h1>This is the DEMONSTRATION show page </h1>
+
+<div class="container">
+  <%= @demonstration.title %>
+
+  <%# <%= link_to "Save Demonstration",   @demonstration.bookmarks %> %>
+  <%= @demonstration.description %>
+</div>
+
+<div class="container">
+  <%= @demonstration.start_time %>
+  <%= @demonstration.location %>
+</div>
+
+<%= link_to "Delete" %>
+<%= link_to "Participate", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
+
+<%# CREATE destroy -
+if current user - bookmark controller create - .where has bookedmarked the demonstration - yes -> display
+link delete for bookmark, false - display link 16- create (participate) %>
