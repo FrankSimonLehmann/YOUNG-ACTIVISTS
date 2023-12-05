@@ -9,7 +9,6 @@ class DemonstrationsController < ApplicationController
       format.html # Follow regular flow of Rails
       format.text { render partial: "demonstrations/list_demonstrations", locals: {demonstrations: @demonstrations}, formats: [:html] }
     end
-
   end
 
   def show
