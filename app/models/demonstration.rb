@@ -1,4 +1,16 @@
 class Demonstration < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope(
+    :search_by_title_and_description,
+    against: {
+      title: 'A',
+      description: 'B'
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+  )
+
   belongs_to :user
   has_many :bookmarks, dependent: :destroy
   has_many :demo_type, dependent: :destroy

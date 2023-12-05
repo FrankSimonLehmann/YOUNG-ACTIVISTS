@@ -26,8 +26,11 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# User authentication 
+# User authentication
 gem "pundit"
+
+# Use Redis adapter to run Action Cable in production SEARCH
+gem "pg_search"
 
 
 #adding faker

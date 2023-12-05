@@ -1,27 +1,17 @@
 <h1>Find a demonstration</h1>
 
+<div class="wrapper" data-controller="search-demonstrations">
 
-
-<% @demonstrations.each do |demonstration|  %>
-<div class="card">
-  <p><%= demonstration.title %></p>
-  <p><%= demonstration.description %></p>
-  <p><%= demonstration.start_time %></p>
-  <p><%= demonstration.end_time %></p>
-  <p><%= demonstration.location %></p>
-  <p><%= demonstration.city %></p>
-  <p><%= demonstration.country %></p>
-  <p><%= demonstration.latitude %></p>
-  <p><%= demonstration.longitude %></p>
-  <p><%= demonstration.user_id %></p>
-  <%demonstration.topics.each do |topic|%>
-    <p><%= topic.name %></p>
-  <% end %>
-  <%demonstration.types.each do |type|%>
-    <p><%= type.name %></p>
-  <% end %>
+    <%= form_with url: demonstrations_path, method: :get, html: {class:
+      "mb-4", data: {search_demonstrations_target: "form"}} do |f| %>
+      <%= f.text_field :query,
+                      class: "form-control",
+                      placeholder: "Type a demonstration name",
+                      value: params[:query],
+                      data: {
+                              search_demonstrations_target: "input",
+                              action: "keyup->search-demonstrations#update"
+                            } %>
+      <% end %>
+    <%= render "list_demonstrations", demonstrations: @demonstrations%>
   </div>
-
-
-
-<% end %>
