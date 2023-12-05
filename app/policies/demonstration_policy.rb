@@ -12,7 +12,23 @@ class DemonstrationPolicy < ApplicationPolicy
     # user is the current_user
   end
 
-  # def create?
-  #   true record.user == user
-  # end
-end
+  def new?
+    true
+  end
+
+  def create?
+    true
+  end
+
+#   def edit?
+#     true
+#   end
+
+#   def update?
+#     true
+#   end
+
+#   def destroy?
+#     true
+#   end
+ end
