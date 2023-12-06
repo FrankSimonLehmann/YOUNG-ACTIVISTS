@@ -13,5 +13,6 @@
                               action: "keyup->search-demonstrations#update"
                             } %>
       <% end %>
-    <%= render "list_demonstrations", demonstrations: @demonstrations%>
+    <%= render "demonstrations/filter_demonstration", types: @types, topics: @topics%>
+    <%= render "demonstrations/list_demonstrations", demonstrations: @demonstrations%>
   </div>

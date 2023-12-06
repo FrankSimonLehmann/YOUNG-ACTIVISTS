@@ -1,10 +1,34 @@
 class DemonstrationsController < ApplicationController
   def index
     @demonstrations = policy_scope(Demonstration)
+    @topics = Topic.all
+    @types = Type.all
 
-    @demonstrations = Demonstration.all
-    if params[:query].present?
+
+    if params[:query].present? && params[:type].present? && params[:topic].present?
+      types = params[:type].split(" ")
+      topics = params[:topic].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description([types, topics, params[:query]])
+    elsif params[:query].present? && params[:topic].present?
+      topics = params[:topic].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description([params[:query], topics])
+    elsif params[:query].present? && params[:type].present?
+      types = params[:type].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description([params[:query], types])
+    elsif params[:type].present? && params[:topic].present?
+      types = params[:type].split(" ")
+      topics = params[:topic].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description([types, topics])
+    elsif params[:query].present?
       @demonstrations = Demonstration.search_by_title_and_description(params[:query])
+    elsif params[:topic].present?
+      topics = params[:topic].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description(topics)
+      puts @demonstrations
+    elsif params[:type].present?
+      types = params[:type].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description(types)
+      puts @demonstrations
     end
     respond_to do |format|
       format.html # Follow regular flow of Rails
