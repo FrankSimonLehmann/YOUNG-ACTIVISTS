@@ -18,10 +18,10 @@
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
 
 <%  unless Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id)  %>
-<%= link_to "Participate", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
+<%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
 <% else  %>
 <% bookmark = Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id) %>
-<%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete}%>
+<%= link_to "Leave", bookmark_path(bookmark), data: { turbo_method: :delete}%>
 <% end %>
 
 <%# CREATE destroy -
