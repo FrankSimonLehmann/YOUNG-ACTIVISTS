@@ -33,22 +33,27 @@ class DemonstrationsController < ApplicationController
     end
   end
 
-#   def edit
-#     @demonstration = Demonstration.find(params[:id])
-#     authorize @demonstratio
-#   end
+  def edit
+    @demonstration = Demonstration.find(params[:id])
+    authorize @demonstration
+  end
 
-#   def update
-#     @demonstration = Demonstration.find(params[:id])
-#     @demonstration.update(demonstration_params)
-#     redirect_to saved_path(@demonstration)
-#     authorize @demonstratio
-#   end
+  def update
+    @demonstration = Demonstration.find(params[:id])
+    @demonstration.update(demonstration_params)
+    authorize @demonstration
+    if @demonstration.save
+      redirect_to demonstration_path(@demonstration)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
 #   def destroy
 
 #   end
+
   def demonstration_params
-  params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info)
+    params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info)
   end
 end

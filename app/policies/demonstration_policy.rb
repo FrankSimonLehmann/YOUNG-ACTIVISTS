@@ -22,13 +22,13 @@ class DemonstrationPolicy < ApplicationPolicy
     true
   end
 
-#   def edit?
-#     true
-#   end
+  def edit?
+    true
+  end
 
-#   def update?
-#     true
-#   end
+  def update?
+    true
+  end
 
 #   def destroy?
 #     true
