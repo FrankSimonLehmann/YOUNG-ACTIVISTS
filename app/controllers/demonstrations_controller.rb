@@ -42,7 +42,9 @@ class DemonstrationsController < ApplicationController
 
   def edit
     @demonstration = Demonstration.find(params[:id])
+    if @demonstration.user.id == current_user.id
     authorize @demonstration
+    end
   end
 
   def update
@@ -58,9 +60,11 @@ class DemonstrationsController < ApplicationController
 
   def destroy
     @demonstration = Demonstration.find(params[:id])
-    @demonstration.destroy
-    authorize @demonstration
-    redirect_to demonstrations_path
+    if @demonstration.user.id == current_user.id
+      @demonstration.destroy
+      authorize @demonstration
+      redirect_to demonstrations_path
+    end
   end
 
   private
