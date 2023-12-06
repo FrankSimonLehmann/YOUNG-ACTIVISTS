@@ -12,7 +12,8 @@
   <%= @demonstration.location %>
 </div>
 
-<%= link_to "Delete" %>
+<%= link_to "Delete",demonstration_path(@demonstration),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
 <%= link_to "Participate", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
 
 <%# CREATE destroy -

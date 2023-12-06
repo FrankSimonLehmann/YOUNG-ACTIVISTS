@@ -54,7 +54,7 @@ class DemonstrationsController < ApplicationController
     @demonstration = Demonstration.find(params[:id])
     @demonstration.destroy
     authorize @demonstration
-    redirect_to demonstrations_path, status: :see_others
+    redirect_to demonstrations_path
   end
 
   def demonstration_params
