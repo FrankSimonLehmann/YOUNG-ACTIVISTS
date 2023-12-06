@@ -57,7 +57,9 @@ class DemonstrationsController < ApplicationController
     redirect_to demonstrations_path
   end
 
+  private
+
   def demonstration_params
-    params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info)
+    params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info, :topic, :type)
   end
 end

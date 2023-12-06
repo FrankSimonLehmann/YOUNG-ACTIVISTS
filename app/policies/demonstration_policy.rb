@@ -20,6 +20,7 @@ class DemonstrationPolicy < ApplicationPolicy
   # def create?
   #   true record.user == user
   # end
+
   def new?
     true
   end
