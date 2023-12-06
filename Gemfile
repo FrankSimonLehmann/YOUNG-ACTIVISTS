@@ -29,6 +29,9 @@ gem "jbuilder"
 # User authentication
 gem "pundit"
 
+# Geocoding
+gem "geocoder"
+
 # Use Redis adapter to run Action Cable in production SEARCH
 gem "pg_search"
 
