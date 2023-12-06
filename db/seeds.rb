@@ -30,15 +30,57 @@ User.create!(
 )
 
 puts "create demonstrations"
-
-20.times do
+locations = [
+  {
+    postcode: '10117',
+    location: 'Unter den Linden 77-80, 10117 Berlin, Germany'
+  },
+  {
+    postcode: '10963',
+    location: 'Stresemannstraße 110, 10963 Berlin, Germany'
+  },
+  {
+    postcode: '10435',
+    location: 'Schönhauser Allee 80, 10435 Berlin, Germany'
+  },
+  {
+    postcode: '10785',
+    location: 'Potsdamer Platz 1, 10785 Berlin, Germany'
+  },
+  {
+    postcode: '10179',
+    location: 'Mühlenstraße 78-80, 10179 Berlin, Germany'
+  },
+  {
+    postcode: '10117',
+    location: 'Leipziger Platz 12, 10117 Berlin, Germany'
+  },
+  {
+    postcode: '10115',
+    location: 'Invalidenstraße 50-51, 10115 Berlin, Germany'
+  },
+  {
+    postcode: '10969',
+    location: 'Köpenicker Str. 1, 10969 Berlin, Germany'
+  },
+  {
+    postcode: '10117',
+    location: 'Bebelplatz, 10117 Berlin, Germany'
+  },
+  {
+    postcode: '10437',
+    location: 'Danziger Str. 5, 10437 Berlin, Germany'
+  }
+]
+20.times do |i|
   time = (Time.now + rand(1..10).days)
   demonstration = Demonstration.new(
     user_id: User.last.id,
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    location: Faker::Address.street_name,
-    postcode: Faker::Address.zip_code,
+    location: locations[i-1][:location],
+    # location: Faker::Address.street_name,
+    postcode: locations[i-1][:postcode], # Faker::Address.zip_code,
     city: "Berlin",
     country: "Germany",
     latitude: 420.420,
