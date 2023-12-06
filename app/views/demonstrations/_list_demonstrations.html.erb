@@ -11,6 +11,7 @@
           <p><%= demonstration.latitude %></p>
           <p><%= demonstration.longitude %></p>
           <p><%= demonstration.user_id %></p>
+          <%= link_to "see demo", demonstration_path(demonstration), class: "btn btn-secondary" %>
           <%demonstration.topics.each do |topic|%>
             <p><%= topic.name %></p>
           <% end %>

@@ -7,6 +7,10 @@ class Demonstration < ApplicationRecord
       title: 'A',
       description: 'B'
     },
+    associated_against: {
+      topics: [:name],
+      types: [:name]
+    },
     using: {
       tsearch: { prefix: true }
     }
@@ -16,10 +20,10 @@ class Demonstration < ApplicationRecord
 
   belongs_to :user
   has_many :bookmarks, dependent: :destroy
-  has_many :demo_type, dependent: :destroy
-  has_many :demo_topic, dependent: :destroy
-  has_many :topics, through: :demo_topic
-  has_many :types, through: :demo_type
+  has_many :demo_types, dependent: :destroy
+  has_many :demo_topics, dependent: :destroy
+  has_many :topics, through: :demo_topics
+  has_many :types, through: :demo_types
 
   has_one_attached :photo
 
