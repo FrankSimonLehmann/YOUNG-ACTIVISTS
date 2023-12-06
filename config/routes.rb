@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: [:destroy]
   # resources :demonstrations, only: [:show]
-  resources :demonstrations, only: [:create, :new, :edit, :update]
+  resources :demonstrations, only: [:create, :new, :edit, :update, :destroy]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
