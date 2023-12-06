@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     @demo = @demo.sort_by { |demo| demo.start_time}
   end
 
-  def user
+  def profile
     @user = User.find(current_user.id)
   end
 end
