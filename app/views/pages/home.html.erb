@@ -1,5 +1,9 @@
 <h2>Your Bookmarked demonstrations below..</h1>
-
+  <%@bookmark[0..4].each do |bookmark|%>
+    <%= link_to demonstration_path(bookmark.demonstration) do%>
+      <p class = "card"> The name is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time%>
+    <%end%>
+  <%end%>
 
 
 
