@@ -10,6 +10,12 @@ class DemonstrationsController < ApplicationController
       format.html # Follow regular flow of Rails
       format.text { render partial: "demonstrations/list_demonstrations", locals: {demonstrations: @demonstrations}, formats: [:html] }
     end
+    @markers = @demonstrations.geocoded.map do |demonstration|
+      {
+        lat: demonstration.latitude,
+        lng: demonstration.longitude
+      }
+    end
   end
 
   def show
@@ -58,6 +64,7 @@ class DemonstrationsController < ApplicationController
   end
 
   private
+
 
   def demonstration_params
     params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info, :topic, :type)
