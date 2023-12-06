@@ -50,9 +50,12 @@ class DemonstrationsController < ApplicationController
     end
   end
 
-#   def destroy
-
-#   end
+  def destroy
+    @demonstration = Demonstration.find(params[:id])
+    @demonstration.destroy
+    authorize @demonstration
+    redirect_to demonstrations_path, status: :see_others
+  end
 
   def demonstration_params
     params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info)

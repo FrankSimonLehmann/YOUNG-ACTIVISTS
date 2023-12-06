@@ -36,7 +36,4 @@ class DemonstrationPolicy < ApplicationPolicy
     true
   end
 
-#   def destroy?
-#     true
-#   end
 end
