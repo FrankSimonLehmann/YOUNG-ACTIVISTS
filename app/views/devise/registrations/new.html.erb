@@ -24,6 +24,8 @@
     <%= f.input :description,
                 required: false,
                 input_html: { autocomplete: "description" } %>
+    <%= f.input :type, :collection => %w[rally bike speech march sitin online hungerstrike boycott strikes frank artisticprotest] %>
+    <%= f.input :topic, :collection => %w[war freedom racism education enviorment climate frank lgbtq legislation] %>
     <%= f.input :photo, as: :file %>
   </div>
 

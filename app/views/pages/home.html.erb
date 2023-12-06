@@ -3,10 +3,18 @@
 
 
 
-<h2>Upcoming demonstrations below..</h2>
+<%# <h2>Upcoming demonstrations below.. that you are interested in</h2> %>
+  <%# <% @demo = Demonstration.where( demonstration.current_user.topic) %>
+  <%# <% @demo[0..4].each do |demo|%>
+    <%# <%= link_to demonstration_path(demo) do%>
+      <%# <p class = "card"> The name is <%= demo.title%>
+    <%# <%end%>
+  <%# <%end%>
 
-<% @demo[0..4].each do |demo|%>
-<%= link_to demonstration_path(demo) do%>
-<p class = "card"> The name is <%= demo.title%> and start date is <%= demo.start_time%>
-<%end%>
-<%end%>
+
+<h2>Upcoming demonstrations below</h2>
+  <% @demo[0..4].each do |demo|%>
+    <%= link_to demonstration_path(demo) do%>
+      <p class = "card"> The name is <%= demo.title%> and start date is <%= demo.start_time%>
+    <%end%>
+  <%end%>
