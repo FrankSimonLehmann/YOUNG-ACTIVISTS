@@ -6,7 +6,7 @@
   <%# <%= link_to "Save Demonstration",   @demonstration.bookmarks %>
   <%= @demonstration.description %>
   <%# <%= @demonstration.topic %>
-  <%# <%= @demonstration.type %> 
+  <%# <%= @demonstration.type %>
 </div>
 
 <div class="container">
@@ -16,7 +16,13 @@
 
 <%= link_to "Delete",demonstration_path(@demonstration),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-<%= link_to "Participate", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
+
+<%  unless Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id)  %>
+<%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
+<% else  %>
+<% bookmark = Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id) %>
+<%= link_to "Leave", bookmark_path(bookmark), data: { turbo_method: :delete}%>
+<% end %>
 
 <%# CREATE destroy -
 if current user - bookmark controller create - .where has bookedmarked the demonstration - yes -> display
