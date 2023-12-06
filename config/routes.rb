@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+
   resources :demonstrations, only: [:index, :show] do
     resources :bookmarks, only: [:new, :create]
   end
   resources :bookmarks, only: [:destroy]
   # resources :demonstrations, only: [:show]
-  resources :demonstrations, only: [:create, :new]
+  resources :demonstrations, only: [:create, :new, :edit, :update]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

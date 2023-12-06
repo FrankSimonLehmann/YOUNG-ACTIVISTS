@@ -1,0 +1,13 @@
+
+<div class="container">
+  <h2>Edit Demonstration</h2>
+    <%= simple_form_for [@demonstration] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :location %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+    <%= f.input :extra_info%>
+    <%= f.button :submit, "Save", class:"btn btn-primary " %>
+  <% end %>
+</div>
