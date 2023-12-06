@@ -21,6 +21,8 @@ class Demonstration < ApplicationRecord
   has_many :topics, through: :demo_topic
   has_many :types, through: :demo_type
 
+  has_one_attached :photo
+
   validates :title, presence: true, uniqueness: true
   validates :title, length: { maximum: 48 }
   validates :description, presence: true, length: { minimum: 5 }
