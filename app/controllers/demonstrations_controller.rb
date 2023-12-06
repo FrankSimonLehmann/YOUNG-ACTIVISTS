@@ -34,17 +34,18 @@ class DemonstrationsController < ApplicationController
       format.html # Follow regular flow of Rails
       format.text { render partial: "demonstrations/list_demonstrations", locals: {demonstrations: @demonstrations}, formats: [:html] }
     end
+  end
+
+  def show
+    @demonstrations = Demonstration.all
+    @demonstration = Demonstration.find(params[:id])
+    authorize @demonstration # Add this line
     @markers = @demonstrations.geocoded.map do |demonstration|
       {
         lat: demonstration.latitude,
         lng: demonstration.longitude
       }
     end
-  end
-
-  def show
-    @demonstration = Demonstration.find(params[:id])
-    authorize @demonstration # Add this line
   end
 
 

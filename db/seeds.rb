@@ -105,7 +105,7 @@ all_user = User.all
 #   alluser_array << user
 # end
 
-20.times do |i|
+10.times do |i|
   time = (Time.now + rand(1..10).days)
   demonstration = Demonstration.new(
     user_id: all_user.sample.id,
