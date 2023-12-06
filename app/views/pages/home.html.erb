@@ -1,4 +1,4 @@
-<h1>Your saved demonstrations below..</h1>
+<h2>Your Bookmarked demonstrations below..</h1>
 
 
 
@@ -6,5 +6,7 @@
 <h2>Upcoming demonstrations below..</h2>
 
 <% @demo[0..4].each do |demo|%>
+<%= link_to demonstration_path(demo) do%>
 <p class = "card"> The name is <%= demo.title%> and start date is <%= demo.start_time%>
+<%end%>
 <%end%>
