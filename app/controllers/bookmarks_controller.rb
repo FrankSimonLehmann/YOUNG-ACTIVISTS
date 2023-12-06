@@ -8,12 +8,9 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.where(user_id: current_user.id, demonstration_id: params[:demonstration_id]).first
+    @bookmark = Bookmark.new(demonstration_id: params[:demonstration_id])
+    @bookmark.user = current_user
     authorize @bookmark
-    unless @bookmark
-      @bookmark = Bookmark.new(demonstration_id: params[:demonstration_id])
-      @bookmark.user = current_user
-    end
     if @bookmark.save
       redirect_to demonstration_path(params[:demonstration_id])
     else
@@ -22,12 +19,10 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    
-    @bookmark = Bookmark.where(user_id: current_user.id, demonstration_id: params[:demonstration_id]).first
+    @bookmark = Bookmark.find(params[:id])
+    @demonstration = @bookmark.demonstration
     authorize @bookmark
-    unless @bookmark
-      @bookmark.destroy
-      redirect_to bookmark_list
-    end
+    @bookmark.destroy
+    redirect_to demonstration_path(@demonstration)
   end
 end
