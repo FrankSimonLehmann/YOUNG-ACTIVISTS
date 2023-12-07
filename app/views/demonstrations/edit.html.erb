@@ -9,6 +9,8 @@
     <%= f.input :location %>
     <%= f.input :start_time %>
     <%= f.input :end_time %>
+    <%= f.association :types %>
+    <%= f.association :topics %>
     <%= f.input :extra_info%>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit, "Save", class:"btn btn-primary " %>
