@@ -24,6 +24,7 @@ class Demonstration < ApplicationRecord
   has_many :demo_topics, dependent: :destroy
   has_many :topics, through: :demo_topics
   has_many :types, through: :demo_types
+  has_many :users, through: :bookmarks
 
   has_one_attached :photo
 
