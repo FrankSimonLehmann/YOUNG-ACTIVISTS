@@ -49,11 +49,6 @@ class DemonstrationsController < ApplicationController
     end
   end
 
-  def show
-    @demonstration = Demonstration.find(params[:id])
-    authorize @demonstration # Add this line
-  end
-
   def new
     @demonstration = Demonstration.new
     authorize @demonstration
@@ -73,7 +68,7 @@ class DemonstrationsController < ApplicationController
   def edit
     @demonstration = Demonstration.find(params[:id])
     if @demonstration.user.id == current_user.id
-    authorize @demonstration
+      authorize @demonstration
     end
   end
 
