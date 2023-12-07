@@ -33,7 +33,7 @@
 <%end%>
 
 <div class="user-avatars">
-  <% @demonstration.users.limit(10).each do |user| %>
+  <% @demonstration.users.limit(5).each do |user| %>
     <%= cl_image_tag user.photo.key %>
   <% end %>
 </div>
