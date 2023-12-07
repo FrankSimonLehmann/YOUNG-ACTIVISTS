@@ -1,0 +1,14 @@
+<div>
+  <% @topics.each do |topic| %>
+    <button class= "btn" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic">
+      <%=topic.name%>
+    </button>
+  <% end %>
+
+
+  <% @types.each do |type| %>
+    <button class= "btn" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type">
+      <%=type.name%>
+    </button>
+  <% end %>
+</div>

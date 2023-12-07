@@ -14,9 +14,22 @@
   <%= @demonstration.location %>
 </div>
 
+<div id="map" style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+</div>
+
 <%= link_to "Delete",demonstration_path(@demonstration),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-<%= link_to "Participate", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
+
+<%  unless Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id)  %>
+<%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
+<% else  %>
+<% bookmark = Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id) %>
+<%= link_to "Leave", bookmark_path(bookmark), data: { turbo_method: :delete}%>
+<% end %>
 
 <%# CREATE destroy -
 if current user - bookmark controller create - .where has bookedmarked the demonstration - yes -> display

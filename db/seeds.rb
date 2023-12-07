@@ -105,15 +105,15 @@ all_user = User.all
 #   alluser_array << user
 # end
 
-20.times do |i|
+10.times do |i|
   time = (Time.now + rand(1..10).days)
   demonstration = Demonstration.new(
     user_id: all_user.sample.id,
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    location: locations[i-1][:location],
+    location: locations[i][:location],
     # location: Faker::Address.street_name,
-    postcode: locations[i-1][:postcode], # Faker::Address.zip_code,
+    postcode: locations[i][:postcode], # Faker::Address.zip_code,
     city: "Berlin",
     country: "Germany",
     latitude: 420.420,

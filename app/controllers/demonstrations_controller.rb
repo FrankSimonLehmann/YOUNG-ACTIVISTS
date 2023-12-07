@@ -1,15 +1,46 @@
 class DemonstrationsController < ApplicationController
   def index
     @demonstrations = policy_scope(Demonstration)
-    @demonstrations = Demonstration.all
-    if params[:query].present?
+    @topics = Topic.all
+    @types = Type.all
+
+
+    if params[:query].present? && params[:type].present? && params[:topic].present?
+      types = params[:type].split(" ")
+      topics = params[:topic].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description([types, topics, params[:query]])
+    elsif params[:query].present? && params[:topic].present?
+      topics = params[:topic].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description([params[:query], topics])
+    elsif params[:query].present? && params[:type].present?
+      types = params[:type].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description([params[:query], types])
+    elsif params[:type].present? && params[:topic].present?
+      types = params[:type].split(" ")
+      topics = params[:topic].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description([types, topics])
+    elsif params[:query].present?
       @demonstrations = Demonstration.search_by_title_and_description(params[:query])
+    elsif params[:topic].present?
+      topics = params[:topic].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description(topics)
+      puts @demonstrations
+    elsif params[:type].present?
+      types = params[:type].split(" ")
+      @demonstrations = Demonstration.search_by_title_and_description(types)
+      puts @demonstrations
     end
-    
+
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: "demonstrations/list_demonstrations", locals: {demonstrations: @demonstrations}, formats: [:html] }
+      format.text { render partial: "demonstrations/list_demonstrations", locals: { demonstrations: @demonstrations }, formats: [:html] }
     end
+  end
+
+  def show
+    @demonstrations = Demonstration.all
+    @demonstration = Demonstration.find(params[:id])
+    authorize @demonstration # Add this line
     @markers = @demonstrations.geocoded.map do |demonstration|
       {
         lat: demonstration.latitude,
@@ -41,7 +72,9 @@ class DemonstrationsController < ApplicationController
 
   def edit
     @demonstration = Demonstration.find(params[:id])
+    if @demonstration.user.id == current_user.id
     authorize @demonstration
+    end
   end
 
   def update
@@ -57,9 +90,11 @@ class DemonstrationsController < ApplicationController
 
   def destroy
     @demonstration = Demonstration.find(params[:id])
-    @demonstration.destroy
-    authorize @demonstration
-    redirect_to demonstrations_path
+    if @demonstration.user.id == current_user.id
+      @demonstration.destroy
+      authorize @demonstration
+      redirect_to demonstrations_path
+    end
   end
 
   private
