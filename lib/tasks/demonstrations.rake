@@ -10,7 +10,7 @@ namespace :demonstrations do
 
 
   Demonstration.create!(
-    user: User.last,
+    user: User.first,
     title: "test",
     description: berlin_demos["index"][0]["thema"],
     location: berlin_demos["index"][0]["strasse_nr"],
