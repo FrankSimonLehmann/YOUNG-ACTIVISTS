@@ -150,7 +150,45 @@ Type.create!(
   name: "bike",
   description: "This is on a bike"
 )
+Type.create!(
+  name: "speech",
+  description: "This is through a speech"
+)
 
+Type.create!(
+  name: "march",
+  description: "This is through a march"
+)
+
+Type.create!(
+  name: "sitin",
+  description: "This is through a sitin"
+)
+
+Type.create!(
+  name: "online",
+  description: "This is through online"
+)
+
+Type.create!(
+  name: "hungerstrike",
+  description: "This is through a hungerstrike"
+)
+
+Type.create!(
+  name: "boycott",
+  description: "This is through a boycott"
+)
+
+Type.create!(
+  name: "strikes",
+  description: "This is through strikes"
+)
+
+Type.create!(
+  name: "artisticprotest",
+  description: "This is through a artisticprotest"
+)
 
 puts "create topics"
 Topic.create!(
@@ -161,6 +199,36 @@ Topic.create!(
 Topic.create!(
   name: "war",
   description: "This is about war"
+)
+
+Topic.create!(
+  name: "racism",
+  description: "This is about racism"
+)
+
+Topic.create!(
+  name: "education",
+  description: "This is about education"
+)
+
+Topic.create!(
+  name: "enviorment",
+  description: "This is about enviorment"
+)
+
+Topic.create!(
+  name: "climate",
+  description: "This is about climate"
+)
+
+Topic.create!(
+  name: "lgbtq",
+  description: "This is about lgbtq"
+)
+
+Topic.create!(
+  name: "legislation",
+  description: "This is about legislation"
 )
 
 puts "create demo_types"
