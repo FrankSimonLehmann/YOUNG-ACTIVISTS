@@ -6,6 +6,8 @@
     <%= f.input :type, :collection => %w[rally bike speech march sitin online hungerstrike boycott strikes frank artisticprotest] %>
     <%= f.input :topic, :collection => %w[war freedom racism education enviorment climate frank lgbtq legislation] %>
     <%= f.input :description %>
+    <%= f.input :types, :collection => Type.all, :multiple => true %>
+    <%= f.input :topics, :collection => Topic.all, :multiple => true %>
     <%= f.input :location %>
     <%= f.input :start_time %>
     <%= f.input :end_time %>

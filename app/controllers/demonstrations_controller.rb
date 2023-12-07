@@ -58,7 +58,13 @@ class DemonstrationsController < ApplicationController
     @demonstration = Demonstration.new(demonstration_params)
     @demonstration.user = current_user
     authorize @demonstration
+
     if @demonstration.save
+      type_ids = params[:demonstration][:types].reject { |id| id == "" }
+      type_ids.each { |id| DemoType.create(demonstration: @demonstration, type_id: id) }
+      topic_ids = params[:demonstration][:topics].reject { |id| id == "" }
+      topic_ids.each { |id| DemoTopic.create(demonstration: @demonstration, topic_id: id) }
+
       redirect_to demonstration_path(@demonstration)
     else
       render :new, status: :unprocessable_entity
@@ -77,6 +83,22 @@ class DemonstrationsController < ApplicationController
     @demonstration.update(demonstration_params)
     authorize @demonstration
     if @demonstration.save
+      type_ids = params[:demonstration][:types].reject { |id| id == "" }
+      existing_demo_types = @demonstration.demo_types
+      existing_demo_types.each { |demo_type| demo_type.destroy unless type_ids.include?(demo_type.id.to_s) }
+      type_ids -= existing_demo_types.map { |demo_type| demo_type.id.to_s }
+      type_ids.each do |id|
+        DemoType.create(demonstration: @demonstration, type_id: id)
+      end
+
+      topic_ids = params[:demonstration][:topics].reject { |id| id == "" }
+      existing_demo_topics = @demonstration.demo_topics
+      existing_demo_topics.each { |demo_topic| demo_topic.destroy unless topic_ids.include?(demo_topic.id.to_s) }
+      topic_ids -= existing_demo_topics.map { |demo_topic| demo_topic.id.to_s }
+      topic_ids.each do |id|
+        DemoTopic.create(demonstration: @demonstration, topic_id: id)
+      end
+
       redirect_to demonstration_path(@demonstration)
     else
       render :new, status: :unprocessable_entity
@@ -95,6 +117,6 @@ class DemonstrationsController < ApplicationController
   private
 
   def demonstration_params
-    params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info, :topic, :type)
+    params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info, :topics, :types)
   end
 end
