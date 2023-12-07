@@ -1,4 +1,5 @@
 class DemonstrationsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
   def index
     @demonstrations = policy_scope(Demonstration)
     @topics = Topic.all
