@@ -2,9 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["form", "input", "list", "topic", "type"]
+  static values = {typeColor: String, topicColor: String}
 
   connect() {
-    console.log(this.typeTargets)
+    console.log(`${this.typeTargets}`)
     console.log(this.topicTargets)
     this.paramsTopic = []
     this.paramsType = []
@@ -13,7 +14,6 @@ export default class extends Controller {
   update() {
 
     const url = new URL(window.location.href)
-    console.log(url)
     url.searchParams.set("query", this.inputTarget.value)
     history.pushState(null, null, url)
     // const url = `${this.formTarget.action}?query=${this.inputTarget.value}`
@@ -46,9 +46,7 @@ export default class extends Controller {
     .then(response => response.text())
     .then((data) => {
       // change the look of the button
-      console.log(event.srcElement
-        .classList
-        .toggle("btn-primary"))
+      event.srcElement.classList.toggle("label_active_pink")
 
       // change the list to only display the selected type
       this.listTarget.outerHTML = data
@@ -56,6 +54,8 @@ export default class extends Controller {
 }
 
   topic(event) {
+    console.log(this.typeColorValue)
+    console.log(this.topicColorValue)
     // check if the topic is already in the array
     if (this.paramsTopic.includes(event.currentTarget.innerText)) {
        // remove from array if clicked again
@@ -78,9 +78,7 @@ export default class extends Controller {
     .then((data) => {
       this.listTarget.outerHTML = data
         // change the look of the button
-        console.log(event.srcElement
-          .classList
-          .toggle("btn-primary"))
+        event.srcElement.classList.toggle("btn-primary")
     })
   }
 }
