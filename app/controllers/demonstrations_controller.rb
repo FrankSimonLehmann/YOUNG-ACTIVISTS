@@ -1,11 +1,11 @@
 class DemonstrationsController < ApplicationController
   def index
     @demonstrations = policy_scope(Demonstration)
-
     @demonstrations = Demonstration.all
     if params[:query].present?
       @demonstrations = Demonstration.search_by_title_and_description(params[:query])
     end
+    
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: "demonstrations/list_demonstrations", locals: {demonstrations: @demonstrations}, formats: [:html] }
@@ -22,7 +22,6 @@ class DemonstrationsController < ApplicationController
     @demonstration = Demonstration.find(params[:id])
     authorize @demonstration # Add this line
   end
-
 
   def new
     @demonstration = Demonstration.new
@@ -64,7 +63,6 @@ class DemonstrationsController < ApplicationController
   end
 
   private
-
 
   def demonstration_params
     params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info, :topic, :type)
