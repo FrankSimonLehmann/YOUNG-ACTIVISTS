@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @demo = []
+    @weightdemo = []
     @demonstrations = Demonstration.all
     @demonstrations.each do |demonstration|
       if demonstration.start_time > (Time.now)
@@ -10,7 +11,19 @@ class PagesController < ApplicationController
       end
     end
     @demo = @demo.sort_by { |demo| demo.start_time}
+    if current_user != nil
     @bookmark = Bookmark.where(user_id: current_user.id)
+      @demo.each do |demo|
+        if demo.topics.first&.name == current_user.topic
+          @weightdemo << demo
+        end
+      end
+    end
+    @weightdemo = @weightdemo.reverse
+    @weightdemo.each do |weight|
+      @demo.insert(0, weight)
+    end
+    @demo = @demo.uniq
   end
 
   def profile
