@@ -97,6 +97,6 @@ class DemonstrationsController < ApplicationController
 
 
   def demonstration_params
-    params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info, :topic, :type)
+    params.require(:demonstration).permit(:title, :description, :location, :start_time, :end_time, :extra_info, :topic_ids, :type_ids)
   end
 end
