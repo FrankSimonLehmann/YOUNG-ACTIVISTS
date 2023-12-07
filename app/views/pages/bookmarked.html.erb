@@ -1,0 +1,13 @@
+<h2>All your bookmarks below</h2>
+<%@bookmark.each do |bookmark|%>
+    <%= link_to demonstration_path(bookmark.demonstration) do%>
+      <%if bookmark.demonstration.start_time > Time.now%>
+        <p class = "card"> The name of the demonstration you joined is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time%>
+      <%else%>
+        <p class = "card"> The name of your demonstration that you joined was <%= bookmark.demonstration.title%> and it ended on <%= bookmark.demonstration.end_time%>
+      <%end%>
+    <%end%>
+  <%end%>
+
+
+<%= link_to "Back", :back , class: "card"%>

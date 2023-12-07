@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :demonstrations, only: [:create, :new, :edit, :update, :destroy]
   resources :demonstrations, only: [:index, :show] do
     resources :bookmarks, only: [:new, :create]
+    get "joined", to: "bookmarks#joined"
   end
   resources :bookmarks, only: [:destroy]
   # resources :demonstrations, only: [:show]
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   get "home", to: "pages#home"
   get "profile", to: "pages#profile"
+  get "bookmarked", to: "pages#bookmarked"
+  get "mydemonstrations", to: "pages#mydemonstrations"
 
   # Defines the root path route ("/")
   # root "posts#index"
