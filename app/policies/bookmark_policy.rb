@@ -9,4 +9,8 @@ class BookmarkPolicy < ApplicationPolicy
   def destroy?
     true
   end
+
+  def joined?
+    true
+  end
 end

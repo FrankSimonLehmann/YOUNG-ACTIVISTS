@@ -24,10 +24,21 @@ class PagesController < ApplicationController
       @demo.insert(0, weight)
     end
     @demo = @demo.uniq
+    if current_user != nil
+      @mydemonstrations = Demonstration.where(user_id: current_user.id)
+    end
   end
 
   def profile
     @user = User.find(current_user.id)
     @bookmark = Bookmark.where(user_id: current_user.id)
+  end
+
+  def bookmarked
+    @bookmark = Bookmark.where(user_id: current_user.id)
+  end
+
+  def mydemonstrations
+    @demonstration = Demonstration.where(user_id: current_user.id)
   end
 end

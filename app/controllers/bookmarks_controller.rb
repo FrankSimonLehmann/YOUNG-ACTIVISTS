@@ -25,4 +25,15 @@ class BookmarksController < ApplicationController
     @bookmark.destroy
     redirect_to demonstration_path(@demonstration)
   end
+
+  def joined
+    @joinedbookmark = []
+    @bookmark = Bookmark.all
+    @bookmark.each do |bookmark|
+      if bookmark.demonstration.id == params[:demonstration_id].to_i
+        @joinedbookmark << bookmark
+      end
+    end
+    authorize @bookmark
+  end
 end

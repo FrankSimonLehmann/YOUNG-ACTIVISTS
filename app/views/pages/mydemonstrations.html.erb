@@ -1,0 +1,10 @@
+
+<%@demonstration.each do |demo|%>
+  <%= link_to demonstration_path(demo) do%>
+    <%if demo.start_time > Time.now%>
+      <p class = "card"> The name is <%= demo.title%> and start date is <%= demo.start_time%> </p>
+    <%else%>
+      <p class = "card"> The name of your demonstration was <%= demo.title%> and it ended on <%= demo.end_time%> </p>
+    <%end%>
+  <%end%>
+<%end%>

@@ -20,6 +20,13 @@
 </div>
 
 <%= link_to "Delete",demonstration_path(@demonstration), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+<%if current_user != nil%>
+  <%if current_user.id == @demonstration.user.id%>
+    <%= link_to "Delete",demonstration_path(@demonstration),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+    <%= link_to "Edit", edit_demonstration_path(@demonstration)%>
+  <%end%>
+<%end%>
 
 <% if current_user != nil%>
   <%  unless Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id)  %>
@@ -31,6 +38,7 @@
     <% else %>
       <%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
 <%end%>
+  <%= link_to "joined people", demonstration_joined_path(@demonstration)%>
 
 <div class="user-avatars">
   <% @demonstration.users.limit(5).each do |user| %>
