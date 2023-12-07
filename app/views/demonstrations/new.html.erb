@@ -2,6 +2,8 @@
   <h2>Add a demonstration</h2>
     <%= simple_form_for [@demonstration] do |f| %>
     <%= f.input :title %>
+    <%= f.input :type, :collection => %w[rally bike speech march sitin online hungerstrike boycott strikes frank artisticprotest] %>
+    <%= f.input :topic, :collection => %w[war freedom racism education enviorment climate frank lgbtq legislation] %>
     <%= f.input :description %>
     <%= f.input :location %>
     <%= f.input :start_time %>

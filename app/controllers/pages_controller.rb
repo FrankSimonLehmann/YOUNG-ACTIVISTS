@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       end
     end
     @demo = @demo.sort_by { |demo| demo.start_time}
-    @bookmark = Bookmark.where(user_id: current_user.id)
+    # @bookmark = Bookmark.where(user_id: current_user.id)
   end
 
   def profile
