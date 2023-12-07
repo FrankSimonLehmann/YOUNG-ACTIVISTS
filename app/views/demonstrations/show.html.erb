@@ -19,7 +19,6 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
-<%= link_to "Delete",demonstration_path(@demonstration), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
 <%if current_user != nil%>
   <%if current_user.id == @demonstration.user.id%>
     <%= link_to "Delete",demonstration_path(@demonstration),
