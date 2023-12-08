@@ -3,7 +3,17 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+@import "big-card";
+@import "container-title";
+@import "root";
 @import "labels";
+@import "map";
 @import "buttons";
 @import "card_joined_demo";
 @import "card_new_demo";
+
+.container-description {
+  padding: 2%;
+  display: flex;
+}
+
