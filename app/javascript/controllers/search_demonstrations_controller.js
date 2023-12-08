@@ -44,16 +44,15 @@ export default class extends Controller {
     .then(response => response.text())
     .then((data) => {
       // change the look of the button
-      event.srcElement.classList.toggle("label_active_pink")
+      event.srcElement.classList.toggle(`color_${event.currentTarget.innerText}`)
 
       // change the list to only display the selected type
       this.listTarget.outerHTML = data
-      console.log(this.typeValue)
-      console.log(this.topicValue)
     })
 }
 
   topic(event) {
+    console.log(event.currentTarget.innerText)
 
     // check if the topic is already in the array
     if (this.paramsTopic.includes(event.currentTarget.innerText)) {
@@ -77,7 +76,8 @@ export default class extends Controller {
     .then((data) => {
       this.listTarget.outerHTML = data
         // change the look of the button
-        event.srcElement.classList.toggle( "label_active_pink")
+        console.log(`color_${event.srcElement.innerText}`)
+        event.srcElement.classList.toggle(`color_${event.srcElement.innerText}`)
     })
   }
 }
