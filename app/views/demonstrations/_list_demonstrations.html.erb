@@ -3,8 +3,8 @@
         <div class="container_new_demo">
           <h1><%=demonstration.title %></h1>
           <p><%= demonstration.location %></p>
-          <p><%= demonstration.start_time %></p>
-          <p><%= demonstration.end_time %></p>
+          <p><%= demonstration.start_time.strftime("%A, %d %B %Y at %H:00") %></p>
+          <p><%= demonstration.end_time.strftime("%A, %d %B %Y at %H:00") %></p>
           <div class= "label_container">
           <%= link_to "see demo", demonstration_path(demonstration), class: "btn btn-secondary" %>
           <%demonstration.topics.each do |topic|%>
