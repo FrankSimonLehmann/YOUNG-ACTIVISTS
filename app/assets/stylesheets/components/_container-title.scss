@@ -1,0 +1,12 @@
+// .container-title {
+//   font-weight: bold;
+//   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+//   text-align: left;
+//   width: 1000px;
+//   margin: 0 auto;
+// }
+
+ .container-title {
+  display: flex;
+  flex: 0 0 auto;
+}

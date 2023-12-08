@@ -1,12 +1,21 @@
-<h1>This is the DEMONSTRATION show page </h1>
 
-<div class="container">
-  <%= @demonstration.title %>
+<div class="container-title">
+  <h1 class="container-title"> <%= @demonstration.title  %> </h1>
+</div>
 
+<div class="container-labels">
+
+</div>
+
+<div class="container-description">
   <%# <%= link_to "Save Demonstration",   @demonstration.bookmarks %>
   <%= @demonstration.description %>
   <%# <%= @demonstration.topic %>
   <%# <%= @demonstration.type %>
+</div>
+
+<div class="container-avatar">
+
 </div>
 
 <div class="container">
