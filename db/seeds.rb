@@ -1,12 +1,5 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+require "json"
+require "open-uri"
 require "faker"
 
 puts "destroying previous seeds :wastebasket: GET REKT"
@@ -143,24 +136,110 @@ puts "create types"
 
 Type.create!(
   name: "rally",
-  description: "This is through a rally"
+  description: "This is through a rally",
+  color: "label_active_light_blue"
 )
 
 Type.create!(
   name: "bike",
-  description: "This is on a bike"
+  description: "This is on a bike",
+  color: "label_active_light_blue"
+)
+Type.create!(
+  name: "speech",
+  description: "This is through a speech",
+  color: "label_active_light_blue"
 )
 
+Type.create!(
+  name: "march",
+  description: "This is through a march",
+  color: "label_active_pink"
+)
+
+Type.create!(
+  name: "sitin",
+  description: "This is through a sitin",
+  color: "label_active_pink"
+)
+
+Type.create!(
+  name: "online",
+  description: "This is through online",
+  color: "label_active_pink"
+)
+
+Type.create!(
+  name: "hungerstrike",
+  description: "This is through a hungerstrike",
+  color: "label_active_pink"
+)
+
+Type.create!(
+  name: "boycott",
+  description: "This is through a boycott",
+  color: "label_active_baby_blue"
+)
+
+Type.create!(
+  name: "strikes",
+  description: "This is through strikes",
+  color: "label_active_dark_green"
+)
+
+Type.create!(
+  name: "artisticprotest",
+  description: "This is through a artisticprotest",
+  color: "label_active_pink"
+)
 
 puts "create topics"
 Topic.create!(
   name: "freedom",
-  description: "this is about freedom"
+  description: "this is about freedom",
+  color: "label_active_pink"
 )
 
 Topic.create!(
   name: "war",
-  description: "This is about war"
+  description: "This is about war",
+  color: "label_active_pink"
+)
+
+Topic.create!(
+  name: "racism",
+  description: "This is about racism",
+  color: "label_active_pink"
+)
+
+Topic.create!(
+  name: "education",
+  description: "This is about education",
+  color: "label_active_pink"
+)
+
+Topic.create!(
+  name: "enviorment",
+  description: "This is about enviorment",
+  color: "label_active_light_green"
+)
+
+Topic.create!(
+  name: "climate",
+  description: "This is about climate",
+  color: "label_active_light_yellow"
+)
+
+Topic.create!(
+  name: "lgbtq",
+  description: "This is about lgbtq",
+  color: "label_active_light_green"
+)
+
+Topic.create!(
+  name: "legislation",
+  description: "This is about legislation",
+  color: "label_active_light_blue "
 )
 
 puts "create demo_types"
