@@ -1,6 +1,6 @@
 <div class="container-new-demonstration">
   <h2>Add a demonstration</h2>
-    <%= simple_form_for [@demonstration] do |f| %>
+    <%= simple_form_for [@demonstration], data: {controller: "datepicker"} do |f| %>
     <%= f.input :title %>
 <<<<<<< HEAD
 
@@ -8,8 +8,12 @@
 >>>>>>> master
     <%= f.input :description %>
     <%= f.input :location %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
+    <%= f.input :start_time,
+            as: :string,
+            input_html: { data: { datepicker_target: "startTime" } } %>
+    <%= f.input :end_time,
+                as: :string,
+                input_html: { data: { datepicker_target: "endTime" } }  %>
     <%= f.association :types %>
     <%= f.association :topics%>
     <%= f.input :extra_info%>

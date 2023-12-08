@@ -8,25 +8,27 @@
 @import "root";
 @import "labels";
 @import "map";
+@import "buttons";
+@import "card_joined_demo";
 
 
-.container-title h1 {
-  font-family: Space Grotesk;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 28px;
-  display: flex
-}
+// .container-title h1 {
+//   font-family: Space Grotesk;
+//   font-size: 30px;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 28px;
+//   display: flex
+// }
 
-.h2 {
-  color: #000;
-  font-family: Poppins;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 25px;
-}
+// .h2 {
+//   color: #000;
+//   font-family: Poppins;
+//   font-size: 20px;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: 25px;
+// }
 
 .container-description {
   padding: 2%;

@@ -12,6 +12,7 @@
           <p><%= demonstration.longitude %></p>
           <p><%= demonstration.user_id %></p>
           <div class= "label_container">
+          <%= link_to "see demo", demonstration_path(demonstration), class: "btn btn-secondary" %>
           <%demonstration.topics.each do |topic|%>
           <button class= "label_inactive <%=topic.color%>">
             <%= topic.name %>

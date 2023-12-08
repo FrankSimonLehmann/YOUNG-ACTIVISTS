@@ -11,7 +11,6 @@ DemoType.destroy_all
 Bookmark.destroy_all
 DemoTopic.destroy_all
 
-
 puts "create user"
 
 admin = User.new(
@@ -29,7 +28,7 @@ admin.photo.attach(
 )
 admin.save
 
-20.times do
+5.times do
   all_users = User.new(
     email: Faker::Internet.unique.email,
     password: "password",
@@ -91,6 +90,49 @@ locations = [
     location: 'Danziger Str. 5, 10437 Berlin, Germany'
   }
 ]
+
+title = [
+  {
+    title: "Earth day",
+    description: "Save the planet!"
+  },
+  {
+    title: "Stop the war in ukraine!",
+    description: "Stop the war!"
+  },
+  {
+    title: "Save the whales!",
+    description: "Stop the whales from getting hunted!"
+  },
+  {
+    title: "Protest against the new law!",
+    description: "Stop the goverment from implementing this new law!"
+  },
+  {
+    title: "Stop the racism!",
+    description: "Stop the racism!"
+  },
+  {
+    title: "Stop the killing of the animals!",
+    description: "Stop the killing of the animals!"
+  },
+  {
+    title: "Living crisis!",
+    description: "Protest against the goverment for living crisis!"
+  },
+  {
+    title: "Stop the war in syria!",
+    description: "Stop the war!"
+  },
+  {
+    title: "Stop the opression of lewagon students!",
+    description: "Stop the opression!"
+  },
+  {
+    title: "Improvement of the education system!",
+    description: "Improve education!"
+  }
+]
 # alluser_array = []
 
 all_user = User.all
@@ -98,37 +140,58 @@ all_user = User.all
 #   alluser_array << user
 # end
 
-10.times do |i|
-  time = (Time.now + rand(1..10).days)
-  demonstration = Demonstration.new(
-    user_id: all_user.sample.id,
-    title: Faker::Book.title,
-    description: Faker::Quote.famous_last_words,
-    location: locations[i][:location],
-    # location: Faker::Address.street_name,
-    postcode: locations[i][:postcode], # Faker::Address.zip_code,
-    city: "Berlin",
-    country: "Germany",
-    latitude: 420.420,
-    longitude: 420.420,
-    start_time: time,
-    end_time: (time + rand(1..10).hours),
-    extra_info: Faker::Fantasy::Tolkien.poem,
-    active: true
-  )
 
-  demonstration.photo.attach(
-    io: URI.open(Faker::Avatar.image),
-    filename: "#{demonstration.title}.png",
-    content_type: 'image/png'
-  )
-  demonstration.save
-end
+
+  # demonstration = Demonstration.new(
+  #   user_id: all_user.sample.id,
+  #   title: Faker::Book.title,
+  #   description: Faker::Quote.famous_last_words,
+  #   location: locations[i][:location],
+  #   # location: Faker::Address.street_name,
+  #   postcode: locations[i][:postcode], # Faker::Address.zip_code,
+  #   city: "Berlin",
+  #   country: "Germany",
+  #   latitude: 420.420,
+  #   longitude: 420.420,
+  #   start_time: time,
+  #   end_time: (time + rand(1..10).hours),
+  #   extra_info: Faker::Fantasy::Tolkien.poem,
+  #   active: true
+  # )
+
+  # demonstration.photo.attach(
+  #   io: URI.open(Faker::Avatar.image),
+  #   filename: "#{demonstration.title}.png",
+  #   content_type: 'image/png'
+  # )
+  # demonstration.save
+
+  10.times do |i|
+    time = (Time.now + rand(1..10).days + rand(1..2).hours)
+    demonstration = Demonstration.new(
+      user_id: all_user.sample.id,
+      title: title[i][:title],
+      description: title[i][:description],
+      location: locations[i][:location],
+      postcode: locations[i][:postcode],
+      city: "Berlin",
+      country: "Germany",
+      latitude: 420.420,
+      longitude: 420.420,
+      start_time: time,
+      end_time: (time + rand(1..5).hours),
+      extra_info: "Bring your own signs!",
+      active: true
+    )
+    puts demonstration.start_time
+    demonstration.save
+  end
+
 
 puts "create bookmarks"
 
 Bookmark.create!(
-  user_id: User.last.id,
+  user_id: User.first.id,
   demonstration_id: Demonstration.last.id
 )
 
