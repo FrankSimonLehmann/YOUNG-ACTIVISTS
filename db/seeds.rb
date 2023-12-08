@@ -191,7 +191,7 @@ all_user = User.all
 puts "create bookmarks"
 
 Bookmark.create!(
-  user_id: User.last.id,
+  user_id: User.first.id,
   demonstration_id: Demonstration.last.id
 )
 
