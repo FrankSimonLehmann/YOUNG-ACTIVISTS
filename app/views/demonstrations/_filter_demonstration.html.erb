@@ -1,13 +1,13 @@
-<div>
+<div class= "label_container">
   <% @topics.each do |topic| %>
-    <button class= "btn" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic">
+    <button class= "label_inactive" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" data-search-demonstrations-topic-value=<%= topic.color %>>
       <%=topic.name%>
     </button>
   <% end %>
 
 
   <% @types.each do |type| %>
-    <button class= "btn" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type">
+    <button class= "label_inactive" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" data-search-demonstrations-type-value=<%= type.color %>>
       <%=type.name%>
     </button>
   <% end %>
