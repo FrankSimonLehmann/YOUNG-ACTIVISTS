@@ -9,12 +9,7 @@
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
             <% end %>
 </p>
-<h2>Your Bookmarked demonstrations below..</h2>
-<%@bookmark.each do |bookmark|%>
-    <%= link_to demonstration_path(bookmark.demonstration) do%>
-      <p class = "card"> The name is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time%>
-    <%end%>
-  <%end%>
+
 
 <h2> Would you like to edit your profile?</h2>
 <%= link_to "edit profile", edit_user_registration_path%>

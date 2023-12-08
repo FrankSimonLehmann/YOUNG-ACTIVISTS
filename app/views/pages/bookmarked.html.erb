@@ -2,9 +2,9 @@
 <%@bookmark.each do |bookmark|%>
     <%= link_to demonstration_path(bookmark.demonstration) do%>
       <%if bookmark.demonstration.start_time > Time.now%>
-        <p class = "card"> The name of the demonstration you joined is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time%>
+        <p class = "card"> The name of the demonstration you joined is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time.strftime("%A, %d %B %Y")%>
       <%else%>
-        <p class = "card"> The name of your demonstration that you joined was <%= bookmark.demonstration.title%> and it ended on <%= bookmark.demonstration.end_time%>
+        <p class = "card"> The name of your demonstration that you joined was <%= bookmark.demonstration.title%> and it ended on <%= bookmark.demonstration.end_time.strftime("%A, %d %B %Y")%>
       <%end%>
     <%end%>
   <%end%>
