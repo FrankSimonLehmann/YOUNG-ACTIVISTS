@@ -167,8 +167,7 @@ all_user = User.all
   # demonstration.save
 
   10.times do |i|
-    time = (Time.now + rand(1..10).days)
-    puts time
+    time = (Time.now + rand(1..10).days + rand(1..2).hours)
     demonstration = Demonstration.new(
       user_id: all_user.sample.id,
       title: title[i][:title],
@@ -184,6 +183,7 @@ all_user = User.all
       extra_info: "Bring your own signs!",
       active: true
     )
+    puts demonstration.start_time
     demonstration.save
   end
 
