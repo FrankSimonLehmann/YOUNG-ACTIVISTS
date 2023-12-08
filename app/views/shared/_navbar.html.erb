@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-   <%if params[:controller] != "pages" && params[:action] != "home"%>
+   <%if params[:action] != "home"%>
     <%= link_to "javascript:history.back()", class: "navbar-brand" do %>
       <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/5/5b/Simpleicons_Interface_arrow-pointing-to-left-side.svg" %>
     <% end %>
