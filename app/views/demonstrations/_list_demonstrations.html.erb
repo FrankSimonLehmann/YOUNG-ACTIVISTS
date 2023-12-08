@@ -1,6 +1,6 @@
     <div class="grid" data-search-demonstrations-target= "list">
       <% @demonstrations.each do |demonstration| %>
-        <div class="card ">
+        <div class="card">
           <p><%= demonstration.title %></p>
           <p><%= demonstration.description %></p>
           <p><%= demonstration.start_time %></p>
@@ -11,12 +11,18 @@
           <p><%= demonstration.latitude %></p>
           <p><%= demonstration.longitude %></p>
           <p><%= demonstration.user_id %></p>
+          <div class= "label_container">
           <%demonstration.topics.each do |topic|%>
-            <p><%= topic.name %></p>
+          <button class= "label_inactive <%=topic.color%>">
+            <%= topic.name %>
+          </button>
           <% end %>
           <%demonstration.types.each do |type|%>
-            <p><%= type.name %></p>
+          <button class= "label_inactive <%=type.color%>">
+            <%= type.name %>
+          </button>
           <% end %>
           </div>
+        </div>
       <% end %>
     </div>

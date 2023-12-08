@@ -2,11 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["form", "input", "list", "topic", "type"]
-  static values = {typeColor: String, topicColor: String}
+  static values = { type: String, topic: String }
 
   connect() {
-    console.log(`${this.typeTargets}`)
-    console.log(this.topicTargets)
     this.paramsTopic = []
     this.paramsType = []
   }
@@ -16,7 +14,7 @@ export default class extends Controller {
     const url = new URL(window.location.href)
     url.searchParams.set("query", this.inputTarget.value)
     history.pushState(null, null, url)
-    // const url = `${this.formTarget.action}?query=${this.inputTarget.value}`
+
     fetch(url, {headers: {"Accept": "text/plain"}})
       .then(response => response.text())
       .then((data) => {
@@ -50,12 +48,13 @@ export default class extends Controller {
 
       // change the list to only display the selected type
       this.listTarget.outerHTML = data
+      console.log(this.typeValue)
+      console.log(this.topicValue)
     })
 }
 
   topic(event) {
-    console.log(this.typeColorValue)
-    console.log(this.topicColorValue)
+
     // check if the topic is already in the array
     if (this.paramsTopic.includes(event.currentTarget.innerText)) {
        // remove from array if clicked again
@@ -78,7 +77,7 @@ export default class extends Controller {
     .then((data) => {
       this.listTarget.outerHTML = data
         // change the look of the button
-        event.srcElement.classList.toggle("btn-primary")
+        event.srcElement.classList.toggle( "label_active_pink")
     })
   }
 }
