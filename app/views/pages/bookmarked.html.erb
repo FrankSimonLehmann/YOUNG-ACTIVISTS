@@ -1,4 +1,4 @@
-<h2>All your bookmarks below</h2>
+<h2>Joined</h2>
 <%@bookmark.each do |bookmark|%>
     <%= link_to demonstration_path(bookmark.demonstration) do%>
       <%if bookmark.demonstration.start_time > Time.now%>
