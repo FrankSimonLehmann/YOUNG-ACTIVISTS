@@ -11,7 +11,6 @@ DemoType.destroy_all
 Bookmark.destroy_all
 DemoTopic.destroy_all
 
-
 puts "create user"
 
 admin = User.new(
