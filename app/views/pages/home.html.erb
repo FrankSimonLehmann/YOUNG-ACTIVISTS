@@ -1,8 +1,8 @@
 <%if current_user != nil%>
 <h2>Your Bookmarked demonstrations below..</h1>
-  <%@bookmark[0..4].each do |bookmark|%>
+  <%@realbookmark[0..4].each do |bookmark|%>
     <%= link_to demonstration_path(bookmark.demonstration) do%>
-      <p class = "card"> The name is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time%>
+      <p class = "card"> The name is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time.strftime("%A, %d %B %Y")%>
     <%end%>
   <%end%>
   <%=link_to "Your bookmarks", bookmarked_path, class: "card"%>
@@ -14,6 +14,6 @@
 <h2>Upcoming demonstrations below</h2>
   <% @demo[0..4].each do |demo|%>
     <%= link_to demonstration_path(demo) do%>
-      <p class = "card"> The name is <%= demo.title%> and start date is <%= demo.start_time%>
+      <p class = "card"> The name is <%= demo.title%> and start date is <%= demo.start_time.strftime("%A, %d %B %Y")%>
     <%end%>
   <%end%>

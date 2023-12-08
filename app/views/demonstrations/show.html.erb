@@ -9,7 +9,7 @@
 </div>
 
 <div class="container">
-  <%= @demonstration.start_time %>
+  <%= @demonstration.start_time.strftime("%A, %d %B %Y") %>
   <%= @demonstration.location %>
 </div>
 

@@ -12,21 +12,33 @@ class PagesController < ApplicationController
     end
     @demo = @demo.sort_by { |demo| demo.start_time}
     if current_user != nil
+
     @bookmark = Bookmark.where(user_id: current_user.id)
+    @realbookmark = []
+    @bookmark.each do |bookmark|
+      if bookmark.demonstration.start_time > (Time.now)
+        @realbookmark << bookmark
+      end
+    end
+
       @demo.each do |demo|
         if demo.topics.first&.name == current_user.topic
           @weightdemo << demo
         end
       end
     end
+
     @weightdemo = @weightdemo.reverse
     @weightdemo.each do |weight|
       @demo.insert(0, weight)
     end
+
     @demo = @demo.uniq
+
     if current_user != nil
       @mydemonstrations = Demonstration.where(user_id: current_user.id)
     end
+
   end
 
   def profile
