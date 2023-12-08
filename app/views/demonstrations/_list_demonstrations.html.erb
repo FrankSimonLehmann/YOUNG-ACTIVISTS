@@ -1,56 +1,33 @@
 <div class="grid" data-search-demonstrations-target= "list">
-  <% @demonstrations.each do |demonstration| %>
-    <%= link_to demonstration_path(demonstration) do%>
-      <div class="container_new_demo">
-        <div class="container_top_new_demo">
-          <h1><%= demonstration.title %></h1>
-          <div class="datetime">
-            <div class="datestyle">
-              <h5> Dec 7</h5>
-                <p>12:00</p>
+    <% @demonstrations.each do |demonstration| %>
+      <%= link_to demonstration_path(demonstration) do%>
+        <div class="container_new_demo">
+          <div class="container_top_new_demo">
+            <h1><%= demonstration.title %></h1>
+            <div class="datetime">
+              <div class="datestyle">
+                <h5><%= demonstration.start_time.strftime("%b %e") %></h5>
+                <p><%= demonstration.start_time.strftime("%H:%M")%></p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="location_new_demo">
-          <p><%= demonstration.location %></p>
-        </div>
-        <div class= "labels_new_demo">
-          <%demonstration.topics.each do |topic|%>
-            <button class= "label_inactive <%=topic.color%>">
-              <%= topic.name %>
-            </button>
-          <% end %>
-          <%demonstration.types.each do |type|%>
-            <button class= "label_inactive <%=type.color%>">
-              <%= type.name %>
-            </button>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-
-      <% @demonstrations.each do |demonstration| %>
-        <div class="container_new_demo">
-          <h1><%=demonstration.title %></h1>
-          <p><%= demonstration.location %></p>
-          <p><%= demonstration.start_time.strftime("%A, %d %B %Y at %H:00") %></p>
-          <p><%= demonstration.end_time.strftime("%A, %d %B %Y at %H:00") %></p>
-          <div class= "label_container">
-          <%= link_to "see demo", demonstration_path(demonstration), class: "btn btn-secondary" %>
-          <%demonstration.topics.each do |topic|%>
-          <button class= "label_inactive <%=topic.color%>">
-            <%= topic.name %>
-          </button>
-          <% end %>
-          <%demonstration.types.each do |type|%>
-          <button class= "label_inactive <%=type.color%>">
-            <%= type.name %>
-          </button>
-          <% end %>
+          <div class="location_new_demo">
+            <p><%= demonstration.location %></p>
+          </div>
+          <div class= "labels_new_demo">
+            <%demonstration.topics.each do |topic|%>
+              <button class= "label_inactive <%=topic.color%>">
+                <%= topic.name %>
+              </button>
+            <% end %>
+            <%demonstration.types.each do |type|%>
+              <button class= "label_inactive <%=type.color%>">
+                <%= type.name %>
+              </button>
+            <% end %>
           </div>
         </div>
-      <% end %>
-    </div>
+    <% end %>
+  <% end %>
+</div>
+
