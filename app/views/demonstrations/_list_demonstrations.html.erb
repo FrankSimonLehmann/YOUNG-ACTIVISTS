@@ -1,7 +1,7 @@
     <div class="grid" data-search-demonstrations-target= "list">
       <% @demonstrations.each do |demonstration| %>
-        <div class="card">
-          <p><%= demonstration.title %></p>
+        <div class="container_new_demo">
+          <h1><%= demonstration.title %></h1>
           <p><%= demonstration.description %></p>
           <p><%= demonstration.start_time %></p>
           <p><%= demonstration.end_time %></p>
