@@ -35,7 +35,7 @@
       <%= link_to "Leave", bookmark_path(bookmark), data: { turbo_method: :delete}%>
     <% end %>
     <% else %>
-      <%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} class: "button-%>
+      <%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post}, class: "button" %>
 <%end%>
   <%= link_to "joined people", demonstration_joined_path(@demonstration)%>
 
