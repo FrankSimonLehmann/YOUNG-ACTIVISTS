@@ -10,6 +10,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "demonstrations/index";
+
+body {
+   background-color: white;
 
 
 a {
@@ -79,5 +83,7 @@ p {
   margin-bottom: 0px;
   letter-spacing: 0.05px;
   line-height: normal;
+
+}
 
 }
