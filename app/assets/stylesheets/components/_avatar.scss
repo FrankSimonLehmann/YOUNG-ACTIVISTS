@@ -1,6 +1,9 @@
 .avatar {
   width: 40px;
+  height: 40px;
   border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid white;
 }
 .avatar-large {
   width: 56px;
@@ -19,5 +22,16 @@
   border: white 1px solid;
 }
 
-.avatar-small {
+.avatar-user-avatars {
+
+  flex-shrink: 0;
+  gap: 8px;
+  object-fit: cover;
+}
+
+#user-avatars {
+  border: 1px solid grey;
+  gap: 8px;
+  height: 38px;
+  border-radius: 50%;
 }

@@ -1,7 +1,6 @@
 // All global components
 
 .container-title h1 {
-  color: var(--m-3-sys-light-on-surface-variant, #49454F);
   font-family: Space Grotesk;
   font-size: 30px;
   font-style: normal;
@@ -17,4 +16,9 @@
   font-style: normal;
   font-weight: 700;
   line-height: 25px;
+}
+
+.container-description {
+  padding: 2%;
+  display: flex;
 }
