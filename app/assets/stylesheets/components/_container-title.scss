@@ -31,15 +31,17 @@
 }
 
 .wrapper-time {
-  display: flex;
-  overflow: hidden;
-  width: 320px;
-  height: 120px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  align-items: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex-shrink: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  // overflow: hidden;
+  // width: 320px;
+  // height: 120px;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // align-items: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // flex-shrink: 0;
 }
 
 .container-time {

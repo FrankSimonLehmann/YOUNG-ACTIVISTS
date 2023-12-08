@@ -43,10 +43,7 @@
    <div class="container-time">
     <%= @demonstration.postcode %>
    </div>
-<div class="container">
-  <%= @demonstration.start_time.strftime("%A, %d %B %Y at %H:00")%>-<%= @demonstration.end_time.strftime("%H:00")%>
-  <%= @demonstration.location %>
-</div>
+ </div>
 
 <div class="container-map">
   <div id="map"
@@ -63,26 +60,4 @@
   <%end%>
 <%end%>
 
-<<<<<<< HEAD
-=======
-<% if current_user != nil%>
-  <%  unless Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id)  %>
-    <%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
-    <% else  %>
-      <% bookmark = Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id) %>
-      <%= link_to "Leave", bookmark_path(bookmark), data: { turbo_method: :delete}%>
-    <% end %>
-    <% else %>
-      <%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post}, class: "button" %>
-<%end%>
-  <%= link_to "joined people", demonstration_joined_path(@demonstration)%>
 
-<div class="user-avatars">
-  <% @demonstration.users.limit(5).each do |user| %>
-    <%= cl_image_tag user.photo.key %>
-  <% end %>
-</div>
->>>>>>> master
-<%# CREATE destroy -
-if current user - bookmark controller create - .where has bookedmarked the demonstration - yes -> display
-link delete for bookmark, false - display link 16- create (participate) %>
