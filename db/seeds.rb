@@ -168,6 +168,7 @@ all_user = User.all
 
   10.times do |i|
     time = (Time.now + rand(1..10).days)
+    puts time
     demonstration = Demonstration.new(
       user_id: all_user.sample.id,
       title: title[i][:title],
