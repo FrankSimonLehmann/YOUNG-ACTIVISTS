@@ -11,25 +11,20 @@
 <p>Your description is <%= @user.description%></p>
 
 
-<h2>Your Bookmarked demonstrations below..</h2>
-<%@bookmark.each do |bookmark|%>
-    <%= link_to demonstration_path(bookmark.demonstration) do%>
-      <p class = "card"> The name is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time%>
-<%end%>
-<%end%>
+
 
 <%= link_to "edit profile", edit_user_registration_path%>
 
-<h1>Created demos</h1>
-</div>
-<div>
+<h2>Joined demos</h2>
+<%@bookmark.each do |bookmark|%>
+    <%= link_to demonstration_path(bookmark.demonstration) do%>
     <div class="container_joined_demo">
       <div class= "description_joined_demo">
         <div>
-        <h6><strong>Street</strong></h6>
+        <h6><strong><%= bookmark.demonstration.location%></strong></h6>
         </div>
         <div>
-        <p>This is the description of your component.</p>
+        <p><%= bookmark.demonstration.title%></p>
         </div>
       </div>
     <div class="datetime">
@@ -39,3 +34,5 @@
       </div>
     </div>
   </div>
+<%end%>
+<%end%>
