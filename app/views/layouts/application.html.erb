@@ -12,9 +12,20 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
+  <body>
+    <%= render "shared/flashes" %>
+    <div class="navbar-top">
+        <% if params[:action] != "home"%>
+          <%= link_to "javascript:history.back()", class: "navbar-brand" do %>
+            <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/5/5b/Simpleicons_Interface_arrow-pointing-to-left-side.svg" %>
+          <% end %>
+        <% else %>
+          <%= link_to "", class: "navbar-brand"%>
+        <% end %>
+         <h3 class="nav-location"> Berlin
+         <i class="fa-solid fa-location-dot"></i> Berlin </h3>
+    </div>
     <%= yield %>
+    <%= render "shared/navbar" %>
   </body>
 </html>
