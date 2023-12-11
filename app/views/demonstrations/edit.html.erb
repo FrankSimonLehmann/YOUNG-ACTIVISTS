@@ -11,8 +11,8 @@
     <%= f.input :end_time,
                 as: :string,
                 input_html: { data: { datepicker_target: "endTime" } } %>
-    <%= f.association :types %>
-    <%= f.association :topics %>
+    <%= f.association :types,  input_html: {data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
+    <%= f.association :topics,  input_html: {data: {controller: "tom-select", tom_select_options_value: {tags: true}}}%>
     <%= f.input :extra_info%>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit, "Save", class:"btn btn-primary " %>
