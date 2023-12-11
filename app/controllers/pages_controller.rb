@@ -5,12 +5,14 @@ class PagesController < ApplicationController
     @demo = []
     @weightdemo = []
     @demonstrations = Demonstration.all
+
     @demonstrations.each do |demonstration|
       if demonstration.start_time > (Time.now)
         @demo << demonstration
       end
     end
     @demo = @demo.sort_by { |demo| demo.start_time}
+
     if current_user != nil
 
     @bookmark = Bookmark.where(user_id: current_user.id)
@@ -22,7 +24,7 @@ class PagesController < ApplicationController
     end
 
       @demo.each do |demo|
-        if demo.topics.first&.name == current_user.topic
+        if current_user.topics.include?(demo.topics.first) || current_user.types.include?(demo.types.first)
           @weightdemo << demo
         end
       end
