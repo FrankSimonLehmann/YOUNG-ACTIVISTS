@@ -1,0 +1,21 @@
+<h1>joined demo's 📆 </h1>
+  <%bookmarks[0..4].each do |bookmark|%>
+    <%= link_to demonstration_path(bookmark.demonstration) do%>
+      <div class = "container_joined_demo">
+        <div class= "description_joined_demo">
+          <div>
+            <h6><%=bookmark.demonstration.title%></h6>
+          </div>
+          <div>
+            <p><%=bookmark.demonstration.description%></p>
+          </div>
+        </div>
+        <div class="datetime">
+          <div class="datestyle">
+            <h5><%= bookmark.demonstration.start_time.strftime("%b %e") %></h5>
+            <p><%= bookmark.demonstration.start_time.strftime("%H:00")%></p>
+          </div>
+        </div>
+  </div>
+    <%end%>
+  <%end%>
