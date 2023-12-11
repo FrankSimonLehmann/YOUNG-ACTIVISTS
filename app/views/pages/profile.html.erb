@@ -12,15 +12,15 @@
 
 
 <h1>Created demo's</h1>
+
+<%= link_to "edit your profile", edit_user_registration_path%>
+
+<h1>Joined demo's</h1>
 <%@bookmark.each do |bookmark|%>
     <%= link_to demonstration_path(bookmark.demonstration) do%>
       <p class = "card"> The name is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time%>
 <%end%>
 <%end%>
-
-<%= link_to "edit your profile", edit_user_registration_path%>
-
-<h1>Joined demo's</h1>
 </div>
 <div>
     <div class="container_joined_demo">

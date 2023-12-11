@@ -1,15 +1,9 @@
 <div class = "main-wrapper-home">
 <%if current_user != nil%>
-<h1>joined demo's 📆 </h1>
-  <%@realbookmark[0..4].each do |bookmark|%>
-    <%= link_to demonstration_path(bookmark.demonstration) do%>
-      <div class = "container_new_demo">
-        <div class="container_top_new_demo">
-        <h1><%=bookmark.demonstration.title%></h1>
-        </div>
-      </div>
-    <%end%>
-  <%end%>
+
+  <%=render "pages/list_bookmarks", bookmarks: @realbookmark%>
+
+
   <%=link_to "Your bookmarks", bookmarked_path, class: "card"%>
   <%if @mydemonstrations != nil%>
   <%= link_to "Your Demostrations", mydemonstrations_path, class: "card"%>
