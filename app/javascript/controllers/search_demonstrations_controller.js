@@ -43,11 +43,15 @@ export default class extends Controller {
     fetch(url, {headers: {"Accept": "text/plain"}})
     .then(response => response.text())
     .then((data) => {
-      // change the look of the button
-      event.srcElement.classList.toggle(`color_${event.currentTarget.innerText}`)
 
       // change the list to only display the selected type
+
       this.listTarget.outerHTML = data
+      // change the look of the button
+      console.log(`color_${event.srcElement.innerText}`)
+      console.log(event.srcElement.classList)
+      event.srcElement.classList.toggle(`color_${event.srcElement.innerText}`)
+
     })
 }
 
@@ -77,6 +81,7 @@ export default class extends Controller {
       this.listTarget.outerHTML = data
         // change the look of the button
         console.log(`color_${event.srcElement.innerText}`)
+        console.log(event.srcElement)
         event.srcElement.classList.toggle(`color_${event.srcElement.innerText}`)
     })
   }
