@@ -1,4 +1,15 @@
+<div class="container_profile_details"  >
+<div>
 <h1>Hi, <%=@user.first_name%>👋</h1>
+<div class ="topic_type">
+  <div>
+  <p>types of demos</p>
+  </div>
+  <div>
+  <p>topics of demos</p>
+  </div>
+</div>
+</div>
 <p>
  <% if current_user.photo.attached? %>
               <%= cl_image_tag current_user.photo.key%>
@@ -7,35 +18,57 @@
             <% end %>
 </p>
 
+</div>
 
-<p> <%= @user.description%></p>
-
+<div class="user_description">
+<p><%= @user.description%></p>
+</div>
 
 <h1>Created demo's</h1>
 <%@bookmark.each do |bookmark|%>
     <%= link_to demonstration_path(bookmark.demonstration) do%>
-      <p class = "card"> The name is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time%>
-<%end%>
-<%end%>
-
-<%= link_to "edit your profile", edit_user_registration_path%>
-
-<h1>Joined demo's</h1>
-</div>
-<div>
-    <div class="container_joined_demo">
-      <div class= "description_joined_demo">
-        <div>
-        <h6><strong>Street</strong></h6>
-        </div>
-        <div>
-        <p>This is the description of your component.</p>
-        </div>
-      </div>
+<div class="container_joined_demo">
+  <div class= "description_joined_demo">
+    <div>
+      <h6><strong><%= bookmark.demonstration.location%></strong></h6>
+    </div>
+    <div>
+      <p><%= bookmark.demonstration.title%></p>
+    </div>
+  </div>
     <div class="datetime">
       <div class="datestyle">
-        <h5><strong> Dec 7</strong></h5>
-        <p>12:00</p>
+        <h5><strong><%= bookmark. demonstration.start_time.strftime("%b %e") %></strong></h5>
+        <p><%=bookmark. demonstration.end_time.strftime("%H:%M")%></p>
       </div>
     </div>
   </div>
+<div>
+<%end%>
+<%end%>
+
+<h1>Joined demo's</h1>
+<%@bookmark.each do |bookmark|%>
+    <%= link_to demonstration_path(bookmark.demonstration) do%>
+<div class="container_joined_demo">
+  <div class= "description_joined_demo">
+    <div>
+      <h6><strong><%= bookmark.demonstration.location%></strong></h6>
+    </div>
+    <div>
+      <p><%= bookmark.demonstration.title%></p>
+    </div>
+  </div>
+    <div class="datetime">
+      <div class="datestyle">
+        <h5><strong><%= bookmark. demonstration.start_time.strftime("%b %e") %></strong></h5>
+        <p><%=bookmark. demonstration.end_time.strftime("%H:%M")%></p>
+      </div>
+    </div>
+  </div>
+<div>
+<%end%>
+<%end%>
+
+
+<%= link_to "edit your profile", edit_user_registration_path%>
