@@ -3,9 +3,9 @@
 <h1>Find demo's 🔍</h1>
 
     <%= form_with url: demonstrations_path, method: :get, html: {class:
-      "mb-4", data: {search_demonstrations_target: "form"}} do |f| %>
+      "my-4", data: {search_demonstrations_target: "form"}} do |f| %>
       <%= f.text_field :query,
-                      class: "form-control",
+                      class: "search-bar-light",
                       placeholder: "search your demo",
                       value: params[:query],
                       data: {
