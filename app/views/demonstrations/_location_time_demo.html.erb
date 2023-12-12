@@ -1,14 +1,10 @@
 <div class="grid_location_time">
   <div class="container_time_place">
-    <%= demonstration.start_time.strftime("%b %e")%>
+  <i class="fa-regular fa-calendar"></i>
+  <strong><%= demonstration.start_time.strftime("%A")%></strong>
+    <%= demonstration.start_time.strftime(", %d %B %Y, %H:%M")%> - <%= demonstration.end_time.strftime("%H:%M")%>
   </div>
   <div class="container_time_place">
-    <%= demonstration.start_time.strftime("%H:%M")%> - <%= demonstration.end_time.strftime("%H:%M")%>
-  </div>
-  <div class="container_time_place">
-    <%= @demonstration.location %>
-  </div>
-    <div class="container_time_place">
-      <%= demonstration.postcode %>
+    <i class="fa-solid fa-map-pin"></i> <%= @demonstration.location %>
   </div>
 </div>
