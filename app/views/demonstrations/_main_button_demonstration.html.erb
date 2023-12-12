@@ -6,5 +6,7 @@
             <% bookmark = Bookmark.find_by(user_id: current_user.id, demonstration_id: demonstration.id) %>
             <%= link_to "Opt-out", bookmark_path(bookmark), data: { turbo_method: :delete}, class:"primary_button_inactive"%>
           <% end %>
-          <%end%>
+      <%else%>
+        <%= link_to "Participate", new_user_session_path, class:"primary_button_active" %>
+      <% end %>
     </div>
