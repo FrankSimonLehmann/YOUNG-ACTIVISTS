@@ -1,82 +1,81 @@
 <div class="container_profile_details"  >
-<div>
-<h1>Hi, <%=@user.first_name%>👋</h1>
-<div class ="topic_type">
- <div class= "flex_box">
-    <% @user.topics.each do |topic| %>
-    <button class= "label_inactive" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" >
-    <%=topic.name%>
-    </button>
+  <div>
+    <h1>Hi, <%=@user.first_name%>👋</h1>
+      <div class ="topic_type">
+        <div class= "flex_box">
+          <% @user.topics.each do |topic| %>
+          <button class= "label_inactive color_<%= topic.name%>" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" >
+          <%=topic.name%>
+          </button>
+          <% end %>
+        </div>
+        <div class= "flex_box">
+          <% @user.types.each do |type| %>
+          <button class= "label_inactive color_<%= type.name %>" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
+          <%=type.name%>
+          </button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <p>
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag current_user.photo.key%>
+      <% else %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
     <% end %>
-  </div>
- <div class= "flex_box">
-<% @user.types.each do |type| %>
-    <button class= "label_inactive" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
-      <%=type.name%>
-    </button>
-    <% end %>
-  </div>
-</div>
-</div>
-<p>
- <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key%>
-            <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
-            <% end %>
-</p>
+  </p>
 </div>
 
 <div class="user_description">
-<p><%= @user.description%></p>
+  <p><%= @user.description%></p>
 </div>
 
 <%= link_to "edit profile", edit_user_registration_path, class:"primary_button_active"%>
 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} , class:"primary_button_inactive"%>
 
-
 <h1>Created demos</h1>
-<%@bookmark.each do |bookmark|%>
-    <%= link_to demonstration_path(bookmark.demonstration) do%>
-<div class="container_joined_demo">
-  <div class= "description_joined_demo">
-    <div>
-      <h6><strong><%= bookmark.demonstration.location%></strong></h6>
-    </div>
-    <div>
-      <p><%= bookmark.demonstration.title%></p>
-    </div>
-  </div>
-    <div class="datetime">
-      <div class="datestyle">
-        <h5><strong><%= bookmark. demonstration.start_time.strftime("%b %e") %></strong></h5>
-        <p><%=bookmark. demonstration.end_time.strftime("%H:%M")%></p>
+  <%@bookmark.each do |bookmark|%>
+  <%= link_to demonstration_path(bookmark.demonstration) do%>
+    <div class="container_joined_demo">
+      <div class= "description_joined_demo">
+        <div>
+          <h6><strong><%= bookmark.demonstration.location%></strong></h6>
+        </div>
+        <div>
+          <p><%= bookmark.demonstration.title%></p>
+        </div>
       </div>
-    </div>
-  </div>
-<div>
-<%end%>
-<%end%>
+        <div class="datetime">
+          <div class="datestyle">
+            <h5><strong><%= bookmark. demonstration.start_time.strftime("%b %e") %></strong></h5>
+            <p><%=bookmark. demonstration.end_time.strftime("%H:%M")%></p>
+          </div>
+        </div>
+      </div>
+    <div>
+  <%end%>
+  <%end%>
 
 <h1>Joined demos</h1>
-<%@bookmark.each do |bookmark|%>
-    <%= link_to demonstration_path(bookmark.demonstration) do%>
-<div class="container_joined_demo">
-  <div class= "description_joined_demo">
-    <div>
-      <h6><strong><%= bookmark.demonstration.location%></strong></h6>
-    </div>
-    <div>
-      <p><%= bookmark.demonstration.title%></p>
-    </div>
-  </div>
-    <div class="datetime">
-      <div class="datestyle">
-        <h5><strong><%= bookmark. demonstration.start_time.strftime("%b %e") %></strong></h5>
-        <p><%=bookmark. demonstration.end_time.strftime("%H:%M")%></p>
+  <%@bookmark.each do |bookmark|%>
+  <%= link_to demonstration_path(bookmark.demonstration) do%>
+    <div class="container_joined_demo">
+      <div class= "description_joined_demo">
+        <div>
+          <h6><strong><%= bookmark.demonstration.location%></strong></h6>
+        </div>
+        <div>
+          <p><%= bookmark.demonstration.title%></p>
+        </div>
       </div>
+        <div class="datetime">
+          <div class="datestyle">
+           <h5><strong><%= bookmark. demonstration.start_time.strftime("%b %e") %></strong></h5>
+           <p><%=bookmark. demonstration.end_time.strftime("%H:%M")%></p>
+          </div>
+        </div>
     </div>
-  </div>
-<div>
-<%end%>
-<%end%>
+  <div>
+  <%end%>
+  <%end%>
