@@ -14,8 +14,14 @@
 @import "filter_search";
 @import "profile_details";
 @import "card_participants";
+@import "location_time_card";
 
 .container-description {
+  padding: 2%;
+  display: flex;
+}
+
+.container-button{
   padding: 2%;
   display: flex;
 }

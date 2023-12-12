@@ -1,57 +1,22 @@
-
-<div class ="container-title">
-  <h1> <%= @demonstration.title  %> </h1>
+<h1> <%= @demonstration.title %></h1>
+<div class ="label_container">
+  <%= render "demonstrations/labels_for_show", demonstration: @demonstration%>
 </div>
 
-<div class ="container-labels"></div>
-
-<div class="container-avatar">
-    <% @demonstration.users.limit(5).each do |user| %>
-     <div class="avatar-user-avatars">
-      <%= cl_image_tag user.photo.key, id: "user-avatars" %>
-       </div>
-    <% end %>
+<div class="participate_show">
+  <%= render "demonstrations/show_page_avatars", demonstration: @demonstration%>
+   <%= link_to "see all", demonstration_joined_path(@demonstration), class: "button_see_all"%>
 </div>
 
-  <% if current_user != nil%>
-    <%  unless Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id)  %>
-      <%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
-      <% else  %>
-        <% bookmark = Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id) %>
-        <%= link_to "Leave", bookmark_path(bookmark), data: { turbo_method: :delete}%>
-      <% end %>
-      <% else %>
-        <%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
-  <%end%>
-    <%= link_to "joined people", demonstration_joined_path(@demonstration)%>
-
-
+<%= render "demonstrations/main_button_demonstration", demonstration: @demonstration%>
 <div class ="container-description">
-  <%# <%= link_to "Save Demonstration",   @demonstration.bookmarks %>
   <%= @demonstration.description %>
-  <%# <%= @demonstration.topic %>
-  <%# <%= @demonstration.type %>
 </div>
 
-<div class="wrapper-time">
-  <div class="container-time">
-   <%= @demonstration.start_time.strftime("%A, %d %B %Y at %H:00")%>-<%= @demonstration.end_time.strftime("%H:00")%>
-  </div>
-   <div class="container-time">
-    <%= @demonstration.location %>
-   </div>
-   <div class="container-time">
-    <%= @demonstration.postcode %>
-   </div>
- </div>
+<%= render "demonstrations/extra_info_demo", demonstration: @demonstration%>
+<%= render "demonstrations/location_time_demo", demonstration: @demonstration%>
+<%= render "demonstrations/map_demo", markers: @markers%>
 
-<div class="container-map">
-  <div id="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-</div>
 <%if current_user != nil%>
   <%if current_user.id == @demonstration.user.id%>
     <%= link_to "Delete",demonstration_path(@demonstration),
@@ -59,3 +24,4 @@
     <%= link_to "Edit", edit_demonstration_path(@demonstration)%>
   <%end%>
 <%end%>
+</div>

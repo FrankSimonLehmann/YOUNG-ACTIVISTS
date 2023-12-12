@@ -50,6 +50,7 @@ class PagesController < ApplicationController
 
   def bookmarked
     @bookmark = Bookmark.where(user_id: current_user.id)
+
   end
 
   def mydemonstrations

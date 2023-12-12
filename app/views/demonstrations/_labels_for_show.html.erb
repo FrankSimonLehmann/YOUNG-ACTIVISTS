@@ -1,0 +1,11 @@
+<div class= "labels_new_demo">
+  <%demonstration.topics.each do |topic|%>
+    <button class= "label_inactive <%=topic.color%>">
+      <%= topic.name %>
+    </button>
+  <% end %>
+  <%demonstration.types.each do |type|%>
+    <button class= "label_inactive <%=type.color%>">
+      <%= type.name %>
+    </button>
+  <% end %>
