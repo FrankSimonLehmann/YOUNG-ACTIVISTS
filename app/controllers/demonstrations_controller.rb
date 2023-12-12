@@ -33,7 +33,7 @@ class DemonstrationsController < ApplicationController
     end
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: "demonstrations/list_demonstrations", locals: {demonstrations: @demonstrations}, formats: [:html] }
+      format.text { render partial: "demonstrations/list_demonstrations", locals: { demonstrations: @demonstrations }, formats: [:html] }
     end
   end
 
@@ -44,7 +44,8 @@ class DemonstrationsController < ApplicationController
     @markers = @demonstrations.geocoded.map do |demonstration|
       {
         lat: demonstration.latitude,
-        lng: demonstration.longitude
+        lng: demonstration.longitude,
+        image_url: helpers.asset_url("logo.png")
       }
     end
   end
