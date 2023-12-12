@@ -3,3 +3,9 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   margin: 16px;
 }
+
+.title_of_joined_pages {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
