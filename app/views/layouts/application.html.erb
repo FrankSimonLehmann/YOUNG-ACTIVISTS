@@ -13,9 +13,24 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
+  <body>
+    <%= render "shared/flashes" %>
+    
+    <div class="navbar-top">
+        <% if params[:action] != "home"%>
+          <%= link_to "javascript:history.back()", class: "back-button " do %>
+          <i class="fa-solid fa-angles-left"></i>
+            <%# <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/5/5b/Simpleicons_Interface_arrow-pointing-to-left-side.svg" %>
+          <% end %>
+        <% else %>
+          <%= link_to "", class: "back-button"%>
+        <% end %>
+        <div class="icon-and-location">
+          <i class="fa-solid fa-location-dot"></i>
+          <h3>  Berlin </h3>
+        </div>
+    </div>
     <%= yield %>
+    <%= render "shared/navbar" %>
   </body>
 </html>
