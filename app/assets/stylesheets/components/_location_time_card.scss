@@ -1,0 +1,19 @@
+.container_time_place {
+    border-radius: 8px;
+    border: 1px solid var(--m-3-sys-dark-outline, #938F99);
+    margin-left: 0px;
+    height: fit content;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+
+.grid_location_time {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    // grid-template-rows: 1fr, 1fr;
+    gap: 10px 10px;
+    margin-top: 10px;
+    margin-right: 0px;
+  }
