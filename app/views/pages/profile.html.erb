@@ -1,6 +1,7 @@
 <div class="container_profile_details"  >
   <div>
     <h1>Hi, <%=@user.first_name%>👋</h1>
+
       <div class ="topic_type">
         <div class= "flex_box">
           <% @user.topics.each do |topic| %>
@@ -9,6 +10,7 @@
           </button>
           <% end %>
         </div>
+
         <div class= "flex_box">
           <% @user.types.each do |type| %>
           <button class= "label_inactive color_<%= type.name %>" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
@@ -16,24 +18,26 @@
           </button>
           <% end %>
         </div>
-      </div>
-    </div>
-  <p>
-    <% if current_user.photo.attached? %>
-      <%= cl_image_tag current_user.photo.key%>
+         <div style="padding-left:90px;">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key, height: 90, width: 90, crop: :fill, style:"border-radius: 50%;" %>
       <% else %>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
     <% end %>
-  </p>
+    </div>
+      </div>
+    </div>
+
+
 </div>
 
 <div class="user_description">
   <p><%= @user.description%></p>
 </div>
-
+<div class="profile_buttons">
 <%= link_to "edit profile", edit_user_registration_path, class:"primary_button_active"%>
 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} , class:"primary_button_inactive"%>
-
+</div>
 <h1>Created demos</h1>
   <%@bookmark.each do |bookmark|%>
   <%= link_to demonstration_path(bookmark.demonstration) do%>

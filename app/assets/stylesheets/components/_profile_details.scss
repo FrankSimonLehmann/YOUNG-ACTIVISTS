@@ -10,6 +10,8 @@
 
 .topic_type{
   display: flex;
+  justify-content: space-between;
+  
   p{
     margin: 0;
     margin-right: 5px;
@@ -31,4 +33,10 @@
   justify-content: space-between;
   height: 100%;
   margin: 3px;
+}
+.profile_buttons{
+  padding: 10px;
+}
+.profie_details{
+  display: flex;
 }
