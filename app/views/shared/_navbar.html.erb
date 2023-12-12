@@ -2,12 +2,13 @@
 
 <div class="navbar-new">
   <%= link_to root_path do %>
-    <i class="fas fa-home"></i>
+  	<%= image_tag 'home.svg', class: "home-icon" %>
+    <%# <i class="fas fa-home"></i> %>
   <% end %>
   <%= link_to demonstrations_path do %>
     <i class="fa-solid fa-magnifying-glass"></i>
   <% end %>
-   <%= link_to new_demonstration_path do %>
+  <%= link_to new_demonstration_path do %>
    <i class="fa-solid fa-plus"></i>
   <% end %>
   <% user_link = current_user.nil? ? new_user_session_path : profile_path %>
