@@ -1,13 +1,63 @@
-<h2>Joined</h2>
-<%@bookmark.each do |bookmark|%>
+<div class = "main-wrapper-home">
+<h2 class = "ms-2">Joined demonstrations 📆</h2>
+
+
+
+ <%@bookmark.each do |bookmark|%>
+   <%if bookmark.demonstration.start_time > Time.now%>
     <%= link_to demonstration_path(bookmark.demonstration) do%>
-      <%if bookmark.demonstration.start_time > Time.now%>
-        <p class = "card"> The name of the demonstration you joined is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time.strftime("%A, %d %B %Y")%>
-      <%else%>
-        <p class = "card"> The name of your demonstration that you joined was <%= bookmark.demonstration.title%> and it ended on <%= bookmark.demonstration.end_time.strftime("%A, %d %B %Y")%>
-      <%end%>
+      <div class = "container_joined_demo">
+        <div class= "description_joined_demo">
+          <div>
+            <h6><%=bookmark.demonstration.title%></h6>
+          </div>
+          <div>
+            <%if bookmark.demonstration.description.length > 48%>
+            <p><%=bookmark.demonstration.description.first(48)%>...</p>
+            <%else%>
+            <p><%=bookmark.demonstration.description%></p>
+            <%end%>
+          </div>
+        </div>
+        <div class="datetime">
+          <div class="datestyle">
+            <h5><%= bookmark.demonstration.start_time.strftime("%b %e") %></h5>
+            <p><%= bookmark.demonstration.start_time.strftime("%H:00")%></p>
+          </div>
+        </div>
+  </div>
     <%end%>
+   <%end%>
   <%end%>
 
+<h2 class = "ms-2">Past Demonstrations</h2>
+ <%@bookmark.each do |bookmark|%>
+   <%if bookmark.demonstration.start_time < Time.now%>
+    <%= link_to demonstration_path(bookmark.demonstration) do%>
+      <div class = "container_joined_demo" id = "past">
+        <div class= "description_joined_demo">
+          <div>
+            <h6><%=bookmark.demonstration.title%></h6>
+          </div>
+          <div>
+          <%if bookmark.demonstration.description.length > 48%>
+            <p><%=bookmark.demonstration.description.first(48)%>...</p>
+            <%else%>
+            <p><%=bookmark.demonstration.description%></p>
+            <%end%>
+          </div>
+        </div>
+        <div class="datetime">
+          <div class="datestyle">
+            <h5><%= bookmark.demonstration.start_time.strftime("%b %e") %></h5>
+            <p><%= bookmark.demonstration.start_time.strftime("%H:00")%></p>
+          </div>
+        </div>
+  </div>
+    <%end%>
+   <%end%>
+  <%end%>
+</div>
 
-<%= link_to "Back", :back , class: "card"%>
+<div class = "spacelol">
+</div>
