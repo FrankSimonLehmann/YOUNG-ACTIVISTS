@@ -1,30 +1,26 @@
-<div class="container-all">
-    <h1> <%= @demonstration.title %></h1>
-  <div class ="label_container">
-<%= render "demonstrations/labels_for_show", demonstration: @demonstration%>
-  </div>
+<h1> <%= @demonstration.title %></h1>
+<div class ="label_container">
+  <%= render "demonstrations/labels_for_show", demonstration: @demonstration%>
+</div>
 
 <div class="participate_show">
   <%= render "demonstrations/show_page_avatars", demonstration: @demonstration%>
    <%= link_to "see all", demonstration_joined_path(@demonstration), class: "button_see_all"%>
-  </div>
+</div>
 
-  <%= render "demonstrations/main_button_demonstration", demonstration: @demonstration%>
-
-  <div class ="container-description">
-    <%= @demonstration.description %>
-  </div>
+<%= render "demonstrations/main_button_demonstration", demonstration: @demonstration%>
+<div class ="container-description">
+  <%= @demonstration.description %>
+</div>
 
 <%= render "demonstrations/extra_info_demo", demonstration: @demonstration%>
 <%= render "demonstrations/location_time_demo", demonstration: @demonstration%>
 <%= render "demonstrations/map_demo", markers: @markers%>
 
-
-  <%if current_user != nil%>
-    <%if current_user.id == @demonstration.user.id%>
-      <%= link_to "Delete",demonstration_path(@demonstration),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-      <%= link_to "Edit", edit_demonstration_path(@demonstration)%>
-    <%end%>
+<%if current_user != nil%>
+  <%if current_user.id == @demonstration.user.id%>
+    <%= link_to "Delete",demonstration_path(@demonstration),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+    <%= link_to "Edit", edit_demonstration_path(@demonstration)%>
   <%end%>
-</div>
+<%end%>

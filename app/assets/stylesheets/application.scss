@@ -18,6 +18,9 @@
   margin-left: auto;
   padding-right: 10px;
   padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 body {
@@ -94,4 +97,11 @@ p {
 
 }
 
+}
+.wrapper-everything {
+  margin: 0 auto;
+  width: 80%;
+}
+.content {
+  margin-top: 16px;
 }
