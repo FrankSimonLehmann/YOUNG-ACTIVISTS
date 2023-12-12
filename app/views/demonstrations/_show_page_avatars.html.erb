@@ -1,0 +1,7 @@
+    <div class="container-avatar">
+        <% demonstration.users.limit(5).each do |user| %>
+        <div class="avatar-user-avatars">
+          <%= cl_image_tag user.photo.key, id: "user-avatars" %>
+          </div>
+        <% end %>
+    </div>

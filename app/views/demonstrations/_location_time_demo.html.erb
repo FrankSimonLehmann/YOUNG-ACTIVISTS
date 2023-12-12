@@ -1,0 +1,14 @@
+<div class="grid_location_time">
+  <div class="container_time_place">
+    <%= demonstration.start_time.strftime("%b %e")%>
+  </div>
+    <div class="container_time_place">
+    <%= demonstration.start_time.strftime("%H:%M")%> - <%= demonstration.end_time.strftime("%H:%M")%>
+  </div>
+    <div class="container_time_place">
+    <%= @demonstration.location %>
+  </div>
+    <div class="container_time_place">
+      <%= demonstration.postcode %>
+  </div>
+</div>
