@@ -198,112 +198,101 @@ Bookmark.create!(
 puts "create types"
 
 Type.create!(
-  name: "rally",
-  description: "This is through a rally",
-  color: "label_active_light_blue"
+  name: "physical demo",
+  description: "This is about physical demo",
+  color: "type_color"
 )
 
 Type.create!(
-  name: "bike",
-  description: "This is on a bike",
-  color: "label_active_light_blue"
+  name: "collective actions",
+  description: "This is about collective actions",
+  color: "type_color"
 )
 Type.create!(
-  name: "speech",
-  description: "This is through a speech",
-  color: "label_active_light_blue"
-)
-
-Type.create!(
-  name: "march",
-  description: "This is through a march",
-  color: "label_active_pink"
+  name: "digital demonstrations",
+  description: "This is about digital demonstrations",
+  color: "type_color"
 )
 
 Type.create!(
-  name: "sitin",
-  description: "This is through a sitin",
-  color: "label_active_pink"
-)
-
-Type.create!(
-  name: "online",
-  description: "This is through online",
-  color: "label_active_pink"
-)
-
-Type.create!(
-  name: "hungerstrike",
-  description: "This is through a hungerstrike",
-  color: "label_active_pink"
-)
-
-Type.create!(
-  name: "boycott",
-  description: "This is through a boycott",
-  color: "label_active_baby_blue"
-)
-
-Type.create!(
-  name: "strikes",
-  description: "This is through strikes",
-  color: "label_active_dark_green"
-)
-
-Type.create!(
-  name: "artisticprotest",
-  description: "This is through a artisticprotest",
-  color: "label_active_pink"
+  name: "creative expressions",
+  description: "This is about creative expressions",
+  color: "type_color"
 )
 
 puts "create topics"
 Topic.create!(
-  name: "freedom",
-  description: "this is about freedom",
-  color: "label_active_pink"
+  name: "technology",
+  description: "This is about technology",
+  color: "technology_color"
 )
 
 Topic.create!(
-  name: "war",
-  description: "This is about war",
-  color: "label_active_pink"
-)
-
-Topic.create!(
-  name: "racism",
-  description: "This is about racism",
-  color: "label_active_pink"
+  name: "feminism",
+  description: "This is about feminism",
+  color: "feminism_color"
 )
 
 Topic.create!(
   name: "education",
   description: "This is about education",
-  color: "label_active_pink"
+  color: "education_color"
 )
 
 Topic.create!(
-  name: "enviorment",
-  description: "This is about enviorment",
-  color: "label_active_light_green"
+  name: "discrimination",
+  description: "This is about discrimination",
+  color: "discrimination_color"
+)
+
+Topic.create!(
+  name: "freedom",
+  description: "This is about freedom",
+  color: "freedom_color"
+)
+
+Topic.create!(
+  name: "alternative-lifestyle",
+  description: "This is about alternative lifestyle",
+  color: "alternative-lifestyle_color"
+)
+
+Topic.create!(
+  name: "war",
+  description: "This is about war",
+  color: "war_color"
 )
 
 Topic.create!(
   name: "climate",
   description: "This is about climate",
-  color: "label_active_light_yellow"
+  color: "climate_color"
 )
 
 Topic.create!(
-  name: "lgbtq",
-  description: "This is about lgbtq",
-  color: "label_active_light_green"
+  name: "LGTBQ",
+  description: "This is about LGTBQ",
+  color: "LGTBQ_color"
 )
 
 Topic.create!(
-  name: "legislation",
-  description: "This is about legislation",
-  color: "label_active_light_blue "
+  name: "anti-government",
+  description: "This is about anti-government",
+  color: "anti-government_color"
 )
+
+Topic.create!(
+  name: "public-space",
+  description: "This is about public space",
+  color: "public-space_color"
+)
+
+Topic.create!(
+  name: "other",
+  description: "This is about other",
+  color: "other_color"
+)
+
 
 puts "create demo_types"
 20.times do
