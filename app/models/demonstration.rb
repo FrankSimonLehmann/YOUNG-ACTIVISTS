@@ -29,7 +29,7 @@ class Demonstration < ApplicationRecord
   has_one_attached :photo
 
   validates :title, presence: true, uniqueness: true
-  validates :title, length: { maximum: 48 }
+  validates :title, length: { maximum: 70 }
   validates :description, presence: true, length: { minimum: 5 }
   validates :location, presence: true
   validates :start_time, presence: true

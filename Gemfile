@@ -35,6 +35,8 @@ gem "geocoder"
 # Use Redis adapter to run Action Cable in production SEARCH
 gem "pg_search"
 
+# AI integration with Open_AI
+gem "ruby-openai"
 
 #adding faker
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'

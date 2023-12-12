@@ -1,20 +1,44 @@
+<div class = "main-wrapper-home">
 <%if current_user != nil%>
-<h1>joined demo's 📆 </h1>
-  <%@realbookmark[0..4].each do |bookmark|%>
-    <%= link_to demonstration_path(bookmark.demonstration) do%>
-      <p class = "card"> The name is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time.strftime("%A, %d %B %Y")%>
-    <%end%>
-  <%end%>
+
+  <%=render "pages/list_bookmarks", bookmarks: @realbookmark%>
+
+
   <%=link_to "Your bookmarks", bookmarked_path, class: "card"%>
   <%if @mydemonstrations != nil%>
   <%= link_to "Your Demostrations", mydemonstrations_path, class: "card"%>
   <%end%>
 <%end%>
 
-<h1>Recommended 🔥</h1>
+<h1 class = "ms-2 mt-2">Recommended 🔥</h1>
   <% @demo[0..4].each do |demo|%>
     <%= link_to demonstration_path(demo) do%>
-      <p class = "card"> The name is <%= demo.title%> and start date is <%= demo.start_time.strftime("%A, %d %B %Y")%>
+    <div class = "container_new_demo mt-2">
+        <div class="container_top_new_demo">
+         <h1><%=demo.title%></h1>
+           <div class="datetime">
+              <div class="datestyle">
+                <h5><%= demo.start_time.strftime("%b %e") %></h5>
+                <p><%= demo.start_time.strftime("%H:00")%></p>
+              </div>
+           </div>
+        </div>
+        <div class="location_new_demo">
+          <p><%= demo.location %></p>
+        </div>
+        <div class= "labels_new_demo">
+          <%demo.topics.each do |topic|%>
+            <button class= "label_inactive <%=topic.color%>">
+              <%= topic.name %>
+            </button>
+            <%end%>
+            <%demo.types.each do |type|%>
+              <button class= "label_inactive <%=type.color%>">
+                <%= type.name %>
+              </button>
+            <% end %>
+        </div>
+     </div>
     <%end%>
   <%end%>
-📆
+</div>
