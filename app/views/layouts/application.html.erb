@@ -15,6 +15,7 @@
 
   <body>
     <%= render "shared/flashes" %>
+    
     <div class="navbar-top">
         <% if params[:action] != "home"%>
           <%= link_to "javascript:history.back()", class: "back-button " do %>

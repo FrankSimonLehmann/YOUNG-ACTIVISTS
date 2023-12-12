@@ -52,12 +52,13 @@ overflow: auto;
   width: 25px;
   height: 25px;
   margin: 20px;
-  margin-right: 100px;
+  justify-self: left;
+  // margin: 50%;
 }
 
 .navbar-top h3 {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 .icon-and-location {
   display: flex;

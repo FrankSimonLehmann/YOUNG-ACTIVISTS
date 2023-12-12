@@ -25,7 +25,6 @@
             <% bookmark = Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id) %>
             <%= link_to "", bookmark_path(bookmark), data: { turbo_method: :delete}%>
           <% end %>
-          <% else %>
             <%= link_to "participate", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
       <%end%>
         <%= link_to "see all", demonstration_joined_path(@demonstration)%>
