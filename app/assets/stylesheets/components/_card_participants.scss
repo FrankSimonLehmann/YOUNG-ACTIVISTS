@@ -1,7 +1,7 @@
-.container_joined_demo {
+.container_participants_demo {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: left;
   border: 1px solid #ccc;
   padding: 16px;
   margin: 10px;
@@ -10,11 +10,11 @@
   border-radius: 15px;
   gap: 16px;
   flex: 1 0 0;
-  width: 100%;
+  width: 350px;
   height: 80px;
 }
 
-  .description_joined_demo {
+  .description_participants_demo {
   padding-top: 0px;
   }
 
@@ -27,18 +27,10 @@
   background: #FFF;
   }
 
-.datestyle {
-  width: 60px;
-  height: 35px;
-  flex-shrink: 0;
-  color: #8B8B8B;
-  text-align: center;
-  font-weight: 400;
-  line-height: normal;
-  color: #8B8B8B;
-  margin-top: 12px;
-  }
-
-  a {
-    width: fit-content;
+  .profile_picture_demo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid white;
   }
