@@ -48,9 +48,7 @@ export default class extends Controller {
 
       this.listTarget.outerHTML = data
       // change the look of the button
-      console.log(`color_${event.srcElement.innerText}`)
-      console.log(event.srcElement.classList)
-      event.srcElement.classList.toggle(`color_${event.srcElement.innerText}`)
+      event.srcElement.classList.toggle(`type_color`)
 
     })
 }
@@ -80,9 +78,8 @@ export default class extends Controller {
     .then((data) => {
       this.listTarget.outerHTML = data
         // change the look of the button
-        console.log(`color_${event.srcElement.innerText}`)
-        console.log(event.srcElement)
-        event.srcElement.classList.toggle(`color_${event.srcElement.innerText}`)
+
+        event.srcElement.classList.toggle(`${event.srcElement.innerText}_color`)
     })
   }
 }
