@@ -47,3 +47,8 @@
 .container-time {
   padding: 16px;
 }
+
+.container-all{
+  display: grid;
+  grid-template-columns: 1fr
+}

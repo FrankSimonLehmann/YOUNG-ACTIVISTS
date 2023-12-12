@@ -1,61 +1,64 @@
+<div class="container-all">
+  <%# <div class ="container-title"> %>
 
-<div class ="container-title">
-  <h1> <%= @demonstration.title  %> </h1>
-</div>
+    <h1> <%= @demonstration.title  %> </h1>
+  <%# </div> %>
 
-<div class ="container-labels"></div>
-
-<div class="container-avatar">
-    <% @demonstration.users.limit(5).each do |user| %>
-     <div class="avatar-user-avatars">
-      <%= cl_image_tag user.photo.key, id: "user-avatars" %>
-       </div>
-    <% end %>
-</div>
-
-  <% if current_user != nil%>
-    <%  unless Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id)  %>
-      <%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
-      <% else  %>
-        <% bookmark = Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id) %>
-        <%= link_to "Leave", bookmark_path(bookmark), data: { turbo_method: :delete}%>
-      <% end %>
-      <% else %>
-        <%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
-  <%end%>
-    <%= link_to "joined people", demonstration_joined_path(@demonstration)%>
-
-
-<div class ="container-description">
-  <%# <%= link_to "Save Demonstration",   @demonstration.bookmarks %>
-  <%= @demonstration.description %>
-  <%# <%= @demonstration.topic %>
-  <%# <%= @demonstration.type %>
-</div>
-
-<div class="wrapper-time">
-  <div class="container-time">
-   <%= @demonstration.start_time.strftime("%A, %d %B %Y at %H:00")%>-<%= @demonstration.end_time.strftime("%H:00")%>
+  <div class ="label_container">
+    <%# <%= @demonstration.topic %>
+    <%# <%= @demonstration.type %>
   </div>
-   <div class="container-time">
-    <%= @demonstration.location %>
-   </div>
-   <div class="container-time">
-    <%= @demonstration.postcode %>
-   </div>
- </div>
 
-<div class="container-map">
-  <div id="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+    <div class="container-avatar">
+        <% @demonstration.users.limit(5).each do |user| %>
+        <div class="avatar-user-avatars">
+          <%= cl_image_tag user.photo.key, id: "user-avatars" %>
+          </div>
+        <% end %>
+    </div>
+    <div class="container-button">
+      <% if current_user != nil%>
+        <%  unless Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id)  %>
+          <%= link_to "Join", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
+          <% else  %>
+            <% bookmark = Bookmark.find_by(user_id: current_user.id, demonstration_id: @demonstration.id) %>
+            <%= link_to "", bookmark_path(bookmark), data: { turbo_method: :delete}%>
+          <% end %>
+          <% else %>
+            <%= link_to "participate", demonstration_bookmarks_path(@demonstration), data: { turbo_method: :post} %>
+      <%end%>
+        <%= link_to "see all", demonstration_joined_path(@demonstration)%>
+    </div>
+
+  <div class ="container-description">
+    <%= @demonstration.description %>
   </div>
-</div>
-<%if current_user != nil%>
-  <%if current_user.id == @demonstration.user.id%>
-    <%= link_to "Delete",demonstration_path(@demonstration),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-    <%= link_to "Edit", edit_demonstration_path(@demonstration)%>
+
+  <div class="wrapper-time">
+    <div class="container-time">
+    <%= @demonstration.start_time.strftime("%A, %d %B %Y at %H:00")%>-<%= @demonstration.end_time.strftime("%H:00")%>
+    </div>
+    <div class="container-time">
+      <%= @demonstration.location %>
+    </div>
+    <%# <div class="container-time">
+      <%= @demonstration.postcode %>
+    </div>
+  </div>
+
+  <div class="container-map">
+    <div id="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+  <%if current_user != nil%>
+    <%if current_user.id == @demonstration.user.id%>
+      <%= link_to "Delete",demonstration_path(@demonstration),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
+      <%= link_to "Edit", edit_demonstration_path(@demonstration)%>
+    <%end%>
   <%end%>
-<%end%>
+</div>
