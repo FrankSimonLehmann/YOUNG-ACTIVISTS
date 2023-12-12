@@ -15,7 +15,7 @@
 
   <body>
     <%= render "shared/flashes" %>
-    
+
     <div class="navbar-top">
         <% if params[:action] != "home"%>
           <%= link_to "javascript:history.back()", class: "back-button " do %>
@@ -30,7 +30,9 @@
           <h3>  Berlin </h3>
         </div>
     </div>
-    <%= yield %>
+    <div class="container_global">
+      <%= yield %>
+    </div>
     <%= render "shared/navbar" %>
   </body>
 </html>
