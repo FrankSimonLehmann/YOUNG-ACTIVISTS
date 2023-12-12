@@ -1,11 +1,63 @@
 
-<h1>Organised 📣</h1>
-<%@demonstration.each do |demo|%>
-  <%= link_to demonstration_path(demo) do%>
-    <%if demo.start_time > Time.now%>
-      <p class = "card"> The name is <%= demo.title%> and start date is <%= demo.start_time.strftime("%A, %d %B %Y")%> </p>
-    <%else%>
-      <p class = "card"> The name of your demonstration was <%= demo.title%> and it ended on <%= demo.end_time.strftime("%A, %d %B %Y")%> </p>
+
+
+<div class = "main-wrapper-home">
+<h2 class = "ms-2">Organised 📣</h2>
+
+
+
+ <%@demonstration.each do |demo|%>
+   <%if demo.start_time > Time.now%>
+    <%= link_to demonstration_path(demo) do%>
+      <div class = "container_joined_demo">
+        <div class= "description_joined_demo">
+          <div>
+            <h6><%=demo.title%></h6>
+          </div>
+          <div>
+            <%if demo.description.length > 48%>
+            <p><%= demo.description.first(48)%>...</p>
+            <%else%>
+            <p><%= demo.description%></p>
+            <%end%>
+          </div>
+        </div>
+        <div class="datetime">
+          <div class="datestyle">
+            <h5><%= demo.start_time.strftime("%b %e") %></h5>
+            <p><%= demo.start_time.strftime("%H:00")%></p>
+          </div>
+        </div>
+  </div>
     <%end%>
+   <%end%>
   <%end%>
-<%end%>
+
+<h2 class = "ms-2">Past Demonstrations</h2>
+ <%@demonstration.each do |demo|%>
+   <%if demo.start_time < Time.now%>
+    <%= link_to demonstration_path(demo) do%>
+      <div class = "container_joined_demo" id = "past">
+        <div class= "description_joined_demo">
+          <div>
+            <h6><%=demo.title%></h6>
+          </div>
+          <div>
+          <%if demo.description.length > 48%>
+            <p><%=demo.description.first(48)%>...</p>
+            <%else%>
+            <p><%=demo.description%></p>
+            <%end%>
+          </div>
+        </div>
+        <div class="datetime">
+          <div class="datestyle">
+            <h5><%= demo.start_time.strftime("%b %e") %></h5>
+            <p><%= demo.start_time.strftime("%H:00")%></p>
+          </div>
+        </div>
+  </div>
+    <%end%>
+   <%end%>
+  <%end%>
+</div>

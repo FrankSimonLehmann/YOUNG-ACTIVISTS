@@ -1,4 +1,5 @@
- <%bookmarks[0..4].each do |bookmark|%>
+ <%bookmarks.each do |bookmark|%>
+
     <%= link_to demonstration_path(bookmark.demonstration) do%>
       <div class = "container_joined_demo">
         <div class= "description_joined_demo">
@@ -6,7 +7,11 @@
             <h6><%=bookmark.demonstration.title%></h6>
           </div>
           <div>
+            <%if bookmark.demonstration.description.length > 48%>
+            <p><%=bookmark.demonstration.description.first(48)%>...</p>
+            <%else%>
             <p><%=bookmark.demonstration.description%></p>
+            <%end%>
           </div>
         </div>
         <div class="datetime">

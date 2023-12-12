@@ -2,14 +2,14 @@
 <div class = "main-wrapper-home">
 
 
-<%if current_user != nil%>
+<% if current_user != nil%>
 <div class = "homepage_spacer">
-<h1 class = "ms-2">Joined demonstrations 📆 </h1>
+<h1 class = "ms-2">Joined demos 📆 </h1>
 <%=link_to bookmarked_path do %>
 <%= render "pages/see_all_button"%>
 <%end%>
 </div>
-  <%=render "pages/list_bookmarks", bookmarks: @realbookmark%>
+  <%=render "pages/list_bookmarks", bookmarks: @realbookmark[0..4]%>
 
   <%# <%=link_to "Your bookmarks", bookmarked_path, class: "card"%>
   <%# <%if @mydemonstrations != nil%>
@@ -27,7 +27,11 @@
 
       <div class = "container_new_demo mt-2">
           <div class="container_top_new_demo">
+          <%if demo.title.length > 48%>
+          <h1><%=demo.title.first(48)%>...</h1>
+          <%else%>
           <h1><%=demo.title%></h1>
+          <%end%>
             <div class="datetime">
                 <div class="datestyle">
                   <h5><%= demo.start_time.strftime("%b %e") %></h5>
