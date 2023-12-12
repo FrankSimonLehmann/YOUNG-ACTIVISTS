@@ -31,7 +31,12 @@ export default class extends Controller {
 
     #addMarkersToMap() {
       this.markersValue.forEach((marker) => {
-        new mapboxgl.Marker()
+        const customMarker = document.createElement("div")
+        customMarker.style.height = "30px"
+        customMarker.style.width = "30px"
+        customMarker.style.backgroundImage = `url(${marker.image_url})`
+        customMarker.style.backgroundSize = "contain"
+        new mapboxgl.Marker(customMarker)
           // .setLngLat([ marker.lat, marker.lng ])
           .setLngLat([ marker.lng, marker.lat ])
           .addTo(this.map)

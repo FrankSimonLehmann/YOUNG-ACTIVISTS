@@ -41,13 +41,12 @@ class DemonstrationsController < ApplicationController
     @demonstrations = Demonstration.all
     @demonstration = Demonstration.find(params[:id])
     authorize @demonstration # Add this line
-    @markers = @demonstrations.geocoded.map do |demonstration|
-      {
-        lat: demonstration.latitude,
-        lng: demonstration.longitude,
+    @markers =
+      [{
+        lat: @demonstration.latitude,
+        lng: @demonstration.longitude,
         image_url: helpers.asset_url("logo.png")
-      }
-    end
+      }]
   end
 
 
