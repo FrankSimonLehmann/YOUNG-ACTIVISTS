@@ -20,27 +20,7 @@ export default class extends Controller {
     this.#fitMapToMarkers()
   }
 
-    #fitMapToMarkers(){
-      const bounds = new mapboxgl.LngLatBounds()
-      this.markersValue.forEach((marker) => {
-        bounds.extend([ marker.lng, marker.lat ]);
-      });
-      this.map.fitBounds(bounds, {padding: 30, duration: 10, maxZoom: 15})
-    }
-
-
-    #addMarkersToMap() {
-      this.markersValue.forEach((marker) => {
-        const customMarker = document.createElement('div')
-        customMarker.style.height = "25px"
-        customMarker.style.width = "25px"
-        customMarker.style.backgroundImage = `url('${marker.image_url}')`
-        customMarker.style.backgroundSize = "contain"
-
-        new mapboxgl.Marker({element: customMarker})
-          .setLngLat([ marker.lng, marker.lat ])
-          // .setLngLat([13.4655192, 52.511324])
-          .addTo(this.map)
+   git push          .addTo(this.map)
     })
   }
 }
