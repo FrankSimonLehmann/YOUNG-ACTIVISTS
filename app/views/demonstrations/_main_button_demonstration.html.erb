@@ -1,3 +1,10 @@
-<button class=primary_button_inactive>
-  <h3>+ join demo </h3>
-</button>
+  <div class="container-button">
+      <% if current_user != nil%>
+        <%  unless Bookmark.find_by(user_id: current_user.id, demonstration_id: demonstration.id)  %>
+          <%= link_to "Participate", demonstration_bookmarks_path(demonstration), data: { turbo_method: :post}, class:"primary_button_active" %>
+          <% else  %>
+            <% bookmark = Bookmark.find_by(user_id: current_user.id, demonstration_id: demonstration.id) %>
+            <%= link_to "Opt-out", bookmark_path(bookmark), data: { turbo_method: :delete}, class:"primary_button_inactive"%>
+          <% end %>
+          <%end%>
+    </div>
