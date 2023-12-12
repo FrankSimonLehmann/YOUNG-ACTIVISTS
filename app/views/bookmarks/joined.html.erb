@@ -1,15 +1,9 @@
-<h1> Particpants 🥷</h1>
-<% @joinedbookmark.each do |joined|%>
-  <%= link_to user_path(joined.user) do%>
-    <div class = "card w-25">
-      <p><%=joined.user.first_name%></p>
-      <%if joined.user.photo.attached?%>
-        <%= cl_image_tag joined.user.photo.key%>
-      <%else%>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
-      <%end%>
-    </div>
-  <%end%>
-
-  <%= link_to "Back to demonstration", demonstration_path(params[:demonstration_id]) , class: "card"%>
-<%end%>
+<h1> Participants 🥷</h1>
+<div class="grid_participants_demo">
+  <%= render "pages/participants_card", joinedbookmark: @joinedbookmark%>
+  <%= render "pages/participants_card", joinedbookmark: @joinedbookmark%>
+  <%= render "pages/participants_card", joinedbookmark: @joinedbookmark%>
+  <%= render "pages/participants_card", joinedbookmark: @joinedbookmark%>
+  <%= render "pages/participants_card", joinedbookmark: @joinedbookmark%>
+  <%= render "pages/participants_card", joinedbookmark: @joinedbookmark%>
+</div>
