@@ -209,7 +209,7 @@ Type.create!(
   color: "type_color"
 )
 Type.create!(
-  name: "digital demonstrations",
+  name: "digital demo",
   description: "This is about digital demonstrations",
   color: "type_color"
 )
