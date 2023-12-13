@@ -23,6 +23,7 @@ width: 100%;
 padding: 0px 50px;
 height: 60px;
 overflow: auto;
+font-weight: 200;
 }
 
 .footer-links{
@@ -41,6 +42,8 @@ overflow: auto;
 .back-button {
   width: 25px;
   height: 25px;
+  color: var(--m-3-sys-light-on-surface, #49454F);
+  // padding-left: 5px;
 }
 
 .navbar-top {
@@ -51,7 +54,9 @@ overflow: auto;
   background-color: white;
   width: 100%;
   padding: 15px;
+  padding-left: 20px;
   top: 0;
+  // margin-left: 20px;
 }
 
 .back-button {
@@ -75,6 +80,7 @@ overflow: auto;
   justify-content: center;
   justify-content: self;
   position: sticky;
+  color: var(--m-3-sys-light-on-surface, #49454F);
   // overflow: auto;
 }
 .icon-and-location i {
@@ -85,7 +91,13 @@ overflow: auto;
 //   flex-wrap: wrap;
 //   position: top;
 // }
-.home-icon{
-  height: 20px;
-  width: 20px;
+// .home-icon{
+//   height: 20px;
+//   width: 20px;
+// }
+
+.fa-plus {
+  font-weight: 300;
+  font-size: 18px;
+
 }

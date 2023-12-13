@@ -12,6 +12,8 @@
 @import "pages/index";
 @import "demonstrations/index";
 
+
+
 .container_global {
   max-width: 100%;
   margin-right: auto;
@@ -32,31 +34,36 @@ a {
 }
 
 h1 {
-  font-family: Space Grotesk;
-  font-size: 24px;
+  font-family: $headers-font;
+  font-size: 30px;
   font-weight: 700;
-  line-height: 36px; /* 150% */
+  line-height: 28px; /* 150% */
   letter-spacing: 0.05px;
   margin-bottom: 0px;
+  font-style: normal;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: var(--m-3-sys-light-on-surface-variant, #49454F);
 }
 
 h2 {
-  font-family: Poppins;
-  font-size: 20px;
+  font-family: $headers-font;
+  font-size: 25px;
   font-weight: 700;
   line-height: 30px; /* 150% */
   letter-spacing: 0.05px;
   margin-bottom: 0px;
-
+  color: var(--m-3-sys-light-on-surface-variant, #49454F);
 }
 
 h3 {
-  font-family: Poppins;
+  font-family: $headers-font;
   font-size: 18px;
   font-weight: 500;
   line-height: 27px; /* 150% */
   letter-spacing: 0.05px;
   margin-bottom: 0px;
+  color: var(--m-3-sys-light-on-surface, #1D1B20);
 }
 
 h4 {
@@ -69,7 +76,7 @@ h4 {
 }
 
 h5 {
-  font-family: Poppins;
+  font-family: $headers-font;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px; /* 150% */
@@ -94,13 +101,14 @@ p {
   margin-bottom: 0px;
   letter-spacing: 0.05px;
   line-height: normal;
+  margin-top: 8px;
 
 }
 
 }
 .wrapper-everything {
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
 }
 .content {
   margin-top: 16px;

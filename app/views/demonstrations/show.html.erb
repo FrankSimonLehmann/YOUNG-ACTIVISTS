@@ -21,9 +21,12 @@
 
 <%if current_user != nil%>
   <%if current_user.id == @demonstration.user.id%>
-    <%= link_to "Delete",demonstration_path(@demonstration),
+  <div class = "mt-3">
+    <%= link_to "Delete",demonstration_path(@demonstration), class: "primary_button_inactive", id: "delete_button",
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-    <%= link_to "Edit", edit_demonstration_path(@demonstration)%>
+      <%= link_to "Edit", edit_demonstration_path(@demonstration), class: "primary_button_inactive"%>
+      </div>
+
   <%end%>
 <%end%>
 </div>
