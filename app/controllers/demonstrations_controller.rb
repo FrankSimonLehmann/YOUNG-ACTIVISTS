@@ -5,30 +5,32 @@ class DemonstrationsController < ApplicationController
     @topics = Topic.all
     @types = Type.all
 
+    @demonstrations = @demonstrations.sort_by(&:start_time)
+
 
     if params[:query].present? && params[:type].present? && params[:topic].present?
       types = params[:type].split(" ")
       topics = params[:topic].split(" ")
-      @demonstrations = Demonstration.search_by_title_and_description([types, topics, params[:query]])
+      @demonstrations = Demonstration.search_by_title_and_description([types, topics, params[:query]]).sort_by(&:start_time)
     elsif params[:query].present? && params[:topic].present?
       topics = params[:topic].split(" ")
-      @demonstrations = Demonstration.search_by_title_and_description([params[:query], topics])
+      @demonstrations = Demonstration.search_by_title_and_description([params[:query], topics]).sort_by(&:start_time)
     elsif params[:query].present? && params[:type].present?
       types = params[:type].split(" ")
-      @demonstrations = Demonstration.search_by_title_and_description([params[:query], types])
+      @demonstrations = Demonstration.search_by_title_and_description([params[:query], types]).sort_by(&:start_time)
     elsif params[:type].present? && params[:topic].present?
       types = params[:type].split(" ")
       topics = params[:topic].split(" ")
       @demonstrations = Demonstration.search_by_title_and_description([types, topics])
     elsif params[:query].present?
-      @demonstrations = Demonstration.search_by_title_and_description(params[:query])
+      @demonstrations = Demonstration.search_by_title_and_description(params[:query]).sort_by(&:start_time)
     elsif params[:topic].present?
       topics = params[:topic].split(" ")
-      @demonstrations = Demonstration.search_by_title_and_description(topics)
+      @demonstrations = Demonstration.search_by_title_and_description(topics).sort_by(&:start_time)
       puts @demonstrations
     elsif params[:type].present?
       types = params[:type].split(" ")
-      @demonstrations = Demonstration.search_by_title_and_description(types)
+      @demonstrations = Demonstration.search_by_title_and_description(types).sort_by(&:start_time)
       puts @demonstrations
     end
     respond_to do |format|

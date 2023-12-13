@@ -3,10 +3,12 @@
   <%= render "demonstrations/labels_for_show", demonstration: @demonstration%>
 </div>
 
+<% if @demonstration.bookmarks != [] %>
 <div class="participate_show">
   <%= render "demonstrations/show_page_avatars", demonstration: @demonstration%>
    <%= link_to "see all", demonstration_joined_path(@demonstration), class: "button_see_all"%>
 </div>
+<% end  %>
 
 <%= render "demonstrations/main_button_demonstration", demonstration: @demonstration%>
 <div class ="container-description">
@@ -19,9 +21,12 @@
 
 <%if current_user != nil%>
   <%if current_user.id == @demonstration.user.id%>
-    <%= link_to "Delete",demonstration_path(@demonstration),
+  <div class = "mt-3">
+    <%= link_to "Delete",demonstration_path(@demonstration), class: "primary_button_inactive", id: "delete_button",
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-    <%= link_to "Edit", edit_demonstration_path(@demonstration)%>
+      <%= link_to "Edit", edit_demonstration_path(@demonstration), class: "primary_button_inactive"%>
+      </div>
+
   <%end%>
 <%end%>
 </div>

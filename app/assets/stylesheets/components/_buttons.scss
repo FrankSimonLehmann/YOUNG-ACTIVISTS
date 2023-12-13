@@ -31,3 +31,8 @@ border: 1px solid var(--m-3-sys-dark-outline, #938F99);
 .button_see_all:hover {
   opacity: 0.5;
   }
+
+#delete_button {
+  color: red;
+  border: 1px solid var(--m-3-sys-light-outline, red);
+}
