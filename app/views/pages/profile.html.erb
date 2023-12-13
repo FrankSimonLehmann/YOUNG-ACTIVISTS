@@ -1,19 +1,36 @@
-<div class="container_profile_details"  >
+
+<div class="container_profile_details">
   <div>
     <h1>Hi, <%=@user.first_name%>👋</h1>
+<<<<<<< HEAD
     <div class ="topic_type">
       <div class= "flex_box">
         <% @user.topics.each do |topic| %>
           <button class= "<%= topic.name%>_color label_inactive" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" >
             <%=topic.name%>
+=======
+
+      <div class ="topic_type">
+        <div class= "flex_box">
+          <% @user.topics.each do |topic| %>
+          <button class= "<%= topic.name%>_color label_inactive" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" >
+          <%=topic.name%>
+>>>>>>> master
           </button>
         <% end %>
       </div>
 
+<<<<<<< HEAD
       <div class= "flex_box">
         <% @user.types.each do |type| %>
           <button class= "type_color label_inactive" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
             <%=type.name%>
+=======
+        <div class= "flex_box">
+          <% @user.types.each do |type| %>
+          <button class= "type_color label_inactive" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
+          <%=type.name%>
+>>>>>>> master
           </button>
         <% end %>
       </div>
@@ -41,10 +58,10 @@
     <div class="container_joined_demo">
       <div class= "description_joined_demo">
         <div>
-          <h6><strong><%= bookmark.demonstration.location%></strong></h6>
+          <h6><strong><%= demonstration.location%></strong></h6>
         </div>
         <div>
-          <p><%= bookmark.demonstration.title%></p>
+          <p><%= demonstration.title%></p>
         </div>
       </div>
       <div class="datetime">
