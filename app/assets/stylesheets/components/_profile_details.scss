@@ -4,24 +4,27 @@
   border-radius: 5px;
   background-color: #fff;
   display: flex;
-  width: 100vw;
+
   justify-content: space-between;
 }
 
 .topic_type{
   display: flex;
   justify-content: space-between;
-  
   p{
     margin: 0;
     margin-right: 5px;
   }
 }
 
+.profile_button {
+  inline-size: 200px;
+  overflow-wrap: break-word;
+}
+
 .user_description{
   margin: 10px;
   margin-right: 10px;
-
   p{
     margin: 0;
     margin-right: 5px;
