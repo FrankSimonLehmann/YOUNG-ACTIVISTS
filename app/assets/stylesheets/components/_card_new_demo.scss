@@ -24,6 +24,9 @@
   flex: 1 0 0;
   height: 80px;
   width: 100%;
+  p {
+  font-size: 10px;
+  }
 }
 
 .labels_new_demo {
@@ -31,4 +34,16 @@
   row-gap: 8px;
   column-gap: 8px;
  // make this horizontally scrollable
+}
+
+.container-card-title {
+  display: flex;
+  justify-content: left;
+  width: 80%;
+  h2 {
+    font-size: 25px;
+  }
+
+  // padding-top: 10px;
+  // margin-top: 5px;
 }

@@ -23,6 +23,7 @@ width: 100%;
 padding: 0px 50px;
 height: 60px;
 overflow: auto;
+font-weight: 200;
 }
 
 .footer-links{
@@ -52,6 +53,7 @@ overflow: auto;
   width: 100%;
   padding: 15px;
   top: 0;
+  // margin-left: 20px;
 }
 
 .back-button {
@@ -85,7 +87,14 @@ overflow: auto;
 //   flex-wrap: wrap;
 //   position: top;
 // }
-.home-icon{
-  height: 20px;
-  width: 20px;
+// .home-icon{
+//   height: 20px;
+//   width: 20px;
+// }
+
+.fa-plus {
+  font-weight: 300;
+  font-size: 18px;
+
 }
+
