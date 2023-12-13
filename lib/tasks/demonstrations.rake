@@ -56,7 +56,7 @@ namespace :demonstrations do
           model: "gpt-4",
           messages: [{ role: "user", content: "Give me a title of max 48 letters (including spaces) in English based on the following description of a demonstration #{new_demo.description}. Give me only the text of the title, without any of your own answer like 'Here is a title for'. Please write in the future tense, because the demonstrations have not happened yet. Please make 100% sure that the title is maximum of 48 letters (including spaces)."}]
         })
-        new_demo.title = chaptgpt_title["choices"][0]["message"]["content"].gsub("\\", "")
+        new_demo.title = chaptgpt_title["choices"][0]["message"]["content"].gsub(/"/, '')
         p (new_demo.title)
 
         new_demo.save
