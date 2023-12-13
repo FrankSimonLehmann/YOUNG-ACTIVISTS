@@ -15,8 +15,19 @@
   <%= @demonstration.description %>
 </div>
 
-<%= render "demonstrations/extra_info_demo", demonstration: @demonstration%>
 <%= render "demonstrations/location_time_demo", demonstration: @demonstration%>
+<div class="powered_by">
+  <div class="powered_by_content">
+  <img src="/assets/ChatGPT-logo.png" alt="Open AI logo">
+    <p>This content is powered by Open AI</p>
+  </div>
+  <div class="powered_by_content">
+   <img src="/assets/Berliner_Polizei.svg" alt="Police berlin logo">
+    <p>This information comes from <a href="https://www.berlin.de/polizei/service/versammlungsbehoerde/versammlungen-aufzuege/" target="_blank">Polizei Berlin</a></p>
+
+
+  </div>
+</div>
 <%= render "demonstrations/map_demo", markers: @markers%>
 
 <%if current_user != nil%>

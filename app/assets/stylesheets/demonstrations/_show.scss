@@ -9,3 +9,26 @@
 .container-button {
   padding-left: 0px;
 }
+
+.powered_by_content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.powered_by img {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.powered_by p {
+  margin: 0px;
+}
+
+.powered_by a {
+  font-weight: bold;
+  text-decoration: underline;
+}
