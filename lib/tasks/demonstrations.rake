@@ -75,7 +75,7 @@ namespace :demonstrations do
         array_of_topics.each do |topic|
           topic_id = Topic.find_by(name: topic).id
           p topic_id
-          DemoTopic.create!(demonstration_id: new_demo.id, topic_id: topic_id)
+          DemoTopic.create(demonstration_id: new_demo.id, topic_id: topic_id)
         end
 
         client = OpenAI::Client.new
