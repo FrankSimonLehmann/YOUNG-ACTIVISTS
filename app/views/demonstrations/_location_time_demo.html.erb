@@ -4,7 +4,7 @@
   <p><strong><%= demonstration.start_time.strftime("%A")%></strong>
     <%= demonstration.start_time.strftime(", %d %B %Y, %H:%M")%> - <%= demonstration.end_time.strftime("%H:%M")%></p>
   </div>
-  <div class="container_time_place">
-    <i class="fa-solid fa-map-pin"></i> <%= @demonstration.location %>
+  <div class="container_time_place" data-controller="copy-to-clipboard" data-copy-to-clipboard-target="location" data-action="click->copy-to-clipboard#copy">
+    <i class="fa-solid fa-map-pin"></i> <%= @demonstration.location %> <button class="fa-solid fa-note-sticky"></button>
   </div>
 </div>
