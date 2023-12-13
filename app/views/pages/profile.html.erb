@@ -1,41 +1,90 @@
-<h1>Hi, <%=@user.first_name%>👋</h1>
-<p>
- <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key%>
-            <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
-            <% end %>
-</p>
 
+<div class="container_profile_details">
+  <div>
+    <h1>Hi, <%=@user.first_name%>👋</h1>
+    <div class ="topic_type">
+      <div class= "flex_box">
+        <% @user.topics.each do |topic| %>
+          <button class= "<%= topic.name%>_color profile_button label_inactive" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" >
+            <%=topic.name%>
+          </button>
+        <% end %>
 
-<p> <%= @user.description%></p>
-
-
-<h1>Created demo's</h1>
-
-<%= link_to "edit your profile", edit_user_registration_path%>
-
-<h1>Joined demo's</h1>
-<%@bookmark.each do |bookmark|%>
-    <%= link_to demonstration_path(bookmark.demonstration) do%>
-      <p class = "card"> The name is <%= bookmark.demonstration.title%> and start date is <%= bookmark.demonstration.start_time%>
-<%end%>
-<%end%>
-</div>
-<div>
-    <div class="container_joined_demo">
-      <div class= "description_joined_demo">
-        <div>
-        <h6><strong>Street</strong></h6>
-        </div>
-        <div>
-        <p>This is the description of your component.</p>
-        </div>
+        <% @user.types.each do |type| %>
+          <button class= "profile_button type_color label_inactive" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
+            <%=type.name%>
+          </button>
+        <% end %>
       </div>
-    <div class="datetime">
-      <div class="datestyle">
-        <h5><strong> Dec 7</strong></h5>
-        <p>12:00</p>
+      <div style="padding-left:1px;">
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, style:"border-radius: 50%;" %>
+        <% else %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
+        <% end %>
       </div>
     </div>
   </div>
+</div>
+
+<div class="user_description">
+  <p><%= @user.description%></p>
+</div>
+<div class="profile_buttons">
+  <%= link_to "edit profile", edit_user_registration_path, class:"primary_button_active"%>
+  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} , class:"primary_button_inactive"%>
+</div>
+
+<div class = "homepage_spacer">
+<h1 class = "ms-2">Created demos</h1>
+<%= link_to mydemonstrations_path do %>
+<%= render "pages/see_all_button"%>
+<%end%>
+</div>
+<%@user.demonstrations[0..1].each do |demonstration|%>
+  <%= link_to demonstration_path(demonstration) do%>
+    <div class="container_joined_demo">
+      <div class= "description_joined_demo">
+        <div>
+          <h6><strong><%= demonstration.location%></strong></h6>
+        </div>
+        <div>
+          <p><%= demonstration.title%></p>
+        </div>
+      </div>
+      <div class="datetime">
+        <div class="datestyle">
+          <h5><%= demonstration.start_time.strftime("%b %e") %></h5>
+          <p><%=demonstration.end_time.strftime("%H:%M")%></p>
+        </div>
+      </div>
+    </div>
+  <%end%>
+<%end%>
+
+<div class = "homepage_spacer">
+<h1 class = "ms-2">Joined demos</h1>
+<%=link_to bookmarked_path do %>
+<%= render "pages/see_all_button"%>
+<%end%>
+</div>
+<%@bookmark[0..1].each do |bookmark|%>
+  <%= link_to demonstration_path(bookmark.demonstration) do%>
+    <div class="container_joined_demo">
+      <div class= "description_joined_demo">
+        <div>
+          <h6><strong><%= bookmark.demonstration.location%></strong></h6>
+        </div>
+        <div>
+          <p><%= bookmark.demonstration.title%></p>
+        </div>
+      </div>
+      <div class="datetime">
+        <div class="datestyle">
+          <h5><%= bookmark.demonstration.start_time.strftime("%b %e") %></h5>
+          <p><%=bookmark.demonstration.end_time.strftime("%H:%M")%></p>
+        </div>
+      </div>
+    </div>
+  <%end%>
+<%end%>

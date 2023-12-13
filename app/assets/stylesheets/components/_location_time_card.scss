@@ -5,15 +5,25 @@
     height: fit content;
     align-items: center;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 10px;
   }
 
 .grid_location_time {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     // grid-template-rows: 1fr, 1fr;
     gap: 10px 10px;
     margin-top: 10px;
     margin-right: 0px;
+  }
+
+   .fa-map-pin  {
+    font-size: 25px;
+    margin: 10px;
+  }
+
+  .fa-calendar {
+    font-size: 25px;
+    margin: 10px;
   }

@@ -1,4 +1,4 @@
-<div class = "main-wrapper-home">
+
 <h2 class = "ms-2">Joined demonstrations 📆</h2>
 
 
@@ -30,7 +30,8 @@
    <%end%>
   <%end%>
 
-<h2 class = "ms-2">Past Demonstrations</h2>
+
+<h1 class = "ms-2">Past Demonstrations </h1>
  <%@bookmark.each do |bookmark|%>
    <%if bookmark.demonstration.start_time < Time.now%>
     <%= link_to demonstration_path(bookmark.demonstration) do%>
@@ -57,4 +58,3 @@
     <%end%>
    <%end%>
   <%end%>
-</div>
