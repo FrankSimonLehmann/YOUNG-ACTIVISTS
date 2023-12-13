@@ -1,6 +1,6 @@
 <div class=title_of_joined_pages>
-  <h1> Participants 🥷</h1>
-  <p>(50)</p>
+  <h1 class = "ms-2"> Participants </h1>
+  <h2 class = "ms-1">(<%=@joinedbookmark.count%>)</h2>
 </div>
 <div class="grid_participants_demo">
   <%= render "pages/participants_card", joinedbookmark: @joinedbookmark%>
