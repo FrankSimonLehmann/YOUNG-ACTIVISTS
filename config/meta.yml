@@ -1,0 +1,9 @@
+meta_product_name: “YoungActivists”
+
+meta_title: “YoungActivists - You can always participate!”
+
+meta_description: “We empower people to go to demonstrations!”
+
+meta_image: “cover.png” # should exist in `app/assets/images/`
+
+twitter_account: “@product_twitter_account” # required for Twitter Cards
