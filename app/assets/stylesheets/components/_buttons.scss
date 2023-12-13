@@ -1,19 +1,22 @@
 .primary_button_active {
-  background: var(--m-3-sys-light-surface-container-low, #F7F2FA);
+  background: var(--m-3-sys-light-surface-container-low, #49454F);
   /* M3/Elevation Light/2 */
-  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
-  color: var(--m-3-sys-light-primary, #6750A4);
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  color: var(--m-3-sys-light-primary, white);
   padding: 10px 20px;
   border-radius: 100px;
   border: none;
+  font-weight: 500;
 }
 
 .primary_button_inactive {
   background-color: white;
   border: 1px solid var(--m-3-sys-light-outline, #79747E);
   border-radius: 100px;
-  color: var(--m-3-sys-light-primary, #6750A4);
+  color: var(--m-3-sys-light-primary, width);
   padding: 10px 20px;
+  font-weight: 500;
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -35,4 +38,9 @@ border: 1px solid var(--m-3-sys-dark-outline, #938F99);
 #delete_button {
   color: red;
   border: 1px solid var(--m-3-sys-light-outline, red);
+}
+
+.container-extra-info {
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
