@@ -1,12 +1,26 @@
-<h1><%=@user.first_name.capitalize%>'s profile!</h1>
-<p>Name: <%=@user.first_name%></p>
-<p>Last name: <%= @user.last_name%></p>
-<p>Description: <%= @user.description%></p>
-<p>Photo:
- <% if @user.photo.attached? %>
-              <%= cl_image_tag @user.photo.key%>
-            <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
-            <% end %>
-</p>
-  <%= link_to "Back", :back , class: "card"%>
+<h1><%=@user.first_name.capitalize%> <%=@user.last_name%>'s profile!</h1>
+
+ <div class ="topic_type">
+      <div class= "flex_box">
+        <% @user.topics.each do |topic| %>
+          <button class= "<%= topic.name%>_color profile_button label_inactive" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" >
+            <%=topic.name%>
+          </button>
+        <% end %>
+
+        <% @user.types.each do |type| %>
+          <button class= "profile_button type_color label_inactive" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
+            <%=type.name%>
+          </button>
+        <% end %>
+      </div>
+      <div style="padding-left:1px;">
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, style:"border-radius: 50%;" %>
+        <% else %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
+        <% end %>
+      </div>
+    </div>
+
+<h3><%=@user.description%></h3>
