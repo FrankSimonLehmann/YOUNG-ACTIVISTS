@@ -47,7 +47,7 @@ class DemonstrationsController < ApplicationController
       [{
         lat: @demonstration.latitude,
         lng: @demonstration.longitude,
-        image_url: helpers.asset_url("logo.png")
+        image_url: helpers.asset_url("logo1.jpg")
       }]
   end
 
