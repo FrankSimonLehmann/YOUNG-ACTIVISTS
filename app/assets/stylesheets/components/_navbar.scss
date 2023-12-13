@@ -42,6 +42,8 @@ font-weight: 200;
 .back-button {
   width: 25px;
   height: 25px;
+  color: var(--m-3-sys-light-on-surface, #49454F);
+  // padding-left: 5px;
 }
 
 .navbar-top {
@@ -52,6 +54,7 @@ font-weight: 200;
   background-color: white;
   width: 100%;
   padding: 15px;
+  padding-left: 20px;
   top: 0;
   // margin-left: 20px;
 }
@@ -77,6 +80,7 @@ font-weight: 200;
   justify-content: center;
   justify-content: self;
   position: sticky;
+  color: var(--m-3-sys-light-on-surface, #49454F);
   // overflow: auto;
 }
 .icon-and-location i {
@@ -97,4 +101,3 @@ font-weight: 200;
   font-size: 18px;
 
 }
-
