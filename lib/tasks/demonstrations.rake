@@ -64,7 +64,7 @@ namespace :demonstrations do
         client = OpenAI::Client.new
         chaptgpt_topics = client.chat(parameters: {
           model: "gpt-4",
-          messages: [{ role: "user", content: "Select a maximum of two labels out of the following array [technology, feminism, education, discrimination, freedom, alternative-lifestyle, war, climate, LGTBQ, anti-government, public-space, other] that best fit the description of a demonstration #{new_demo.description}. Give me only the text of the labels, without any of your own answer like 'Here are the labels for'. Please be extra conservative in your decision. If you are not sure, please return the value other."}]
+          messages: [{ role: "user", content: "Select a maximum of two labels out of the following array [technology, feminism, education, discrimination, freedom, alternative-lifestyle, war, climate, LGTBQ, anti-government, public-space, other] that best fit the description of a demonstration #{new_demo.description}. Give me only the text of the labels, without any of your own answer like 'Here are the labels for'. Please be extra conservative in your decision. If you are not sure, please return the value other. IN NO CASE SHOULD YOU RETURN A VALUE THAT IS NOT INSIDE OF THE ARRAY"}]
         })
 
         topics = chaptgpt_topics["choices"][0]["message"]["content"]
