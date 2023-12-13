@@ -21,11 +21,26 @@
 
 <%if current_user != nil%>
   <%if current_user.id == @demonstration.user.id%>
-  <div class = "mt-3">
+
+  <div class="delete-edit">
+
+    <%= link_to demonstration_path(@demonstration),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
+    <i class="fa-solid fa-trash"></i>
+    <% end %>
+    <%= link_to edit_demonstration_path(@demonstration) do %>
+    <i class="fa-solid fa-pen"></i>
+    <% end %>
+  </div>
+
+
+
+
+  <%# <div class = "mt-3">
     <%= link_to "Delete",demonstration_path(@demonstration), class: "primary_button_inactive", id: "delete_button",
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-      <%= link_to "Edit", edit_demonstration_path(@demonstration), class: "primary_button_inactive"%>
-      </div>
+      <%# <%= link_to "Edit", edit_demonstration_path(@demonstration), class: "primary_button_inactive"%> %>
+  <%# </div> %>
 
   <%end%>
 <%end%>
