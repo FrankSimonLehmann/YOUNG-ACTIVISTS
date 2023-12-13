@@ -59,7 +59,7 @@ namespace :demonstrations do
         new_demo.title = chaptgpt_title["choices"][0]["message"]["content"].gsub("\\", "")
         p (new_demo.title)
 
-        new_demo.save!
+        new_demo.save
 
         client = OpenAI::Client.new
         chaptgpt_topics = client.chat(parameters: {
