@@ -3,10 +3,12 @@
   <%= render "demonstrations/labels_for_show", demonstration: @demonstration%>
 </div>
 
+<% if @demonstration.bookmarks != [] %>
 <div class="participate_show">
   <%= render "demonstrations/show_page_avatars", demonstration: @demonstration%>
    <%= link_to "see all", demonstration_joined_path(@demonstration), class: "button_see_all"%>
 </div>
+<% end  %>
 
 <%= render "demonstrations/main_button_demonstration", demonstration: @demonstration%>
 <div class ="container-description">
