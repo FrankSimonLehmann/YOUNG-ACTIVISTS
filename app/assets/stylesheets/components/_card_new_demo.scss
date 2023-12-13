@@ -24,6 +24,9 @@
   flex: 1 0 0;
   height: 80px;
   width: 100%;
+  h1 {
+    font-size: 25px;
+  }
   p {
   font-size: 10px;
   }
@@ -40,10 +43,6 @@
   display: flex;
   justify-content: left;
   width: 80%;
-  h2 {
-    font-size: 25px;
-  }
-
   // padding-top: 10px;
   // margin-top: 5px;
 }
