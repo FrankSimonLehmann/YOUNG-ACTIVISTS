@@ -1,20 +1,22 @@
 
 <div class="container">
   <h2>Edit Demonstration 🤷‍♀️ </h2>
-    <%= simple_form_for [@demonstration], data: {controller: "datepicker"} do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :location %>
-    <%= f.input :start_time,
-                as: :string,
-                input_html: { data: { datepicker_target: "startTime" } }  %>
-    <%= f.input :end_time,
-                as: :string,
-                input_html: { data: { datepicker_target: "endTime" } } %>
-    <%= f.association :types,  input_html: {data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
-    <%= f.association :topics,  input_html: {data: {controller: "tom-select", tom_select_options_value: {tags: true}}}%>
-    <%= f.input :extra_info%>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit, "Save", class:"btn btn-primary " %>
-  <% end %>
+  <div class="form-edit-demonstration">
+      <%= simple_form_for [@demonstration], data: {controller: "datepicker"} do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :location %>
+      <%= f.input :start_time,
+                  as: :string,
+                  input_html: { data: { datepicker_target: "startTime" } }  %>
+      <%= f.input :end_time,
+                  as: :string,
+                  input_html: { data: { datepicker_target: "endTime" } } %>
+      <%= f.association :types,  input_html: {data: {controller: "tom-select", tom_select_options_value: {tags: true}}} %>
+      <%= f.association :topics,  input_html: {data: {controller: "tom-select", tom_select_options_value: {tags: true}}}%>
+      <%= f.input :extra_info%>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, "Save", class:"primary_button_active" %>
+    <% end %>
+  </div>
 </div>
