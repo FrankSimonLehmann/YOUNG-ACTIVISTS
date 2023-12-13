@@ -9,7 +9,7 @@
 <%= render "pages/see_all_button"%>
 <%end%>
 </div>
-  <%=render "pages/list_bookmarks", bookmarks: @realbookmark[0..4]%>
+  <%=render "pages/list_bookmarks", bookmarks: @realbookmark[0..1]%>
 
   <%# <%=link_to "Your bookmarks", bookmarked_path, class: "card"%>
   <%# <%if @mydemonstrations != nil%>
@@ -22,7 +22,7 @@
 <%= render "pages/see_all_button"%>
 <%end%>
 </div>
-  <% @demo[0..4].each do |demo|%>
+  <% @demo[0..1].each do |demo|%>
     <%= link_to demonstration_path(demo) do%>
 
       <div class = "container_new_demo mt-2">
