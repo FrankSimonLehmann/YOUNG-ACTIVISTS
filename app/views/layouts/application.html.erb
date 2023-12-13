@@ -23,14 +23,17 @@
       <div class="navbar-top">
         <div class="navbar-buttons">
         <%# <%= image_tag 'demo final i.jpg', class: "home-icon" %>
-          <% if params[:action] != "home"%>
-            <%= link_to "javascript:history.back()", class: "back-button " do %>
+          <% if params[:action] != "home" %>
+            <%= link_to "javascript:history.back()", class: "back-button" do %>
             <i class="fa-solid fa-angles-left"></i>
               <%# <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/5/5b/Simpleicons_Interface_arrow-pointing-to-left-side.svg" %>
             <% end %>
           <% else %>
-            <%= link_to "", class: "back-button"%>
-          <% end %>
+          <div class="demo-icon">
+           <%= image_tag 'demo2.jpg', style:"height: 100%" %>
+            <%# <%= link_to "", class: "back-button"%>
+          </div>
+            <% end %>
         </div>
           <div class="icon-and-location">
             <i class="fa-solid fa-location-dot"></i>
