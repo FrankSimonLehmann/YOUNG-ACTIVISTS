@@ -4,7 +4,11 @@
       <div class = "container_joined_demo">
         <div class= "description_joined_demo">
           <div>
-            <h6><%=bookmark.demonstration.title%></h6>
+            <% if bookmark.demonstration.title.length > 48%>
+              <h6><%=bookmark.demonstration.title.first(48)%>...</h6>
+            <%else%>
+              <h6><%= bookmark.demonstration.title%></h6>
+            <%end%>
           </div>
           <div>
             <%if bookmark.demonstration.description.length > 48%>

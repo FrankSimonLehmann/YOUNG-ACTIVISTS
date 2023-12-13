@@ -21,6 +21,7 @@ class PagesController < ApplicationController
       if bookmark.demonstration.start_time > (Time.now)
         @realbookmark << bookmark
       end
+      @realbookmark = @realbookmark.sort_by { |bookmark| bookmark.demonstration.start_time}
     end
 
       @demo.each do |demo|
@@ -50,10 +51,11 @@ class PagesController < ApplicationController
 
   def bookmarked
     @bookmark = Bookmark.where(user_id: current_user.id)
-
+    @bookmark = @bookmark.sort_by { |bookmark| bookmark.demonstration.start_time}
   end
 
   def mydemonstrations
     @demonstration = Demonstration.where(user_id: current_user.id)
+    @demonstration = @demonstration.sort_by(&:start_time)
   end
 end
