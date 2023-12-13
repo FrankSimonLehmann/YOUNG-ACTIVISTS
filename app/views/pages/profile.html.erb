@@ -2,35 +2,17 @@
 <div class="container_profile_details">
   <div>
     <h1>Hi, <%=@user.first_name%>👋</h1>
-<<<<<<< HEAD
     <div class ="topic_type">
       <div class= "flex_box">
         <% @user.topics.each do |topic| %>
-          <button class= "<%= topic.name%>_color label_inactive" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" >
+          <button class= "<%= topic.name%>_color profile_button label_inactive" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" >
             <%=topic.name%>
-=======
-
-      <div class ="topic_type">
-        <div class= "flex_box">
-          <% @user.topics.each do |topic| %>
-          <button class= "<%= topic.name%>_color label_inactive" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" >
-          <%=topic.name%>
->>>>>>> master
           </button>
         <% end %>
-      </div>
 
-<<<<<<< HEAD
-      <div class= "flex_box">
         <% @user.types.each do |type| %>
-          <button class= "type_color label_inactive" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
+          <button class= "profile_button type_color label_inactive" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
             <%=type.name%>
-=======
-        <div class= "flex_box">
-          <% @user.types.each do |type| %>
-          <button class= "type_color label_inactive" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
-          <%=type.name%>
->>>>>>> master
           </button>
         <% end %>
       </div>
@@ -52,22 +34,24 @@
   <%= link_to "edit profile", edit_user_registration_path, class:"primary_button_active"%>
   <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} , class:"primary_button_inactive"%>
 </div>
+
 <h1>Created demos</h1>
-<%@bookmark.each do |bookmark|%>
+<%= render "pages/see_all_button"%>
+<%@bookmark.each_with_index do |bookmark, index|%>
   <%= link_to demonstration_path(bookmark.demonstration) do%>
     <div class="container_joined_demo">
       <div class= "description_joined_demo">
         <div>
-          <h6><strong><%= demonstration.location%></strong></h6>
+          <h6><strong><%= bookmark.demonstration.location%></strong></h6>
         </div>
         <div>
-          <p><%= demonstration.title%></p>
+          <p><%= bookmark.demonstration.title%></p>
         </div>
       </div>
       <div class="datetime">
         <div class="datestyle">
-          <h5><strong><%= bookmark. demonstration.start_time.strftime("%b %e") %></strong></h5>
-          <p><%=bookmark. demonstration.end_time.strftime("%H:%M")%></p>
+          <h5><strong><%= bookmark.demonstration.start_time.strftime("%b %e") %></strong></h5>
+          <p><%=bookmark.demonstration.end_time.strftime("%H:%M")%></p>
         </div>
       </div>
     </div>
@@ -75,6 +59,7 @@
 <%end%>
 
 <h1>Joined demos</h1>
+<%= render "pages/see_all_button"%>
 <%@bookmark.each do |bookmark|%>
   <%= link_to demonstration_path(bookmark.demonstration) do%>
     <div class="container_joined_demo">
@@ -88,8 +73,8 @@
       </div>
       <div class="datetime">
         <div class="datestyle">
-          <h5><strong><%= bookmark. demonstration.start_time.strftime("%b %e") %></strong></h5>
-          <p><%=bookmark. demonstration.end_time.strftime("%H:%M")%></p>
+          <h5><strong><%= bookmark.demonstration.start_time.strftime("%b %e") %></strong></h5>
+          <p><%=bookmark.demonstration.end_time.strftime("%H:%M")%></p>
         </div>
       </div>
     </div>
