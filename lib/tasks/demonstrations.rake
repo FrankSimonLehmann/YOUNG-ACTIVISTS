@@ -92,7 +92,7 @@ namespace :demonstrations do
         array_of_types.each do |type|
           type_id = Type.find_by(name: type).id
           p type_id
-          DemoType.create!(demonstration_id: new_demo.id, type_id: type_id)
+          DemoType.create(demonstration_id: new_demo.id, type_id: type_id)
         end
       else
         puts "already in database"
