@@ -3,7 +3,11 @@
       <%= link_to demonstration_path(demonstration) do%>
         <div class="container_new_demo">
           <div class="container_top_new_demo">
+             <%if demonstration.title.length > 48%>
+            <h1><%= demonstration.title.first(45) %>...</h1>
+            <%else%>
             <h1><%= demonstration.title %></h1>
+            <%end%>
             <div class="datetime">
               <div class="datestyle">
                 <h5><%= demonstration.start_time.strftime("%b %e") %></h5>
