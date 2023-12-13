@@ -59,12 +59,12 @@ namespace :demonstrations do
         new_demo.title = chaptgpt_title["choices"][0]["message"]["content"].gsub("\\", "")
         p (new_demo.title)
 
-        new_demo.save!
+        new_demo.save
 
         client = OpenAI::Client.new
         chaptgpt_topics = client.chat(parameters: {
           model: "gpt-4",
-          messages: [{ role: "user", content: "Select a maximum of two labels out of the following array [war, freedom, racism, education, environment, climate, lgtbq, legislation, other] that best fit the description of a demonstration #{new_demo.description}. Give me only the text of the labels, without any of your own answer like 'Here are the labels for'. "}]
+          messages: [{ role: "user", content: "Select a maximum of two labels out of the following array [technology, feminism, education, discrimination, freedom, alternative-lifestyle, war, climate, LGTBQ, anti-government, public-space, other] that best fit the description of a demonstration #{new_demo.description}. Give me only the text of the labels, without any of your own answer like 'Here are the labels for'. "}]
         })
 
         topics = chaptgpt_topics["choices"][0]["message"]["content"]
@@ -75,13 +75,13 @@ namespace :demonstrations do
         array_of_topics.each do |topic|
           topic_id = Topic.find_by(name: topic).id
           p topic_id
-          DemoTopic.create!(demonstration_id: new_demo.id, topic_id: topic_id)
+          DemoTopic.create(demonstration_id: new_demo.id, topic_id: topic_id)
         end
 
         client = OpenAI::Client.new
         chaptgpt_types = client.chat(parameters: {
           model: "gpt-4",
-          messages: [{ role: "user", content: "Select a maximum of 1 label out of the following array [rally, bike, speech, march, online, hungerstrike, boycott, strikes, artisticprotest, other] that best fit the description of a demonstration #{new_demo.description}. Give me only the text of the labels, without any of your own answer like 'Here are the labels for'. Please be extra conservative in your decision. If you are not sure, please return the value other."}]
+          messages: [{ role: "user", content: "Select a maximum of 1 label out of the following array [physical demo, collective actions, digital demonstrations, creative expressions] that best fit the description of a demonstration #{new_demo.description}. Give me only the text of the labels, without any of your own answer like 'Here are the labels for'. Please be extra conservative in your decision. If you are not sure, please return the value other."}]
         })
 
         types = chaptgpt_types["choices"][0]["message"]["content"]
