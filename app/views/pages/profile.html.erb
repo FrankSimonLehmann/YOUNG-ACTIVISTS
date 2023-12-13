@@ -41,7 +41,7 @@
 <%= render "pages/see_all_button"%>
 <%end%>
 </div>
-<%@user.demonstrations[0..1].each do |demonstration|%>
+<%@realdemonstration[0..1].each do |demonstration|%>
   <%= link_to demonstration_path(demonstration) do%>
     <div class="container_joined_demo">
       <div class= "description_joined_demo">
@@ -68,7 +68,7 @@
 <%= render "pages/see_all_button"%>
 <%end%>
 </div>
-<%@bookmark[0..1].each do |bookmark|%>
+<%@realbookmark[0..1].each do |bookmark|%>
   <%= link_to demonstration_path(bookmark.demonstration) do%>
     <div class="container_joined_demo">
       <div class= "description_joined_demo">
