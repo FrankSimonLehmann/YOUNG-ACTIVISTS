@@ -35,32 +35,40 @@
   <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} , class:"primary_button_inactive"%>
 </div>
 
-<h1>Created demos</h1>
+<div class = "homepage_spacer">
+<h1 class = "ms-2">Created demos</h1>
+<%= link_to mydemonstrations_path do %>
 <%= render "pages/see_all_button"%>
-<%@bookmark.each_with_index do |bookmark, index|%>
-  <%= link_to demonstration_path(bookmark.demonstration) do%>
+<%end%>
+</div>
+<%@user.demonstrations[0..1].each do |demonstration|%>
+  <%= link_to demonstration_path(demonstration) do%>
     <div class="container_joined_demo">
       <div class= "description_joined_demo">
         <div>
-          <h6><strong><%= bookmark.demonstration.location%></strong></h6>
+          <h6><strong><%= demonstration.location%></strong></h6>
         </div>
         <div>
-          <p><%= bookmark.demonstration.title%></p>
+          <p><%= demonstration.title%></p>
         </div>
       </div>
       <div class="datetime">
         <div class="datestyle">
-          <h5><strong><%= bookmark.demonstration.start_time.strftime("%b %e") %></strong></h5>
-          <p><%=bookmark.demonstration.end_time.strftime("%H:%M")%></p>
+          <h5><%= demonstration.start_time.strftime("%b %e") %></h5>
+          <p><%=demonstration.end_time.strftime("%H:%M")%></p>
         </div>
       </div>
     </div>
   <%end%>
 <%end%>
 
-<h1>Joined demos</h1>
+<div class = "homepage_spacer">
+<h1 class = "ms-2">Joined demos</h1>
+<%=link_to bookmarked_path do %>
 <%= render "pages/see_all_button"%>
-<%@bookmark.each do |bookmark|%>
+<%end%>
+</div>
+<%@bookmark[0..1].each do |bookmark|%>
   <%= link_to demonstration_path(bookmark.demonstration) do%>
     <div class="container_joined_demo">
       <div class= "description_joined_demo">
@@ -73,7 +81,7 @@
       </div>
       <div class="datetime">
         <div class="datestyle">
-          <h5><strong><%= bookmark.demonstration.start_time.strftime("%b %e") %></strong></h5>
+          <h5><%= bookmark.demonstration.start_time.strftime("%b %e") %></h5>
           <p><%=bookmark.demonstration.end_time.strftime("%H:%M")%></p>
         </div>
       </div>
