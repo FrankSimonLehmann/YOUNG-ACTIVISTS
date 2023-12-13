@@ -23,8 +23,16 @@ text-align: center;
 padding: 4px 12px;
 border-radius: 30px;
 border: 1px solid var(--m-3-sys-dark-outline, #938F99);
+// h5 {
+// font-size: 10px;
+// }
 }
 
 .button_see_all:hover {
   opacity: 0.5;
   }
+
+#delete_button {
+  color: red;
+  border: 1px solid var(--m-3-sys-light-outline, red);
+}
