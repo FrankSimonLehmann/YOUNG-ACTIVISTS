@@ -16,6 +16,7 @@
 </div>
 
 <%= render "demonstrations/location_time_demo", demonstration: @demonstration%>
+<% if @demonstration.user == User.find_by(email: "admin@gmail.com")%>
 <div class="powered_by">
   <div class="powered_by_content">
   <img src="/assets/ChatGPT-logo.png" alt="Open AI logo">
@@ -24,10 +25,9 @@
   <div class="powered_by_content">
    <img src="/assets/Berliner_Polizei.svg" alt="Police berlin logo">
     <p>This information comes from <a href="https://www.berlin.de/polizei/service/versammlungsbehoerde/versammlungen-aufzuege/" target="_blank">Polizei Berlin</a></p>
-
-
   </div>
 </div>
+<% end %>
 <%= render "demonstrations/map_demo", markers: @markers%>
 
 <%if current_user != nil%>
