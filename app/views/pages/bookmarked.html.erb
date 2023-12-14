@@ -6,7 +6,7 @@
  <%@bookmark.each do |bookmark|%>
    <%if bookmark.demonstration.start_time > Time.now%>
     <%= link_to demonstration_path(bookmark.demonstration) do%>
-      <div class = "container_joined_demo">
+      <div class = "container_joined_demo mt-4">
         <div class= "description_joined_demo">
           <div>
                 <% if bookmark.demonstration.location.length > 48%>
@@ -35,11 +35,11 @@
   <%end%>
 
 
-<h1 class = "ms-2">Past Demonstrations </h1>
+<h1 class = "ms-2 mt-4">Past Demonstrations </h1>
  <%@bookmark.reverse.each do |bookmark|%>
    <%if bookmark.demonstration.start_time < Time.now%>
     <%= link_to demonstration_path(bookmark.demonstration) do%>
-      <div class = "container_joined_demo" id = "past">
+      <div class = "container_joined_demo mt-4" id = "past">
         <div class= "description_joined_demo">
           <div>
            <% if bookmark.demonstration.location.length > 48%>
