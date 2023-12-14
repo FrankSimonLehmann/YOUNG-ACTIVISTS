@@ -1,7 +1,11 @@
     <div class="container-avatar">
         <% demonstration.users.limit(5).each do |user| %>
         <div class="avatar-user-avatars">
+          <% if user.photo.attached?%>
           <%= cl_image_tag user.photo.key, id: "user-avatars" %>
+          <%else%>
+          <%= image_tag "avatar.png", id: "user-avatars"%>
+          <%end%>
           </div>
         <% end %>
     </div>

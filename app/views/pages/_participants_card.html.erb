@@ -4,7 +4,7 @@
       <%if joined.user.photo.attached?%>
         <%= cl_image_tag joined.user.photo.key, class:"profile_picture_demo"%>
       <%else%>
-        <%=image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier",  class:"profile_picture_demo"%>
+        <%=image_tag "avatar.png",  class:"profile_picture_demo"%>
       <%end%>
       <div class= "description_participants_demo">
         <div><h6><%=joined.user.first_name%></h6></div>

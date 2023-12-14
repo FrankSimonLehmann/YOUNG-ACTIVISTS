@@ -21,7 +21,7 @@
         <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key, height: 80, width: 80, crop: :fill, style:"border-radius: 50%;" %>
         <% else %>
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
+          <%= image_tag "avatar.png", height: 80, width: 80, crop: :fill, style:"border-radius: 50%;"%>
         <% end %>
       </div>
     </div>
