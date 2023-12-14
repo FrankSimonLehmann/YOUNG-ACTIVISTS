@@ -23,22 +23,23 @@
 <%end%>
 </div>
   <% @demo[0..1].each do |demo|%>
-    <%= link_to demonstration_path(demo) do%>
 
+    <%= link_to demonstration_path(demo) do%>
       <div class = "container_new_demo mt-2">
-          <div class="container_top_new_demo">
+
+        <div class="container_top_new_demo">
           <div class="container-card-title">
-              <%if demo.title.length > 48%>
+          <%if demo.title.length > 48%>
             <h2><%=demo.title.first(48)%>...</h2>
-            <%else%>
+          <%else%>
             <h2><%=demo.title%></h2>
           </div>
           <%end%>
             <div class="datetime">
-                <div class="datestyle">
-                  <h5><%= demo.start_time.strftime("%b %e") %></h5>
-                  <p><%= demo.start_time.strftime("%H:00")%></p>
-                </div>
+              <div class="datestyle">
+                <h5><%= demo.start_time.strftime("%b %e") %></h5>
+                <p><%= demo.start_time.strftime("%H:00")%></p>
+              </div>
             </div>
           </div>
 
@@ -51,13 +52,13 @@
                 <%= topic.name %>
               </button>
               <%end%>
-              <%demo.types.each do |type|%>
-                <button class= "label_inactive <%=type.color%>">
-                  <%= type.name %>
-                </button>
-              <% end %>
+            <%demo.types.each do |type|%>
+              <button class= "label_inactive <%=type.color%>">
+                <%= type.name %>
+              </button>
+            <% end %>
           </div>
-      </div>
 
+      </div>
     <%end%>
   <%end%>
