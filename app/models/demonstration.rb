@@ -38,4 +38,16 @@ class Demonstration < ApplicationRecord
   def full_address
     "#{location}, #{postcode}, #{city}"
   end
+
+  def has_long_word_title?
+    title.split.any? { |word| word.length > 8 }
+  end
+
+  def has_long_word_description?
+    description.split.any? { |word| word.length > 8 }
+  end
+
+  def has_long_word_location?
+    location.split.any? { |word| word.length > 8 }
+  end
 end
