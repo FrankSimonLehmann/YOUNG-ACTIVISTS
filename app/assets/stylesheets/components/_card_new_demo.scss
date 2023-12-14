@@ -7,7 +7,7 @@
   padding: 16px;
   margin-top: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: white;
+  background-color: white;  ;
   border-radius: 15px;
   gap: 16px;
   flex: 1 0 0;
@@ -15,7 +15,7 @@
 
 .container_top_new_demo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 0px;
   margin: 0px;
@@ -45,6 +45,11 @@
   display: flex;
   justify-content: left;
   width: 80%;
+
   // padding-top: 10px;
   // margin-top: 5px;
+}
+
+.word-break {
+  word-break: break-all;
 }

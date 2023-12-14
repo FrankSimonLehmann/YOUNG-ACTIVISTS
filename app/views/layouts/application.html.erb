@@ -38,7 +38,7 @@
       <%= render "shared/flashes" %>
 
       <div class="navbar-top">
-        <div class="navbar-buttons">
+        <div class="navbar-buttons" style="width: 50px">
         <%# <%= image_tag 'demo final i.jpg', class: "home-icon" %>
           <% if params[:action] != "home" %>
             <%= link_to "javascript:history.back()", class: "back-button" do %>
@@ -56,7 +56,7 @@
             <i class="fa-solid fa-location-dot"></i>
             <h3>  Berlin </h3>
           </div>
-          <div class="login-button">
+          <div class="login-button" style="width: 50px">
             <% if current_user.nil?  %>
               <%= link_to "Login", new_user_session_path %>
             <% end %>

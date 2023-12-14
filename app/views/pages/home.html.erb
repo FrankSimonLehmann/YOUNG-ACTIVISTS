@@ -3,61 +3,65 @@
 
 
 <% if current_user != nil%>
-<div class = "homepage_spacer">
-<h1 class = "ms-2">Joined demos 📆 </h1>
-<%=link_to bookmarked_path do %>
-<%= render "pages/see_all_button"%>
-<%end%>
-</div>
-  <%=render "pages/list_bookmarks", bookmarks: @realbookmark[0..1]%>
-
+  <div class = "homepage_spacer">
+    <h1 class = "ms-2">Joined demos 📆 </h1>
+    <%= link_to bookmarked_path do %>
+      <%= render "pages/see_all_button"%>
+    <%end%>
+  </div>
+  <%= render "pages/list_bookmarks", bookmarks: @realbookmark[0..1]%>
   <%# <%=link_to "Your bookmarks", bookmarked_path, class: "card"%>
   <%# <%if @mydemonstrations != nil%>
   <%# <%= link_to "Your Demostrations", mydemonstrations_path, class: "card"%>
   <%# <%end%>
 <%end%>
+
 <div class = "homepage_spacer">
-<h1 class = "ms-2">Recommended 🔥</h1>
-<%=link_to demonstrations_path do %>
-<%= render "pages/see_all_button"%>
-<%end%>
+  <h1 class = "ms-2">Recommended 🔥</h1>
+  <%=link_to demonstrations_path do %>
+    <%= render "pages/see_all_button"%>
+  <%end%>
 </div>
-  <% @demo[0..1].each do |demo|%>
-    <%= link_to demonstration_path(demo) do%>
+<% @demo[0..1].each do |demo|%>
+  <%= link_to demonstration_path(demo) do%>
+    <div class = "container_new_demo mt-2">
+      <div class="container_top_new_demo">
+        <div class="container-card-title">
 
-      <div class = "container_new_demo mt-2">
-          <div class="container_top_new_demo">
-          <div class="container-card-title">
-              <%if demo.title.length > 48%>
-            <h2><%=demo.title.first(48)%>...</h2>
-            <%else%>
-            <h2><%=demo.title%></h2>
-          </div>
+          <%if demo.title.length > 48%>
+            <h2 class = "<%= "word-break" if demo.has_long_word_title? %>">
+            <%=demo.title.first(48)%>...</h2>
+          <%else%>
+            <h2 class = "<%= "word-break" if demo.has_long_word_title? %>">
+              <%= demo.title%>
+            </h2>
           <%end%>
-            <div class="datetime">
-                <div class="datestyle">
-                  <h5><%= demo.start_time.strftime("%b %e") %></h5>
-                  <p><%= demo.start_time.strftime("%H:00")%></p>
-                </div>
-            </div>
-          </div>
+        </div>
 
-          <div class="location_new_demo">
-            <p><%= demo.location %></p>
+        <div class="datetime">
+          <div class="datestyle">
+            <h5><%= demo.start_time.strftime("%b %e") %></h5>
+            <p><%= demo.start_time.strftime("%H:00")%></p>
           </div>
-          <div class= "labels_new_demo">
-            <%demo.topics.each do |topic|%>
-              <button class= "label_inactive <%=topic.color%>">
-                <%= topic.name %>
-              </button>
-              <%end%>
-              <%demo.types.each do |type|%>
-                <button class= "label_inactive <%=type.color%>">
-                  <%= type.name %>
-                </button>
-              <% end %>
-          </div>
+        </div>
       </div>
 
-    <%end%>
+      <div class="location_new_demo">
+        <p><%= demo.location %></p>
+      </div>
+      <div class= "labels_new_demo">
+        <%demo.topics.each do |topic|%>
+          <button class= "label_inactive <%=topic.color%>">
+            <%= topic.name %>
+          </button>
+          <%end%>
+        <%demo.types.each do |type|%>
+          <button class= "label_inactive <%=type.color%>">
+            <%= type.name %>
+          </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <%end%>
+<%end%>
