@@ -8,7 +8,11 @@
       <%end%>
       <div class= "description_participants_demo">
         <div><h6><%=joined.user.first_name%></h6></div>
-        <div><p><%=joined.user.description%>.</p></div>
+        <%if joined.user.description.length > 35%>
+        <div><p><%=joined.user.description.first(35)%>...</p></div>
+        <%else%>
+        <div><p><%=joined.user.description%></p></div>
+        <%end%>
       </div>
     </div>
   <%end%>

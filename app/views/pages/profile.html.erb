@@ -49,10 +49,18 @@
     <div class="container_joined_demo mt-4">
       <div class= "description_joined_demo">
         <div>
+          <% if demonstration.location.length > 45 %>
+          <h5><strong><%= demonstration.location.first(45)%>...</strong></h5>
+          <%else%>
           <h5><strong><%= demonstration.location%></strong></h5>
+          <%end%>
         </div>
         <div>
+          <% if demonstration.title.length > 45 %>
+          <p><%= demonstration.title.first(45)%>...</p>
+          <%else%>
           <p><%= demonstration.title%></p>
+          <%end%>
         </div>
       </div>
       <div class="datetime">
@@ -76,10 +84,18 @@
     <div class="container_joined_demo mt-4">
       <div class= "description_joined_demo">
         <div>
+          <% if bookmark.demonstration.location.length > 45 %>
+          <h5><strong><%= bookmark.demonstration.location.first(45)%>...</strong></h5>
+          <%else%>
           <h5><strong><%= bookmark.demonstration.location%></strong></h5>
+          <%end%>
         </div>
         <div>
+          <% if bookmark.demonstration.title.length > 45%>
+          <p><%= bookmark.demonstration.title.first(45)%>...</p>
+          <%else%>
           <p><%= bookmark.demonstration.title%></p>
+          <%end%>
         </div>
       </div>
       <div class="datetime">
