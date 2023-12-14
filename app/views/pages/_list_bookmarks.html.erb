@@ -1,20 +1,24 @@
  <%bookmarks.each do |bookmark|%>
 
     <%= link_to demonstration_path(bookmark.demonstration) do%>
-      <div class = "container_joined_demo">
+      <div class = "container_joined_demo mt-4">
         <div class= "description_joined_demo">
           <div>
             <% if bookmark.demonstration.location.length > 48%>
-              <h5><strong><%=bookmark.demonstration.location.first(48)%>...</strong></h5>
+              <h5 class = "word-break">
+              <strong><%=bookmark.demonstration.location.first(48)%>...</strong>
+              </h5>
             <%else%>
-              <h5><strong><%= bookmark.demonstration.location%></strong></h5>
+              <h5 class = "word-break">
+              <strong><%= bookmark.demonstration.location%></strong>
+              </h5>
             <%end%>
           </div>
           <div>
             <%if bookmark.demonstration.title.length > 48%>
-            <p><%=bookmark.demonstration.title.first(48)%>...</p>
+            <p class = "word-break"><%=bookmark.demonstration.title.first(48)%>...</p>
             <%else%>
-            <p><%=bookmark.demonstration.title%></p>
+            <p class = "word-break"><%=bookmark.demonstration.title%></p>
             <%end%>
           </div>
         </div>

@@ -1,13 +1,13 @@
 <div class="grid" data-search-demonstrations-target= "list">
     <% @demonstrations.each do |demonstration| %>
       <%= link_to demonstration_path(demonstration) do%>
-        <div class="container_new_demo">
+        <div class="container_new_demo mt-4">
           <div class="container_top_new_demo">
             <div class="container-card-title">
               <%if demonstration.title.length > 48%>
-                <h2><%= demonstration.title.first(45) %>...</h2>
+                <h2 class = "word-break"><%= demonstration.title.first(45) %>...</h2>
               <%else%>
-                <h2><%= demonstration.title %></h2>
+                <h2 class = "word-break"><%= demonstration.title %></h2>
               <%end%>
             </div>
             <div class="datetime">

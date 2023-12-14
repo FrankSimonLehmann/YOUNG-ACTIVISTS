@@ -5,6 +5,11 @@
   background-color: #fff;
   display: flex;
   justify-content: space-between;
+  width: 100%;
+}
+
+.content-container {
+  width: 100%
 }
 
 .topic_type{
@@ -17,8 +22,11 @@
 }
 
 .profile_button {
-  inline-size: 200px;
-  overflow-wrap: break-word;
+  // overflow-wrap: break-word;
+}
+
+.topics {
+  margin-right: 5px;
 }
 
 .user_description{
@@ -28,13 +36,6 @@
     margin: 0;
     margin-right: 5px;
   }
-}
-.flex_box{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  margin: 3px;
 }
 .profile_buttons{
   padding: 10px;

@@ -16,7 +16,7 @@
   <%# <%end%>
 <%end%>
 
-<div class = "homepage_spacer">
+<div class = "homepage_spacer mt-4">
   <h1 class = "ms-2">Recommended 🔥</h1>
   <%=link_to demonstrations_path do %>
     <%= render "pages/see_all_button"%>
@@ -24,15 +24,20 @@
 </div>
 <% @demo[0..1].each do |demo|%>
   <%= link_to demonstration_path(demo) do%>
-    <div class = "container_new_demo mt-2">
+    <div class = "container_new_demo mt-4">
       <div class="container_top_new_demo">
         <div class="container-card-title">
+
           <%if demo.title.length > 48%>
-            <h2><%=demo.title.first(48)%>...</h2>
+            <h2 class = "word-break">
+            <%=demo.title.first(48)%>...</h2>
           <%else%>
-            <h2><%=demo.title%></h2>
+            <h2 class = "word-break">
+              <%= demo.title%>
+            </h2>
           <%end%>
         </div>
+
         <div class="datetime">
           <div class="datestyle">
             <h5><%= demo.start_time.strftime("%b %e") %></h5>
