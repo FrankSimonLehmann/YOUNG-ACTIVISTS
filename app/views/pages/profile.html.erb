@@ -1,24 +1,27 @@
 
 <div class="container_profile_details">
-  <div>
+  <div class="content-container">
     <h1>Hi, <%=@user.first_name%>👋</h1>
     <div class ="topic_type">
-      <div class= "flex_box">
-        <% @user.topics.each do |topic| %>
-          <button class= "<%= topic.name%>_color profile_button label_inactive" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" >
-            <%=topic.name%>
-          </button>
-        <% end %>
-
-        <% @user.types.each do |type| %>
-          <button class= "profile_button type_color label_inactive" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
-            <%=type.name%>
-          </button>
-        <% end %>
+      <div class="d-flex">
+        <div class="topics">
+          <% @user.topics.each do |topic| %>
+            <button class= "<%= topic.name%>_color profile_button label_inactive" data-search-demonstrations-target="topic" data-action="click->search-demonstrations#topic" >
+              <%=topic.name%>
+            </button>
+          <% end %>
+        </div>
+        <div class="types">
+          <% @user.types.each do |type| %>
+            <button class= "profile_button type_color label_inactive" data-search-demonstrations-target="type" data-action="click->search-demonstrations#type" >
+              <%=type.name%>
+            </button>
+          <% end %>
+        </div>
       </div>
       <div style="padding-left:1px;">
         <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key, height: 100, width: 100, crop: :fill, style:"border-radius: 50%;" %>
+          <%= cl_image_tag @user.photo.key, height: 80, width: 80, crop: :fill, style:"border-radius: 50%;" %>
         <% else %>
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier"%>
         <% end %>
