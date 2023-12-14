@@ -3,13 +3,13 @@
  <%@demonstration.each do |demo|%>
    <%if demo.start_time > Time.now%>
     <%= link_to demonstration_path(demo) do%>
-      <div class = "container_joined_demo">
+      <div class = "container_joined_demo mt-3">
         <div class= "description_joined_demo">
           <div>
              <%if demo.location.length > 48%>
-            <h6><%= demo.location.first(48)%>...</h6>
+            <h6><strong><%= demo.location.first(48)%>...</strong></h6>
             <%else%>
-            <h6><%= demo.location%></h6>
+            <h6><strong><%= demo.location%></strong></h6>
             <%end%>
           </div>
           <div>
@@ -31,11 +31,11 @@
    <%end%>
   <%end%>
 
-<h2 class = "ms-2">Past Demonstrations</h2>
+<h2 class = "ms-2 mt-3">Past Demonstrations</h2>
  <%@demonstration.reverse.each do |demo|%>
    <%if demo.start_time < Time.now%>
     <%= link_to demonstration_path(demo) do%>
-      <div class = "container_joined_demo" id = "past">
+      <div class = "container_joined_demo mt-3" id = "past">
         <div class= "description_joined_demo">
           <div>
             <%if demo.location.length > 48%>
