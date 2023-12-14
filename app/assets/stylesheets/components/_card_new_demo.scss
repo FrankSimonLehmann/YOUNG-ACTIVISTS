@@ -15,7 +15,7 @@
 
 .container_top_new_demo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 0px;
   margin: 0px;
@@ -45,6 +45,7 @@
   display: flex;
   justify-content: left;
   width: 80%;
+  word-break: break-all;
   // padding-top: 10px;
   // margin-top: 5px;
 }

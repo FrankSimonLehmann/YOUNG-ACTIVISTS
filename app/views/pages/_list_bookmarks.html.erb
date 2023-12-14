@@ -4,17 +4,17 @@
       <div class = "container_joined_demo">
         <div class= "description_joined_demo">
           <div>
-            <% if bookmark.demonstration.title.length > 48%>
-              <h5><strong><%=bookmark.demonstration.title.first(48)%>...</strong></h5>
+            <% if bookmark.demonstration.location.length > 48%>
+              <h5><strong><%=bookmark.demonstration.location.first(48)%>...</strong></h5>
             <%else%>
-              <h5><strong><%= bookmark.demonstration.title%></strong></h5>
+              <h5><strong><%= bookmark.demonstration.location%></strong></h5>
             <%end%>
           </div>
           <div>
-            <%if bookmark.demonstration.description.length > 48%>
-            <p><%=bookmark.demonstration.description.first(48)%>...</p>
+            <%if bookmark.demonstration.title.length > 48%>
+            <p><%=bookmark.demonstration.title.first(48)%>...</p>
             <%else%>
-            <p><%=bookmark.demonstration.description%></p>
+            <p><%=bookmark.demonstration.title%></p>
             <%end%>
           </div>
         </div>

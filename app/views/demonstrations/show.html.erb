@@ -19,11 +19,11 @@
 <% if @demonstration.user == User.find_by(email: "admin@gmail.com")%>
 <div class="powered_by">
   <div class="powered_by_content">
-  <img src="/assets/ChatGPT-logo.png" alt="Open AI logo">
+  <%= image_tag "ChatGPT-logo.png", alt: "Open AI logo" %>
     <p>This content is powered by Open AI</p>
   </div>
   <div class="powered_by_content">
-   <img src="/assets/Berliner_Polizei.svg" alt="Police berlin logo">
+  <%= image_tag "Berliner_Polizei.svg", alt: "Police berlin logo" %>
     <p>This information comes from <a href="https://www.berlin.de/polizei/service/versammlungsbehoerde/versammlungen-aufzuege/" target="_blank">Polizei Berlin</a></p>
   </div>
 </div>
