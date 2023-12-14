@@ -1,7 +1,7 @@
 .primary_button_active {
   background: var(--m-3-sys-light-surface-container-low, #49454F);
   /* M3/Elevation Light/2 */
-  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.15);
   color: var(--m-3-sys-light-primary, white);
   padding: 10px 20px;
   border-radius: 100px;
@@ -16,7 +16,7 @@
   color: var(--m-3-sys-light-primary, width);
   padding: 10px 20px;
   font-weight: 500;
-  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.15);
 }
 
 .clickable {
@@ -27,7 +27,7 @@
 // color: #49454F;
 color: var(--m-3-sys-light-primary, width);
 background-color: white;
-box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.15);
 text-align: center;
 padding: 4px 12px;
 border-radius: 30px;
