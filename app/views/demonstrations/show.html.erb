@@ -15,17 +15,42 @@
   <%= @demonstration.description %>
 </div>
 
-<%= render "demonstrations/extra_info_demo", demonstration: @demonstration%>
 <%= render "demonstrations/location_time_demo", demonstration: @demonstration%>
+<% if @demonstration.user == User.find_by(email: "admin@gmail.com")%>
+<div class="powered_by">
+  <div class="powered_by_content">
+  <img src="/assets/ChatGPT-logo.png" alt="Open AI logo">
+    <p>This content is powered by Open AI</p>
+  </div>
+  <div class="powered_by_content">
+   <img src="/assets/Berliner_Polizei.svg" alt="Police berlin logo">
+    <p>This information comes from <a href="https://www.berlin.de/polizei/service/versammlungsbehoerde/versammlungen-aufzuege/" target="_blank">Polizei Berlin</a></p>
+  </div>
+</div>
+<% end %>
 <%= render "demonstrations/map_demo", markers: @markers%>
 
 <%if current_user != nil%>
   <%if current_user.id == @demonstration.user.id%>
-  <div class = "mt-3">
+
+  <div class="delete-edit">
+    <%= link_to demonstration_path(@demonstration),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  do %>
+    <i class="fa-solid fa-trash"></i>
+    <% end %>
+    <%= link_to edit_demonstration_path(@demonstration) do %>
+    <i class="fa-solid fa-pen"></i>
+    <% end %>
+  </div>
+
+
+
+
+  <%# <div class = "mt-3">
     <%= link_to "Delete",demonstration_path(@demonstration), class: "primary_button_inactive", id: "delete_button",
       data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
-      <%= link_to "Edit", edit_demonstration_path(@demonstration), class: "primary_button_inactive"%>
-      </div>
+      <%# <%= link_to "Edit", edit_demonstration_path(@demonstration), class: "primary_button_inactive"%>
+  <%# </div> %>
 
   <%end%>
 <%end%>
