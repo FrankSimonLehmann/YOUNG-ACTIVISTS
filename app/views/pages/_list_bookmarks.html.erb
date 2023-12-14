@@ -5,9 +5,13 @@
         <div class= "description_joined_demo">
           <div>
             <% if bookmark.demonstration.location.length > 48%>
-              <h5><strong><%=bookmark.demonstration.location.first(48)%>...</strong></h5>
+              <h5>
+              <strong><%=bookmark.demonstration.location.first(48)%>...</strong>
+              </h5>
             <%else%>
-              <h5><strong><%= bookmark.demonstration.location%></strong></h5>
+              <h5 class = "<%= "word-break" if bookmark.demonstration.has_long_word_location? %>">
+              <strong><%= bookmark.demonstration.location%></strong>
+              </h5>
             <%end%>
           </div>
           <div>

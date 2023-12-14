@@ -27,12 +27,17 @@
     <div class = "container_new_demo mt-2">
       <div class="container_top_new_demo">
         <div class="container-card-title">
+
           <%if demo.title.length > 48%>
-            <h2><%=demo.title.first(48)%>...</h2>
+            <h2 class = "<%= "word-break" if demo.has_long_word_title? %>">
+            <%=demo.title.first(48)%>...</h2>
           <%else%>
-            <h2><%=demo.title%></h2>
+            <h2 class = "<%= "word-break" if demo.has_long_word_title? %>">
+              <%= demo.title%>
+            </h2>
           <%end%>
         </div>
+
         <div class="datetime">
           <div class="datestyle">
             <h5><%= demo.start_time.strftime("%b %e") %></h5>
