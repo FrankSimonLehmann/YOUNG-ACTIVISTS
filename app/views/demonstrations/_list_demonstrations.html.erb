@@ -1,6 +1,7 @@
 <div class="grid" data-search-demonstrations-target= "list">
     <% @demonstrations.each do |demonstration| %>
       <%= link_to demonstration_path(demonstration) do%>
+        <% if demonstration.start_time > Time.now%>
         <div class="container_new_demo mt-4">
           <div class="container_top_new_demo">
             <div class="container-card-title">
@@ -35,4 +36,5 @@
         </div>
     <% end %>
   <% end %>
+  <%end%>
 </div>
