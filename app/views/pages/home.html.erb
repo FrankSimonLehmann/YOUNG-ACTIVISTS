@@ -22,7 +22,8 @@
     <%= render "pages/see_all_button"%>
   <%end%>
 </div>
-<% @demo[0..1].each do |demo|%>
+<div class="grid">
+<% @demo[0..3].each do |demo|%>
   <%= link_to demonstration_path(demo) do%>
     <div class = "container_new_demo mt-4">
       <div class="container_top_new_demo">
@@ -62,6 +63,6 @@
         <% end %>
       </div>
     </div>
-  </div>
   <%end%>
 <%end%>
+  </div>

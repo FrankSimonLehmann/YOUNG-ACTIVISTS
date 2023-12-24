@@ -36,7 +36,7 @@ a {
 
 h1 {
   font-family: $headers-font;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.05px;
   margin-bottom: 0px;
@@ -113,4 +113,13 @@ p {
 }
 .content {
   margin-top: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  // grid-template-rows: 1fr, 1fr;
+  gap: 10px 10px;
+  margin-top: 10px;
+  margin-right: 0px;
 }
