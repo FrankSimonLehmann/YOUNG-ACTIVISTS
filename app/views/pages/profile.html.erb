@@ -44,6 +44,7 @@
 <%= render "pages/see_all_button"%>
 <%end%>
 </div>
+<div class="grid">
 <%@realdemonstration[0..1].each do |demonstration|%>
   <%= link_to demonstration_path(demonstration) do%>
     <div class="container_joined_demo mt-4">
@@ -63,6 +64,8 @@
           <%end%>
         </div>
       </div>
+
+
       <div class="datetime">
         <div class="datestyle">
           <h5><%= demonstration.start_time.strftime("%b %e") %></h5>
@@ -72,6 +75,7 @@
     </div>
   <%end%>
 <%end%>
+</div>
 
 <div class = "homepage_spacer mt-4">
 <h1 class = "ms-2">Joined demos</h1>

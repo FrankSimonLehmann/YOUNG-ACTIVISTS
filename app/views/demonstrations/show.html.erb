@@ -6,7 +6,7 @@
 <% if @demonstration.bookmarks != [] %>
 <div class="participate_show">
   <%= render "demonstrations/show_page_avatars", demonstration: @demonstration%>
-   <%= link_to "See all", demonstration_joined_path(@demonstration), class: "button_see_all"%>
+   <%= link_to "More", demonstration_joined_path(@demonstration), class: "button_see_all"%>
 </div>
 <% end  %>
 
